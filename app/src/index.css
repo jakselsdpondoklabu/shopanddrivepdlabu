@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+
+  --color-primary: #E3000F;
+  --color-primary-hover: #C2000D;
+  --color-primary-dark: #930006;
+  
+  --color-secondary: #002884;
+  --color-secondary-hover: #001C5D;
+  --color-secondary-dark: #001551;
+  --color-secondary-light: #3E58B2;
+
+  --color-tertiary: #25D366;
+  --color-tertiary-hover: #1EBE5D;
+  
+  --color-surface-dark: #0B132B;
+  --color-surface-dark-elevated: #1C2541;
+  --color-canvas-light: #F8FAFC;
+  --color-border-subtle: #E2E8F0;
+  --color-promo-amber: #F59E0B;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-sans);
+    background-color: #F8FAFC;
+    color: #0B1C30;
+  }
+
+  #root {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    transform: scale(1.04);
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2.5s infinite ease-in-out;
+}
+
+/* Material symbol baseline alignment */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.material-symbols-filled {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  display: inline-flex;
+  vertical-align: middle;
+}
