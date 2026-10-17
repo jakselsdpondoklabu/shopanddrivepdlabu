@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { SiteDataContext } from './SiteDataContextObject';
 import { defaultSiteContent } from '../data/defaultContent';
-import { fetchRemoteProducts, isSupabaseConfigured } from '../lib/supabaseClient';
+import { fetchRemoteProducts, fetchRemoteSiteContent, saveRemoteSiteContent, isSupabaseConfigured } from '../lib/supabaseClient';
 
 const STORAGE_KEY = 'ssdampera_site_content_v2';
 const AUTH_KEY = 'ssdampera_admin_authenticated';
@@ -62,34 +62,73 @@ export function SiteDataProvider({ children }) {
     }
   });
 
-  // Helper to persist content to localStorage and server file
+  // Helper to persist content to localStorage, Supabase Cloud, and server file
   const persistChanges = (data) => {
+    // 1. Client-side instant localStorage cache
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } catch (e) {
       console.warn('LocalStorage quota warning:', e);
     }
 
+    // 2. Supabase Cloud Database persistence (Works in Vercel & Globally)
+    if (isSupabaseConfigured()) {
+      saveRemoteSiteContent(data).then((success) => {
+        if (success) {
+          console.log('Site content successfully synced to Supabase Cloud!');
+        }
+      });
+    }
+
+    // 3. Fallback: Local server disk API (for local development on LAN)
     try {
       fetch('/api/site-content', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
-      }).catch((err) => {
-        console.warn('Failed to sync to local server API:', err);
-      });
+      }).catch(() => {});
     } catch {
       // ignore
     }
   };
 
-  // 1. Sync with local server API on initial load (so any computer on LAN shares updated content)
+  // 1. Sync with remote Supabase Cloud Database on initial load (Priority for Vercel & Global access)
   useEffect(() => {
+    if (isSupabaseConfigured()) {
+      fetchRemoteSiteContent().then((cloudData) => {
+        if (cloudData && typeof cloudData === 'object' && Object.keys(cloudData).length > 0) {
+          setContent((prev) => {
+            const merged = {
+              ...prev,
+              ...cloudData,
+              brand: {
+                ...prev.brand,
+                ...(cloudData.brand || {}),
+                subName: (cloudData.brand?.subName && cloudData.brand.subName.toUpperCase().includes('WORKSHOP'))
+                  ? 'AMPERA'
+                  : (cloudData.brand?.subName || prev.brand?.subName || 'AMPERA'),
+              },
+              hero: {
+                ...prev.hero,
+                ...(cloudData.hero || {}),
+                banners:
+                  cloudData.hero?.banners && cloudData.hero.banners.length > 0
+                    ? cloudData.hero.banners
+                    : prev.hero?.banners,
+              },
+            };
+            try {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+            } catch {}
+            return merged;
+          });
+        }
+      });
+    }
+
+    // Fallback: Sync with local server API on LAN if active
     fetch('/api/site-content')
-      .then((res) => {
-        if (!res.ok) return null;
-        return res.json();
-      })
+      .then((res) => (res.ok ? res.json() : null))
       .then((remoteData) => {
         if (remoteData && typeof remoteData === 'object' && Object.keys(remoteData).length > 0) {
           setContent((prev) => {
@@ -119,12 +158,10 @@ export function SiteDataProvider({ children }) {
           });
         }
       })
-      .catch((err) => {
-        console.warn('Local content sync endpoint not active, using localStorage:', err);
-      });
+      .catch(() => {});
   }, []);
 
-  // 2. Sync with remote Supabase on initial load if configured
+  // 2. Sync with remote Supabase products on initial load if configured
   useEffect(() => {
     if (isSupabaseConfigured()) {
       fetchRemoteProducts().then((remoteList) => {

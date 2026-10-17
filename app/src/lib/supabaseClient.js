@@ -209,6 +209,57 @@ export async function insertRemoteProduct(product) {
 }
 
 /**
+ * Fetch all site content (hero, banners, storeStatus, brand, services, promos, testimonials, etc.) from Supabase 'site_content' table.
+ */
+export async function fetchRemoteSiteContent() {
+  if (!isSupabaseConfigured() || !supabase) return null;
+
+  try {
+    const { data, error } = await supabase
+      .from('site_content')
+      .select('data')
+      .eq('key', 'main')
+      .maybeSingle();
+
+    if (error) {
+      console.warn('Supabase site_content fetch info/error:', error.message);
+      return null;
+    }
+
+    return data?.data || null;
+  } catch (err) {
+    console.warn('Supabase site_content exception:', err);
+    return null;
+  }
+}
+
+/**
+ * Persist all site content to Supabase 'site_content' table.
+ */
+export async function saveRemoteSiteContent(contentData) {
+  if (!isSupabaseConfigured() || !supabase) return false;
+
+  try {
+    const { error } = await supabase
+      .from('site_content')
+      .upsert({
+        key: 'main',
+        data: contentData,
+        updated_at: new Date().toISOString(),
+      });
+
+    if (error) {
+      console.warn('Supabase site_content save error:', error.message);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.warn('Supabase site_content save exception:', err);
+    return false;
+  }
+}
+
+/**
  * Delete product from Supabase.
  */
 export async function deleteRemoteProduct(id) {
@@ -223,3 +274,6 @@ export async function deleteRemoteProduct(id) {
     return false;
   }
 }
+
+
+
