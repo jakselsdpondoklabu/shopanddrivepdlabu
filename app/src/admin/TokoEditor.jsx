@@ -8,7 +8,15 @@ export function TokoEditor() {
   const [mode, setMode] = useState(storeStatus?.mode || 'auto');
   const [openTime, setOpenTime] = useState(storeStatus?.openTime || '08:00');
   const [closeTime, setCloseTime] = useState(storeStatus?.closeTime || '20:00');
+  const [subName, setSubName] = useState(
+    brand?.subName && brand.subName.toUpperCase().includes('WORKSHOP')
+      ? 'AMPERA'
+      : (brand?.subName || 'AMPERA')
+  );
   const [operationalHours, setOperationalHours] = useState(brand?.operationalHours || '08.00 s/d 20.00 WIB (Buka Setiap Hari)');
+  const [address, setAddress] = useState(brand?.address || 'JL. Ampera Raya no.138 Ragunan, Pasar Minggu, Jakarta Selatan');
+  const [mapsGoogleUrl, setMapsGoogleUrl] = useState(brand?.mapsGoogleUrl || '');
+  const [coordinates, setCoordinates] = useState(brand?.coordinates || '-6.2822913, 106.8196073');
   const [savedNotice, setSavedNotice] = useState(false);
 
   const handleSubmit = (e) => {
@@ -19,7 +27,12 @@ export function TokoEditor() {
       closeTime,
     });
     updateBrand({
+      subName: subName.trim(),
       operationalHours,
+      address,
+      mapsGoogleUrl,
+      coordinates,
+      mapsEmbedUrl: `https://maps.google.com/maps?q=${encodeURIComponent(coordinates.trim())}&hl=id&z=17&output=embed`,
     });
     setSavedNotice(true);
     setTimeout(() => setSavedNotice(false), 3000);
@@ -166,6 +179,23 @@ export function TokoEditor() {
           </div>
         </div>
 
+        {/* Nama Sub-Cabang di Navbar */}
+        <div>
+          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+            Nama Cabang di Header / Navbar (Teks Merah)
+          </label>
+          <input
+            type="text"
+            value={subName}
+            onChange={(e) => setSubName(e.target.value)}
+            placeholder="AMPERA"
+            className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold tracking-widest text-[#E3000F] uppercase focus:outline-none focus:ring-2 focus:ring-[#002884] focus:bg-white"
+          />
+          <span className="text-[11px] text-slate-400 mt-1 block">
+            Tampil tepat di bawah nama "SUPER SHOP &amp; DRIVE" pada header website.
+          </span>
+        </div>
+
         {/* Operational Days Text */}
         <div>
           <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
@@ -177,6 +207,53 @@ export function TokoEditor() {
             onChange={(e) => setOperationalHours(e.target.value)}
             className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#002884]"
           />
+        </div>
+
+        {/* Workshop Address & Google Maps Location */}
+        <div className="pt-4 border-t border-slate-100 space-y-4">
+          <h3 className="text-sm font-bold text-[#002884] uppercase tracking-wider">
+            Informasi Alamat &amp; Titik Lokasi Google Maps
+          </h3>
+
+          <div>
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+              Alamat Lengkap Super Shop &amp; Drive Ampera
+            </label>
+            <input
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#002884]"
+            />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                Koordinat Lokasi (Latitude, Longitude)
+              </label>
+              <input
+                type="text"
+                value={coordinates}
+                onChange={(e) => setCoordinates(e.target.value)}
+                placeholder="-6.2822913, 106.8196073"
+                className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#002884]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                URL Google Maps Cabang
+              </label>
+              <input
+                type="text"
+                value={mapsGoogleUrl}
+                onChange={(e) => setMapsGoogleUrl(e.target.value)}
+                placeholder="https://www.google.com/maps/place/..."
+                className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#002884]"
+              />
+            </div>
+          </div>
         </div>
 
         <button

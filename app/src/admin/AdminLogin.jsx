@@ -39,7 +39,7 @@ export function AdminLogin({ onClose, onSuccess }) {
           </div>
           <div>
             <h2 className="text-xl font-extrabold text-[#002884]">
-              Portal Admin Workshop
+              Portal Admin
             </h2>
             <p className="text-xs text-slate-500">
               Super Shop &amp; Drive Ampera

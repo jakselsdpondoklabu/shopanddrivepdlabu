@@ -1,11 +1,11 @@
-import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { SiteDataContext } from './SiteDataContextObject';
 import { defaultSiteContent } from '../data/defaultContent';
 import { fetchRemoteProducts, isSupabaseConfigured } from '../lib/supabaseClient';
 
 const STORAGE_KEY = 'ssdampera_site_content_v2';
 const AUTH_KEY = 'ssdampera_admin_authenticated';
 
-const SiteDataContext = createContext(null);
 
 export function SiteDataProvider({ children }) {
   const [content, setContent] = useState(() => {
@@ -13,10 +13,36 @@ export function SiteDataProvider({ children }) {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         const parsed = JSON.parse(saved);
-        // Ensure new structures (products, storeStatus) exist
+        // Ensure new structures (hero.banners, bookings, products, storeStatus) exist
+        const hero = {
+          ...defaultSiteContent.hero,
+          ...(parsed.hero || {}),
+          banners: parsed.hero?.banners && parsed.hero.banners.length > 0
+            ? parsed.hero.banners
+            : defaultSiteContent.hero.banners,
+        };
+
+        const brand = {
+          ...defaultSiteContent.brand,
+          ...(parsed.brand || {}),
+          subName: (parsed.brand?.subName && parsed.brand.subName.toUpperCase().includes('WORKSHOP'))
+            ? 'AMPERA'
+            : (parsed.brand?.subName || defaultSiteContent.brand.subName),
+          coordinates: defaultSiteContent.brand.coordinates,
+          mapsEmbedUrl: defaultSiteContent.brand.mapsEmbedUrl,
+          mapsGoogleUrl: defaultSiteContent.brand.mapsGoogleUrl,
+        };
+
         return {
           ...defaultSiteContent,
           ...parsed,
+          brand,
+          hero,
+          gowa: {
+            ...defaultSiteContent.gowa,
+            ...(parsed.gowa || {}),
+          },
+          bookings: parsed.bookings || defaultSiteContent.bookings || [],
           storeStatus: parsed.storeStatus || defaultSiteContent.storeStatus,
           products: parsed.products || defaultSiteContent.products,
           services: parsed.services || defaultSiteContent.services,
@@ -36,7 +62,69 @@ export function SiteDataProvider({ children }) {
     }
   });
 
-  // Sync with remote Supabase on initial load if configured
+  // Helper to persist content to localStorage and server file
+  const persistChanges = (data) => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    } catch (e) {
+      console.warn('LocalStorage quota warning:', e);
+    }
+
+    try {
+      fetch('/api/site-content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      }).catch((err) => {
+        console.warn('Failed to sync to local server API:', err);
+      });
+    } catch {
+      // ignore
+    }
+  };
+
+  // 1. Sync with local server API on initial load (so any computer on LAN shares updated content)
+  useEffect(() => {
+    fetch('/api/site-content')
+      .then((res) => {
+        if (!res.ok) return null;
+        return res.json();
+      })
+      .then((remoteData) => {
+        if (remoteData && typeof remoteData === 'object' && Object.keys(remoteData).length > 0) {
+          setContent((prev) => {
+            const merged = {
+              ...prev,
+              ...remoteData,
+              brand: {
+                ...prev.brand,
+                ...(remoteData.brand || {}),
+                subName: (remoteData.brand?.subName && remoteData.brand.subName.toUpperCase().includes('WORKSHOP'))
+                  ? 'AMPERA'
+                  : (remoteData.brand?.subName || prev.brand?.subName || 'AMPERA'),
+              },
+              hero: {
+                ...prev.hero,
+                ...(remoteData.hero || {}),
+                banners:
+                  remoteData.hero?.banners && remoteData.hero.banners.length > 0
+                    ? remoteData.hero.banners
+                    : prev.hero?.banners,
+              },
+            };
+            try {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+            } catch {}
+            return merged;
+          });
+        }
+      })
+      .catch((err) => {
+        console.warn('Local content sync endpoint not active, using localStorage:', err);
+      });
+  }, []);
+
+  // 2. Sync with remote Supabase on initial load if configured
   useEffect(() => {
     if (isSupabaseConfigured()) {
       fetchRemoteProducts().then((remoteList) => {
@@ -49,15 +137,6 @@ export function SiteDataProvider({ children }) {
       });
     }
   }, []);
-
-  // Save to localStorage whenever content changes (Hybrid Offline Fallback)
-  useEffect(() => {
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(content));
-    } catch (e) {
-      console.error('Error persisting site content:', e);
-    }
-  }, [content]);
 
   // Check if store is currently open
   const isStoreOpen = useCallback(() => {
@@ -87,58 +166,214 @@ export function SiteDataProvider({ children }) {
   }, [content]);
 
   const updateHero = (newHero) => {
-    setContent((prev) => ({
-      ...prev,
-      hero: { ...prev.hero, ...newHero },
-    }));
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        hero: { ...prev.hero, ...newHero },
+      };
+      persistChanges(updated);
+      return updated;
+    });
+  };
+
+  const updateHeroBanners = (newBanners) => {
+    setContent((prev) => {
+      const primary = newBanners[0] || {};
+      const updated = {
+        ...prev,
+        hero: {
+          ...prev.hero,
+          badgeText: primary.badgeText !== undefined ? primary.badgeText : prev.hero?.badgeText,
+          headline: primary.headline !== undefined ? primary.headline : prev.hero?.headline,
+          headlineHighlight: primary.headlineHighlight !== undefined ? primary.headlineHighlight : prev.hero?.headlineHighlight,
+          subheadline: primary.subheadline !== undefined ? primary.subheadline : prev.hero?.subheadline,
+          bgImage: primary.bgImage !== undefined ? primary.bgImage : prev.hero?.bgImage,
+          ctaText: primary.ctaText !== undefined ? primary.ctaText : prev.hero?.ctaText,
+          secondaryCtaText: primary.secondaryCtaText !== undefined ? primary.secondaryCtaText : prev.hero?.secondaryCtaText,
+          banners: newBanners,
+        },
+      };
+      persistChanges(updated);
+      return updated;
+    });
+  };
+
+  const addBooking = (bookingData) => {
+    const newEntry = {
+      id: `book-${Date.now()}`,
+      name: bookingData.name || '',
+      phone: bookingData.phone || '',
+      carModel: bookingData.carModel || '',
+      serviceNeed: bookingData.serviceNeed || '',
+      serviceDate: bookingData.serviceDate || '',
+      status: 'Menunggu',
+      createdAt: new Date().toLocaleDateString('id-ID', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+      }),
+    };
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        bookings: [newEntry, ...(prev.bookings || [])],
+      };
+      persistChanges(updated);
+      return updated;
+    });
+    return newEntry;
+  };
+
+  const updateBookingStatus = (id, newStatus) => {
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        bookings: (prev.bookings || []).map((b) =>
+          b.id === id ? { ...b, status: newStatus } : b
+        ),
+      };
+      persistChanges(updated);
+      return updated;
+    });
+  };
+
+  const deleteBooking = (id) => {
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        bookings: (prev.bookings || []).filter((b) => b.id !== id),
+      };
+      persistChanges(updated);
+      return updated;
+    });
   };
 
   const updateServices = (newServices) => {
-    setContent((prev) => ({
-      ...prev,
-      services: newServices,
-    }));
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        services: newServices,
+      };
+      persistChanges(updated);
+      return updated;
+    });
   };
 
   const updateProducts = (newProducts) => {
-    setContent((prev) => ({
-      ...prev,
-      products: newProducts,
-    }));
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        products: newProducts,
+      };
+      persistChanges(updated);
+      return updated;
+    });
   };
 
   const updateStoreStatus = (newStatus) => {
-    setContent((prev) => ({
-      ...prev,
-      storeStatus: { ...prev.storeStatus, ...newStatus },
-    }));
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        storeStatus: { ...prev.storeStatus, ...newStatus },
+      };
+      persistChanges(updated);
+      return updated;
+    });
   };
 
   const updatePromo = (newPromo) => {
-    setContent((prev) => ({
-      ...prev,
-      promo: { ...prev.promo, ...newPromo },
-    }));
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        promo: { ...prev.promo, ...newPromo },
+      };
+      persistChanges(updated);
+      return updated;
+    });
   };
 
   const updateTestimonials = (newTestimonials) => {
-    setContent((prev) => ({
-      ...prev,
-      testimonials: { ...prev.testimonials, ...newTestimonials },
-    }));
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        testimonials: { ...prev.testimonials, ...newTestimonials },
+      };
+      persistChanges(updated);
+      return updated;
+    });
+  };
+
+  const updateGowaConfig = (newGowa) => {
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        gowa: { ...prev.gowa, ...newGowa },
+      };
+      persistChanges(updated);
+      return updated;
+    });
+  };
+
+  const sendBookingToGowa = async (bookingData) => {
+    const gowaConfig = content?.gowa || defaultSiteContent.gowa;
+    if (gowaConfig?.isEnabled === false) {
+      return { success: false, reason: 'GOWA disabled' };
+    }
+
+    const apiUrl = (gowaConfig?.apiUrl || 'https://gowa285.ssdampera.web.id').replace(/\/+$/, '');
+    const groupJid = gowaConfig?.targetGroupJid || '120363426744122299@g.us';
+
+    const formattedMessage =
+      `🔔 *RESERVASI SERVIS BARU - WEBSITE CABANG AMPERA*\n\n` +
+      `👤 *Nama:* ${bookingData.name}\n` +
+      `📱 *No. HP/WA:* ${bookingData.phone}\n` +
+      `🚗 *Kendaraan:* ${bookingData.carModel}\n` +
+      `🔧 *Layanan:* ${bookingData.serviceNeed}\n` +
+      `📅 *Rencana Tanggal:* ${bookingData.serviceDate}\n` +
+      `⏰ *Waktu Pengajuan:* ${bookingData.createdAt || new Date().toLocaleString('id-ID')}\n\n` +
+      `_Pesan otomatis dikirim melalui Sistem Reservasi shopanddriveampera.com_`;
+
+    try {
+      const response = await fetch(`${apiUrl}/send/message`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          phone: groupJid,
+          message: formattedMessage,
+        }),
+      });
+      const data = await response.json();
+      return { success: true, data };
+    } catch (err) {
+      console.error('Gowa send message error:', err);
+      return { success: false, error: err };
+    }
   };
 
   const updateBrand = (newBrand) => {
-    setContent((prev) => ({
-      ...prev,
-      brand: { ...prev.brand, ...newBrand },
-    }));
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        brand: { ...prev.brand, ...newBrand },
+      };
+      persistChanges(updated);
+      return updated;
+    });
   };
 
   const resetToDefault = () => {
     setContent(defaultSiteContent);
     try {
       localStorage.removeItem(STORAGE_KEY);
+      fetch('/api/site-content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(defaultSiteContent),
+      }).catch(() => {});
     } catch (e) {
       console.error('Error resetting content:', e);
     }
@@ -173,12 +408,18 @@ export function SiteDataProvider({ children }) {
       value={{
         content,
         updateHero,
+        updateHeroBanners,
+        addBooking,
+        updateBookingStatus,
+        deleteBooking,
         updateServices,
         updateProducts,
         updateStoreStatus,
         updatePromo,
         updateTestimonials,
         updateBrand,
+        updateGowaConfig,
+        sendBookingToGowa,
         setSupabaseCredentials,
         isSupabaseConfigured,
         resetToDefault,
@@ -193,10 +434,6 @@ export function SiteDataProvider({ children }) {
   );
 }
 
-export function useSiteData() {
-  const context = useContext(SiteDataContext);
-  if (!context) {
-    throw new Error('useSiteData must be used within a SiteDataProvider');
-  }
-  return context;
-}
+export { SiteDataContext } from './SiteDataContextObject';
+export { useSiteData } from './useSiteData';
+

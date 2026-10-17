@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSiteData } from '../context/SiteDataContext';
 import { TokoEditor } from './TokoEditor';
+import { AntreanEditor } from './AntreanEditor';
 import { HeroEditor } from './HeroEditor';
 import { LayananEditor } from './LayananEditor';
 import { ProdukEditor } from './ProdukEditor';
@@ -10,13 +11,16 @@ import { TestimoniEditor } from './TestimoniEditor';
 export function AdminDashboard({ onBackToSite }) {
   const { content, resetToDefault, logout } = useSiteData();
   const { brand } = content;
-  const [activeTab, setActiveTab] = useState('toko');
+  const [activeTab, setActiveTab] = useState('antrean');
+
+  const pendingCount = (content?.bookings || []).filter((b) => b.status === 'Menunggu').length;
 
   const tabs = [
+    { id: 'antrean', label: 'Antrean & Jadwal Servis', icon: 'calendar_month', badge: pendingCount > 0 ? pendingCount : null },
+    { id: 'hero', label: '5 Hero Banner Carousel', icon: 'view_carousel' },
     { id: 'toko', label: 'Status & Jam Toko', icon: 'schedule' },
     { id: 'layanan', label: 'Katalog Layanan Bengkel', icon: 'build' },
     { id: 'produk', label: 'Katalog Produk & Suku Cadang', icon: 'shopping_bag' },
-    { id: 'hero', label: 'Hero Banner & Background', icon: 'view_carousel' },
     { id: 'promo', label: 'Promo & Diskon', icon: 'local_offer' },
     { id: 'testimoni', label: 'Testimoni Pelanggan', icon: 'reviews' },
   ];
@@ -104,16 +108,22 @@ export function AdminDashboard({ onBackToSite }) {
                 {tab.icon}
               </span>
               <span>{tab.label}</span>
+              {tab.badge && (
+                <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-[#E3000F] text-white">
+                  {tab.badge}
+                </span>
+              )}
             </button>
           ))}
         </div>
 
         {/* Tab Active Content Panel */}
         <div className="transition-all duration-200">
+          {activeTab === 'antrean' && <AntreanEditor />}
+          {activeTab === 'hero' && <HeroEditor />}
           {activeTab === 'toko' && <TokoEditor />}
           {activeTab === 'layanan' && <LayananEditor />}
           {activeTab === 'produk' && <ProdukEditor />}
-          {activeTab === 'hero' && <HeroEditor />}
           {activeTab === 'promo' && <PromoEditor />}
           {activeTab === 'testimoni' && <TestimoniEditor />}
         </div>

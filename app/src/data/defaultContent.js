@@ -1,16 +1,16 @@
 export const defaultSiteContent = {
   brand: {
     name: "SUPER SHOP & DRIVE",
-    subName: "AMPERA WORKSHOP",
+    subName: "AMPERA",
     tagline: "The Trusted Parts Shop",
     logoUrl: "/Assets/logo.png",
     phone: "(021) 780-0285",
     whatsappNumber: "6285117150285",
     whatsappDefaultMessage: "Halo Super Shop & Drive Ampera, saya ingin konsultasi dan booking servis kendaraan.",
     address: "JL. Ampera Raya no.138 Ragunan, Pasar Minggu, Jakarta Selatan",
-    mapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.856012479679!2d106.8177779758839!3d-6.282211310645697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f21e06f977d7%3A0x6b107e3a19b46617!2sSuper%20Shop%20%26%20Drive%20Ampera!5e0!3m2!1sid!2sid!4v1715000000000!5m2!1sid!2sid",
-    mapsGoogleUrl: "https://maps.app.goo.gl/L2SixLAy1RxhCHbk8",
-    coordinates: "-6.282211310645697, 106.82035294973412",
+    mapsEmbedUrl: "https://maps.google.com/maps?q=-6.2822913,106.8196073&hl=id&z=17&output=embed",
+    mapsGoogleUrl: "https://www.google.com/maps/place/Super+Shop+%26+Drive+-+Ampera,+Jakarta+Selatan/@-6.2822913,106.8196073,17z/data=!4m6!3m5!1s0x2e69f1f700000001:0xc3953d532f800ad!8m2!3d-6.2822913!4d106.8196073!16s%2Fg%2F12xqp709m",
+    coordinates: "-6.2822913, 106.8196073",
     operationalHours: "08.00 s/d 20.00 WIB (Buka Setiap Hari)",
     instagram: "@shopanddrive",
     instagramUrl: "https://instagram.com/shopanddrive",
@@ -21,6 +21,12 @@ export const defaultSiteContent = {
     closeTime: "20:00",
     statusNote: "Buka Setiap Hari",
   },
+  gowa: {
+    apiUrl: "https://gowa285.ssdampera.web.id",
+    targetGroupJid: "120363426744122299@g.us",
+    targetGroupName: "🔥 SUPER SHOP&DRIVE AMPERA 🔥",
+    isEnabled: true,
+  },
   hero: {
     badgeText: "Super Shop & Drive Ampera • Pusat Servis & Suku Cadang Resmi Astra",
     headline: "Servis & Perawatan Mobil Presisi",
@@ -28,9 +34,11 @@ export const defaultSiteContent = {
     subheadline: "Solusi cepat, terpercaya, dan bergaransi resmi dari Astra Otoparts untuk ratusan tipe kendaraan Anda di Jakarta Selatan. Tersedia layanan di bengkel & Home Delivery Service.",
     bgImage: "/Assets/bg1.jpeg",
     availableBgImages: [
-      { id: "bg1", label: "Foto Servis Workshop (bg1)", path: "/Assets/bg1.jpeg" },
+      { id: "bg1", label: "Foto Servis Bengkel (bg1)", path: "/Assets/bg1.jpeg" },
       { id: "bg2", label: "Motor Delivery Armada (bg2)", path: "/Assets/bg2.jpg" },
       { id: "bg3", label: "Ganti Suku Cadang Lokasi (bg3)", path: "/Assets/bg3.jpg" },
+      { id: "aki", label: "Ganti Aki Mobil (ganti aki)", path: "/Assets/ganti aki.jpg" },
+      { id: "oli", label: "Ganti Oli Mesin (ganti oli)", path: "/Assets/ganti oli.webp" },
     ],
     ctaText: "Booking via WhatsApp",
     secondaryCtaText: "Lihat Layanan Bengkel",
@@ -39,7 +47,64 @@ export const defaultSiteContent = {
       { value: "50.000+", label: "Mobil Ditangani" },
       { value: "100% Asli", label: "Garansi Suku Cadang" },
       { value: "Hunter 3D", label: "Standar Pabrikan" },
-    ]
+    ],
+    banners: [
+      {
+        id: "banner-1",
+        badgeText: "Super Shop & Drive Ampera • Bengkel Resmi Astra Otoparts",
+        headline: "Servis & Perawatan Mobil Presisi",
+        headlineHighlight: "Super Shop & Drive Ampera",
+        subheadline: "Solusi cepat, terpercaya, dan bergaransi resmi dari Astra Otoparts untuk ratusan tipe kendaraan Anda di Jakarta Selatan. Teknisi bersertifikasi & peralatan standar pabrikan.",
+        bgImage: "/Assets/bg1.jpeg",
+        ctaText: "Booking via WhatsApp",
+        secondaryCtaText: "Lihat Layanan Bengkel",
+        isActive: true,
+      },
+      {
+        id: "banner-2",
+        badgeText: "Garansi Resmi Hingga 24 Bulan • Aki GS Astra & Incoe",
+        headline: "Ganti Aki Mobil Bergaransi Resmi",
+        headlineHighlight: "Gratis Antar & Pasang di Lokasi",
+        subheadline: "Layanan darurat aki tekor cepat untuk kawasan Ampera, Kemang, TB Simatupang, dan Cilandak. Gratis cek alternator pengisian & kebocoran arus kelistrikan.",
+        bgImage: "/Assets/ganti aki.jpg",
+        ctaText: "Pesan Aki Sekarang",
+        secondaryCtaText: "Pilihan Aki Tersedia",
+        isActive: true,
+      },
+      {
+        id: "banner-3",
+        badgeText: "Pelumas Asli Shell, Fastron & Mobil 1 Bergaransi",
+        headline: "Paket Servis Ganti Oli Mesin Cepat",
+        headlineHighlight: "Gratis Cek 24 Poin Keselamatan",
+        subheadline: "Kuras dan ganti oli mesin dengan alat sedot modern tanpa risiko drat bak oli aus. Lengkap dengan penggantian filter oli dan inspeksi menyeluruh kendaraan.",
+        bgImage: "/Assets/ganti oli.webp",
+        ctaText: "Booking Ganti Oli",
+        secondaryCtaText: "Lihat Paket Pelumas",
+        isActive: true,
+      },
+      {
+        id: "banner-4",
+        badgeText: "Teknologi Hunter 3D Germany • Sensor Optik Presisi Tinggi",
+        headline: "Spooring 3D & Finish Balancing",
+        headlineHighlight: "Hilangkan Getaran & Tarikan Setir",
+        subheadline: "Kembalikan kelurusan roda sesuai spesifikasi pabrikan kendaraan Anda. Mencegah keausan ban tidak rata dan membuat berkendara lebih stabil serta aman.",
+        bgImage: "/Assets/bg2.jpg",
+        ctaText: "Reservasi Spooring 3D",
+        secondaryCtaText: "Cek Biaya Spooring",
+        isActive: true,
+      },
+      {
+        id: "banner-5",
+        badgeText: "Kenyamanan Suspensi Maksimal • Shock Absorber KYB Astra",
+        headline: "Peremajaan Kaki-Kaki & Suspensi",
+        headlineHighlight: "Bantingan Senyap & Nyaman Kembali",
+        subheadline: "Atasi bunyi kasar dan limbung dengan shock absorber Kayaba original Astra Otoparts. Inspeksi kaki-kaki presisi oleh mekanik berpengalaman.",
+        bgImage: "/Assets/bg3.jpg",
+        ctaText: "Konsultasi Kaki-Kaki",
+        secondaryCtaText: "Lihat Menu Servis",
+        isActive: true,
+      },
+    ],
   },
   // 7 Layanan Bengkel (Jasa / Service)
   services: [
@@ -284,5 +349,37 @@ export const defaultSiteContent = {
         review: "Spooring 3D presisi sekali, setir yang tadinya narik ke kiri sekarang lurus stabil saat melaju di tol TB Simatupang. Teknisi paham betul spesifikasi suspensi mobil besar."
       }
     ]
-  }
+  },
+  bookings: [
+    {
+      id: "book-001",
+      name: "Budi Santoso",
+      phone: "081298765432",
+      carModel: "Toyota Innova Reborn 2021",
+      serviceNeed: "Paket Servis Ganti Oli",
+      serviceDate: "2026-10-18",
+      status: "Dikonfirmasi",
+      createdAt: "2026-10-17 10:15",
+    },
+    {
+      id: "book-002",
+      name: "dr. Siti Nurhaliza",
+      phone: "081187654321",
+      carModel: "Honda HR-V 2022",
+      serviceNeed: "Jasa Ganti Aki Mobil",
+      serviceDate: "2026-10-18",
+      status: "Menunggu",
+      createdAt: "2026-10-17 11:30",
+    },
+    {
+      id: "book-003",
+      name: "Hendra Wijaya",
+      phone: "085612345678",
+      carModel: "Mitsubishi Pajero Sport 2020",
+      serviceNeed: "Spooring 3D & Finish Balancing",
+      serviceDate: "2026-10-19",
+      status: "Menunggu",
+      createdAt: "2026-10-17 13:00",
+    }
+  ]
 };

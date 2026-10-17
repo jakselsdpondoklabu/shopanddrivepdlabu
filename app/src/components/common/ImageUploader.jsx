@@ -3,7 +3,7 @@ import { useSiteData } from '../../context/SiteDataContext';
 
 // Default workshop assets available out of the box
 const DEFAULT_PRESET_IMAGES = [
-  { id: 'preset-bg1', label: 'Foto Bengkel Workshop (bg1)', path: '/Assets/bg1.jpeg', category: 'Hero & Workshop' },
+  { id: 'preset-bg1', label: 'Foto Bengkel (bg1)', path: '/Assets/bg1.jpeg', category: 'Hero & Bengkel' },
   { id: 'preset-bg2', label: 'Armada Motor Delivery (bg2)', path: '/Assets/bg2.jpg', category: 'Armada & Ban' },
   { id: 'preset-bg3', label: 'Penggantian Suku Cadang (bg3)', path: '/Assets/bg3.jpg', category: 'Suspensi & Servis' },
   { id: 'preset-aki', label: 'Servis & Ganti Aki Mobil', path: '/Assets/ganti aki.jpg', category: 'Aki Mobil' },
@@ -14,7 +14,7 @@ const DEFAULT_PRESET_IMAGES = [
 /**
  * Compresses an image file client-side using HTML5 Canvas to keep storage lightweight.
  */
-function compressImage(file, maxWidth = 1200, quality = 0.8) {
+function compressImage(file, maxWidth = 1000, quality = 0.72) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
