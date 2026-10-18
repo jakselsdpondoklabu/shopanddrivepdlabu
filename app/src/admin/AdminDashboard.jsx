@@ -45,10 +45,47 @@ export function AdminDashboard({ onBackToSite }) {
     { id: 'testimoni', label: 'Testimoni', icon: 'reviews' },
   ];
 
-  const handleReset = () => {
-    if (window.confirm('PERINGATAN: Apakah Anda yakin ingin mereset semua konten ke data bawaan default Super Shop & Drive Ampera?')) {
-      resetToDefault();
-      alert('Data website telah berhasil di-reset ke default.');
+  // State untuk Modal Otorisasi Reset
+  const [isResetModalOpen, setIsResetModalOpen] = useState(false);
+  const [resetUsername, setResetUsername] = useState('');
+  const [resetPassword, setResetPassword] = useState('');
+  const [resetError, setResetError] = useState('');
+  const [isResetting, setIsResetting] = useState(false);
+
+  const handleOpenResetModal = () => {
+    setResetUsername('');
+    setResetPassword('');
+    setResetError('');
+    setIsResetModalOpen(true);
+  };
+
+  const handleCloseResetModal = () => {
+    setIsResetModalOpen(false);
+    setResetUsername('');
+    setResetPassword('');
+    setResetError('');
+  };
+
+  const handleConfirmReset = async (e) => {
+    e.preventDefault();
+    setResetError('');
+
+    if (resetUsername.trim() !== 'admin' || resetPassword.trim() !== '@Komponen0285') {
+      setResetError('ID Admin atau Password otorisasi reset tidak sesuai!');
+      return;
+    }
+
+    setIsResetting(true);
+    try {
+      await resetToDefault();
+      setIsResetModalOpen(false);
+      setResetUsername('');
+      setResetPassword('');
+      alert('Berhasil! Seluruh data website telah berhasil di-reset ke pengaturan awal default dan disinkronkan ke Cloud Database.');
+    } catch (err) {
+      setResetError('Gagal mereset: ' + err.message);
+    } finally {
+      setIsResetting(false);
     }
   };
 
@@ -106,7 +143,7 @@ export function AdminDashboard({ onBackToSite }) {
             </button>
 
             <button
-              onClick={handleReset}
+              onClick={handleOpenResetModal}
               className="px-2.5 sm:px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-semibold text-xs rounded-lg transition-colors flex items-center gap-1"
               title="Reset ke Data Bawaan"
             >
@@ -168,6 +205,109 @@ export function AdminDashboard({ onBackToSite }) {
         </div>
 
       </div>
+
+      {/* Modal Otorisasi Reset ke Pengaturan Awal */}
+      {isResetModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl border border-slate-200 relative animate-in fade-in zoom-in-95 duration-200">
+            
+            {/* Close Button */}
+            <button
+              onClick={handleCloseResetModal}
+              disabled={isResetting}
+              className="absolute top-5 right-5 text-slate-400 hover:text-slate-700 p-1.5 rounded-lg hover:bg-slate-100 transition-colors disabled:opacity-50"
+              aria-label="Tutup"
+            >
+              <span className="material-symbols-outlined text-xl">close</span>
+            </button>
+
+            {/* Modal Header */}
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-2xl bg-red-100 text-[#E3000F] flex items-center justify-center font-bold shrink-0">
+                <span className="material-symbols-outlined text-2xl">restart_alt</span>
+              </div>
+              <div>
+                <h2 className="text-lg sm:text-xl font-extrabold text-[#002884] leading-snug">
+                  Otorisasi Reset Website
+                </h2>
+                <p className="text-xs text-slate-500">
+                  Kembalikan semua data ke setelan awal
+                </p>
+              </div>
+            </div>
+
+            {/* Warning Box */}
+            <div className="p-3.5 bg-amber-50 border border-amber-200 rounded-2xl text-amber-900 text-xs mb-5 flex items-start gap-2.5">
+              <span className="material-symbols-outlined text-amber-600 text-lg shrink-0 mt-0.5">warning</span>
+              <p className="leading-relaxed">
+                <strong>PERINGATAN:</strong> Seluruh banner, katalog produk, katalog layanan, kontak, dan statistik akan dikembalikan ke data bawaan awal dan disinkronkan ke Cloud Database.
+              </p>
+            </div>
+
+            {resetError && (
+              <div className="mb-4 p-3 rounded-xl bg-red-50 border border-red-200 text-[#E3000F] text-xs font-semibold flex items-center gap-2">
+                <span className="material-symbols-outlined text-base shrink-0">error</span>
+                <span>{resetError}</span>
+              </div>
+            )}
+
+            <form onSubmit={handleConfirmReset} className="space-y-4">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5">
+                  ID Admin Otorisasi
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={resetUsername}
+                  onChange={(e) => setResetUsername(e.target.value)}
+                  placeholder="Masukkan ID Admin"
+                  autoFocus
+                  disabled={isResetting}
+                  className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1.5">
+                  Password Otorisasi
+                </label>
+                <input
+                  type="password"
+                  required
+                  value={resetPassword}
+                  onChange={(e) => setResetPassword(e.target.value)}
+                  placeholder="Masukkan Password"
+                  disabled={isResetting}
+                  className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-red-500 focus:bg-white"
+                />
+              </div>
+
+              <div className="pt-2 flex items-center justify-end gap-2.5">
+                <button
+                  type="button"
+                  onClick={handleCloseResetModal}
+                  disabled={isResetting}
+                  className="px-4 py-2.5 rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-100 font-bold text-xs transition-colors disabled:opacity-50"
+                >
+                  Batal
+                </button>
+                <button
+                  type="submit"
+                  disabled={isResetting}
+                  className="px-5 py-2.5 bg-[#E3000F] hover:bg-[#C2000D] text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center gap-1.5 disabled:opacity-50 active:scale-[0.98]"
+                >
+                  <span className="material-symbols-outlined text-base">
+                    {isResetting ? 'hourglass_top' : 'check_circle'}
+                  </span>
+                  <span>{isResetting ? 'Mereset Data...' : 'Konfirmasi & Reset'}</span>
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      )}
 
     </div>
   );

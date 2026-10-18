@@ -422,8 +422,9 @@ export function SiteDataProvider({ children }) {
     });
   };
 
-  const resetToDefault = () => {
+  const resetToDefault = async () => {
     setContent(defaultSiteContent);
+    persistChanges(defaultSiteContent);
     try {
       localStorage.removeItem(STORAGE_KEY);
       fetch('/api/site-content', {
@@ -437,7 +438,12 @@ export function SiteDataProvider({ children }) {
   };
 
   const login = (username, password) => {
-    if (username.trim() === 'ssdampera' && password.trim() === 'Komponen0285') {
+    const u = username.trim();
+    const p = password.trim();
+    if (
+      (u === 'admin' && p === '@Komponen0285') ||
+      (u === 'ssdampera' && p === 'Komponen0285')
+    ) {
       setIsAdminLoggedIn(true);
       sessionStorage.setItem(AUTH_KEY, 'true');
       return { success: true };

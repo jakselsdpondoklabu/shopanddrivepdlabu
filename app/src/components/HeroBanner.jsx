@@ -244,8 +244,14 @@ export function HeroBanner() {
             {/* Quick Stats Bar */}
             <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-3 bg-[#1C2541]/80 backdrop-blur-md p-4 rounded-xl border border-slate-700/50">
               {hero.stats && hero.stats.map((st, idx) => (
-                <div key={idx} className="flex flex-col">
-                  <span className="text-xl sm:text-2xl font-black text-white">{st.value}</span>
+                <div key={idx} className="flex flex-col justify-center">
+                  <span className={`font-black text-white leading-tight break-words ${
+                    (st.value || '').length > 12 
+                      ? 'text-sm sm:text-base lg:text-lg' 
+                      : 'text-xl sm:text-2xl'
+                  }`}>
+                    {st.value}
+                  </span>
                   <span className="text-xs font-medium text-slate-400 mt-0.5">{st.label}</span>
                 </div>
               ))}

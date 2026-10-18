@@ -4,7 +4,7 @@ import { ImageUploader } from '../components/common/ImageUploader';
 import { defaultSiteContent } from '../data/defaultContent';
 
 export function HeroEditor() {
-  const { content, updateHeroBanners } = useSiteData();
+  const { content, updateHeroBanners, updateHero } = useSiteData();
   const { hero } = content;
 
   // Ensure 5 banners exist
@@ -12,7 +12,12 @@ export function HeroEditor() {
     ? hero.banners
     : defaultSiteContent.hero.banners;
 
+  const existingStats = hero?.stats && hero.stats.length > 0
+    ? hero.stats
+    : defaultSiteContent.hero.stats;
+
   const [banners, setBanners] = useState(existingBanners);
+  const [stats, setStats] = useState(existingStats);
   const [selectedIdx, setSelectedIdx] = useState(0);
   const [savedNotice, setSavedNotice] = useState(false);
 
@@ -21,7 +26,10 @@ export function HeroEditor() {
     if (hero?.banners && hero.banners.length > 0) {
       setBanners(hero.banners);
     }
-  }, [hero?.banners]);
+    if (hero?.stats && hero.stats.length > 0) {
+      setStats(hero.stats);
+    }
+  }, [hero?.banners, hero?.stats]);
 
   const currentBanner = banners[selectedIdx] || banners[0] || {};
 
@@ -31,9 +39,16 @@ export function HeroEditor() {
     );
   };
 
+  const handleUpdateStat = (idx, field, val) => {
+    setStats((prev) =>
+      prev.map((s, i) => (i === idx ? { ...s, [field]: val } : s))
+    );
+  };
+
   const handleSave = (e) => {
     e.preventDefault();
     updateHeroBanners(banners);
+    updateHero({ stats });
     setSavedNotice(true);
     setTimeout(() => setSavedNotice(false), 3500);
   };
@@ -229,11 +244,58 @@ export function HeroEditor() {
           </div>
         </div>
 
+        {/* 4 Statistik & Keunggulan Bengkel (Stats Counter) */}
+        <div className="pt-6 border-t border-slate-200">
+          <div className="mb-4">
+            <h3 className="text-base font-bold text-[#002884] flex items-center gap-2">
+              <span className="material-symbols-outlined text-xl text-[#002884]">analytics</span>
+              <span>4 Statistik &amp; Keunggulan Bengkel (Kotak Hitam Bawah Banner)</span>
+            </h3>
+            <p className="text-xs text-slate-500 mt-0.5">
+              Ubah angka atau teks keunggulan bengkel yang tampil pada kotak statistik gelap di bawah tombol aksi hero banner.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {stats.map((st, idx) => (
+              <div key={idx} className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex flex-col gap-3">
+                <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                  Slot #{idx + 1}
+                </span>
+                <div>
+                  <label className="block text-[11px] font-bold text-slate-600 mb-1">
+                    Nilai / Angka (Value)
+                  </label>
+                  <input
+                    type="text"
+                    value={st.value || ''}
+                    onChange={(e) => handleUpdateStat(idx, 'value', e.target.value)}
+                    placeholder="Contoh: 13+ Th"
+                    className="w-full h-10 px-3 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#002884]"
+                  />
+                </div>
+                <div>
+                  <label className="block text-[11px] font-bold text-slate-600 mb-1">
+                    Label Keterangan
+                  </label>
+                  <input
+                    type="text"
+                    value={st.label || ''}
+                    onChange={(e) => handleUpdateStat(idx, 'label', e.target.value)}
+                    placeholder="Contoh: Pengalaman Teknisi"
+                    className="w-full h-10 px-3 bg-white border border-slate-200 rounded-xl text-xs text-slate-700 focus:outline-none focus:ring-2 focus:ring-[#002884]"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Action Controls */}
         <div className="flex items-center justify-between pt-4 border-t border-slate-100">
           <div className="flex items-center gap-2 text-xs text-slate-500">
             <span className="material-symbols-outlined text-sm text-emerald-600">verified</span>
-            <span>Perubahan akan langsung terlihat di carousel halaman utama</span>
+            <span>Perubahan banner &amp; statistik akan langsung tersimpan di Cloud Database</span>
           </div>
 
           <button
@@ -241,7 +303,7 @@ export function HeroEditor() {
             className="px-6 py-3 bg-[#002884] hover:bg-[#001C5D] text-white font-bold text-sm rounded-xl shadow-md transition-all flex items-center gap-2"
           >
             <span className="material-symbols-outlined text-lg">save</span>
-            <span>Simpan Semua Hero Banner</span>
+            <span>Simpan Hero Banner &amp; Statistik</span>
           </button>
         </div>
 
