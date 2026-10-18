@@ -13,7 +13,7 @@ export function LayananGrid() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div className="max-w-2xl">
             <span className="text-xs sm:text-sm font-bold text-[#E3000F] uppercase tracking-widest block mb-1">
-              Katalog Servis Presisi
+              Katalog Layanan Super Shop&amp;Drive Ampera
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#002884] tracking-tight">
               7 Layanan Andalan Super Shop &amp; Drive Ampera

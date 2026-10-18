@@ -308,6 +308,7 @@ export const defaultSiteContent = {
         category: "Tips Aki",
         readTime: "5 Menit Baca",
         date: "Update Terbaru",
+        image: "/Assets/ganti aki.jpg",
         title: "Kenali 5 Tanda Aki Mobil Mulai Lemah Sebelum Mogok di Jalan",
         summary: "Jangan tunggu starter mobil berputar lambat di pagi hari. Pahami gejala penurunan voltase, suara klik, dan cara cek kelistrikan mandiri.",
         waTopic: "Halo Super Shop & Drive Ampera, saya ingin konsultasi cek aki mobil"
@@ -317,6 +318,7 @@ export const defaultSiteContent = {
         category: "Perawatan Oli",
         readTime: "4 Menit Baca",
         date: "Update Terbaru",
+        image: "/Assets/ganti oli.webp",
         title: "Kapan Waktu Tepat Mengganti Oli Mesin? Kilometer vs Durasi Bulan",
         summary: "Sering macet di Jakarta Selatan? Ketahui mengapa jam kerja mesin (engine hours) lebih menentukan penggantian oli daripada angka odometer.",
         waTopic: "Halo Super Shop & Drive Ampera, saya ingin tanya jadwal ganti oli yang tepat"
@@ -326,6 +328,7 @@ export const defaultSiteContent = {
         category: "Kenyamanan & Rem",
         readTime: "6 Menit Baca",
         date: "Update Terbaru",
+        image: "/Assets/bg3.jpg",
         title: "Bahaya Mengabaikan Bunyi Gluduk Kaki-Kaki dan Berdecit pada Rem",
         summary: "Karet bushing getas atau kampas rem tipis dapat merusak piringan rotor cakram dan membahayakan kendali di jalan basah.",
         waTopic: "Halo Super Shop & Drive Ampera, saya ingin cek rem dan suspensi kaki-kaki"

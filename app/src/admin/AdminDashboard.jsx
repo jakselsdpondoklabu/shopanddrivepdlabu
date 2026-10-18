@@ -7,6 +7,7 @@ import { HeroEditor } from './HeroEditor';
 import { LayananEditor } from './LayananEditor';
 import { ProdukEditor } from './ProdukEditor';
 import { PromoEditor } from './PromoEditor';
+import { EdukasiEditor } from './EdukasiEditor';
 import { TestimoniEditor } from './TestimoniEditor';
 
 export function AdminDashboard({ onBackToSite }) {
@@ -37,9 +38,10 @@ export function AdminDashboard({ onBackToSite }) {
     { id: 'antrean', label: 'Antrean & Jadwal Servis', icon: 'calendar_month', badge: pendingCount > 0 ? pendingCount : null },
     { id: 'hero', label: '5 Hero Banner Carousel', icon: 'view_carousel' },
     { id: 'toko', label: 'Status & Jam Toko', icon: 'schedule' },
-    { id: 'layanan', label: 'Katalog Layanan Bengkel', icon: 'build' },
+    { id: 'layanan', label: 'Katalog Layanan', icon: 'build' },
     { id: 'produk', label: 'Katalog Produk & Suku Cadang', icon: 'shopping_bag' },
     { id: 'promo', label: 'Promo & Diskon', icon: 'local_offer' },
+    { id: 'edukasi', label: 'Edukasi & Tips Otomotif', icon: 'menu_book' },
     { id: 'testimoni', label: 'Testimoni Pelanggan', icon: 'reviews' },
   ];
 
@@ -161,6 +163,7 @@ export function AdminDashboard({ onBackToSite }) {
           {activeTab === 'layanan' && <LayananEditor />}
           {activeTab === 'produk' && <ProdukEditor />}
           {activeTab === 'promo' && <PromoEditor />}
+          {activeTab === 'edukasi' && <EdukasiEditor />}
           {activeTab === 'testimoni' && <TestimoniEditor />}
         </div>
 

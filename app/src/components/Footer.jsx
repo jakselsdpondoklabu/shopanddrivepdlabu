@@ -8,9 +8,9 @@ export function Footer() {
   return (
     <footer className="w-full bg-[#0B132B] text-white pt-16 pb-12 border-t border-slate-800">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          
+
           {/* Col 1: Brand Info & Address */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3">
@@ -134,10 +134,10 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
           <p>
-            &copy; 2026 Super Shop &amp; Drive Cabang Ampera. Hak Cipta Dilindungi Undang-Undang.
+            &copy; 2026 Super Shop &amp; Drive Ampera. Hak Cipta Dilindungi Undang-Undang.
           </p>
           <p className="mt-1 text-slate-600">
-            Astra Otoparts Network • Garansi Resmi Suku Cadang Asli Indonesia
+            PT Astra Otoparts, Tbk • Garansi Resmi Suku Cadang Asli Indonesia
           </p>
         </div>
 

@@ -337,6 +337,20 @@ export function SiteDataProvider({ children }) {
     });
   };
 
+  const updateArticles = (newArticles) => {
+    setContent((prev) => {
+      const updated = {
+        ...prev,
+        promo: {
+          ...prev.promo,
+          articles: newArticles,
+        },
+      };
+      persistChanges(updated);
+      return updated;
+    });
+  };
+
   const updateTestimonials = (newTestimonials) => {
     setContent((prev) => {
       const updated = {
@@ -459,6 +473,7 @@ export function SiteDataProvider({ children }) {
         updateProducts,
         updateStoreStatus,
         updatePromo,
+        updateArticles,
         updateTestimonials,
         updateBrand,
         updateGowaConfig,

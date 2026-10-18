@@ -1,0 +1,33 @@
+# ==============================================================================
+# ROBOTS.TXT - SUPER SHOP & DRIVE AMPERA (shopanddriveampera.com)
+# ==============================================================================
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api/
+
+# Izinkan Crawler Mesin Pencari Utama & AI Engine (Google AI Mode, ChatGPT, Perplexity)
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Lokasi XML Sitemap & LLMs Index
+Sitemap: https://shopanddriveampera.com/sitemap.xml

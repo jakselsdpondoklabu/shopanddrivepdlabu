@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Halaman Utama (Beranda) -->
+  <url>
+    <loc>https://shopanddriveampera.com/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://shopanddriveampera.com/Assets/bg1.jpeg</image:loc>
+      <image:title>Super Shop and Drive Ampera Jakarta Selatan</image:title>
+      <image:caption>Pusat servis berkala, ganti aki, ganti oli, dan suku cadang resmi Astra Otoparts di Ampera Raya Jakarta Selatan.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Halaman Katalog Produk & Suku Cadang -->
+  <url>
+    <loc>https://shopanddriveampera.com/#produk</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://shopanddriveampera.com/Assets/ganti%20aki.jpg</image:loc>
+      <image:title>Aki GS Astra dan Incoe Resmi Bergaransi</image:title>
+    </image:image>
+  </url>
+
+  <!-- Halaman Katalog Layanan Bengkel -->
+  <url>
+    <loc>https://shopanddriveampera.com/#layanan</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://shopanddriveampera.com/Assets/spooring.webp</image:loc>
+      <image:title>Spooring Balancing 3D Hunter dan Layanan Bengkel</image:title>
+    </image:image>
+  </url>
+
+  <!-- Halaman Promo & Diskon Spesial -->
+  <url>
+    <loc>https://shopanddriveampera.com/#promo</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Halaman Booking & Antrean Servis -->
+  <url>
+    <loc>https://shopanddriveampera.com/#antrean</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Halaman Lokasi Bengkel & Kontak Maps -->
+  <url>
+    <loc>https://shopanddriveampera.com/#lokasi</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

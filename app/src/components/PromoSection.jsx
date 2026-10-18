@@ -68,7 +68,7 @@ export function PromoSection() {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
           <div>
             <span className="text-xs sm:text-sm font-bold text-[#E3000F] uppercase tracking-widest block mb-1">
-              Edukasi &amp; Tips Montir
+              Edukasi &amp; Tips Otomotif
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[#002884] tracking-tight">
               Tips &amp; Artikel Perawatan Otomotif
@@ -95,9 +95,19 @@ export function PromoSection() {
             {promo.articles.map((art) => (
               <article
                 key={art.id}
-                className="bg-[#F8FAFC] rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between p-6"
+                className="group bg-[#F8FAFC] rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between p-6"
               >
                 <div>
+                  {art.image && (
+                    <div className="w-full h-44 rounded-xl overflow-hidden mb-4 bg-slate-200 border border-slate-200/60">
+                      <img
+                        src={art.image}
+                        alt={art.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+
                   <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
                     <span className="px-2.5 py-1 bg-white border border-slate-200 font-bold text-[#002884] rounded-md uppercase tracking-wider text-[10px]">
                       {art.category}
@@ -108,7 +118,7 @@ export function PromoSection() {
                     </div>
                   </div>
 
-                  <h4 className="text-base font-bold text-[#0B1C30] mb-2 leading-snug">
+                  <h4 className="text-base font-bold text-[#0B1C30] mb-2 leading-snug group-hover:text-[#002884] transition-colors">
                     {art.title}
                   </h4>
 
