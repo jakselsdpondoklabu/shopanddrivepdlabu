@@ -43,10 +43,10 @@ export const defaultSiteContent = {
     ctaText: "Booking via WhatsApp",
     secondaryCtaText: "Lihat Layanan Bengkel",
     stats: [
-      { value: "15+ Th", label: "Pengalaman Teknisi" },
-      { value: "50.000+", label: "Mobil Ditangani" },
+      { value: "13+ Th", label: "Pengalaman Teknisi" },
+      { value: "30.000+", label: "Mobil Ditangani" },
       { value: "100% Asli", label: "Garansi Suku Cadang" },
-      { value: "Hunter 3D", label: "Standar Pabrikan" },
+      { value: "PT Astra Otoparts Tbk", label: "Standar Pabrikan" },
     ],
     banners: [
       {
