@@ -1,8 +1,12 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Retrieve credentials from environment variables or localStorage override for easy config
-const envUrl = import.meta.env.VITE_SUPABASE_URL;
-const envAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Default Supabase project credentials for Super Shop & Drive Ampera
+const DEFAULT_SUPABASE_URL = 'https://zhlbucryrtdrryqwswsd.supabase.co';
+const DEFAULT_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpobGJ1Y3J5cnRkcnJ5cXdzd3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIxNDM0OTEsImV4cCI6MjEwNzcxOTQ5MX0.VGjp2Warw54J_v5hgG2Haik6RkY9K43PvjCddNCPGU8';
+
+// Retrieve credentials from environment variables, localStorage override, or project fallback
+const envUrl = import.meta.env.VITE_SUPABASE_URL || DEFAULT_SUPABASE_URL;
+const envAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
 
 // Check localStorage for manual override if admin configured it in dashboard
 const localUrl = typeof window !== 'undefined' ? localStorage.getItem('ssdampera_supabase_url') : null;
@@ -19,6 +23,25 @@ export const SUPABASE_ANON_KEY = (localKey || envAnonKey || '').trim();
 export const isSupabaseConfigured = () => {
   return Boolean(SUPABASE_URL && SUPABASE_ANON_KEY && SUPABASE_URL.startsWith('http'));
 };
+
+/**
+ * Format string atau number menjadi format mata uang Rupiah rapi
+ * Contoh: 850000 -> "Rp 850.000", "850.000" -> "Rp 850.000", "Rp 850.000" -> "Rp 850.000"
+ */
+export function formatRupiah(val) {
+  if (!val) return '';
+  const str = String(val).trim();
+  if (/^rp/i.test(str)) {
+    return str;
+  }
+  const cleanDigits = str.replace(/[^0-9]/g, '');
+  if (!cleanDigits) {
+    return str;
+  }
+  const num = parseInt(cleanDigits, 10);
+  if (isNaN(num)) return str;
+  return `Rp ${num.toLocaleString('id-ID')}`;
+}
 
 const getSupabaseClient = () => {
   if (!isSupabaseConfigured()) return null;
@@ -164,7 +187,9 @@ export async function fetchRemoteProducts() {
       badge: item.badge,
       image: item.image_url,
       description: item.description,
-      priceEstimate: item.price_estimate,
+      price: item.price || item.price_estimate || '',
+      priceEstimate: item.price_estimate || item.price || '',
+      discountTradeIn: item.discount_trade_in || '',
       waMessage: item.wa_message,
       showInBanner: item.show_in_banner ?? false,
     }));
@@ -180,6 +205,8 @@ export async function fetchRemoteProducts() {
 export async function insertRemoteProduct(product) {
   if (!isSupabaseConfigured() || !supabase) return null;
 
+  const basePrice = product.price || product.priceEstimate || '';
+
   try {
     const payload = {
       id: product.id,
@@ -189,16 +216,29 @@ export async function insertRemoteProduct(product) {
       badge: product.badge,
       image_url: product.image,
       description: product.description,
-      price_estimate: product.priceEstimate,
-      wa_message: product.waMessage,
-      show_in_banner: product.showInBanner ?? false,
+      price_estimate: basePrice,
+      discount_trade_in: product.discountTradeIn || null,
+      waMessage: product.waMessage,
+      showInBanner: product.showInBanner ?? false,
     };
 
-    const { data, error } = await supabase
+    let { data, error } = await supabase
       .from('products')
       .upsert(payload)
       .select()
-      .single();
+      .maybeSingle();
+
+    // If discount_trade_in column is not yet created in Supabase schema, retry without it
+    if (error && error.code === 'PGRST204') {
+      delete payload.discount_trade_in;
+      const retryResult = await supabase
+        .from('products')
+        .upsert(payload)
+        .select()
+        .maybeSingle();
+      data = retryResult.data;
+      error = retryResult.error;
+    }
 
     if (error) throw error;
     return data;

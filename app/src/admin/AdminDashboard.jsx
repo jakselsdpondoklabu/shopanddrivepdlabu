@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSiteData } from '../context/SiteDataContext';
+import { isSupabaseConfigured, saveRemoteSiteContent } from '../lib/supabaseClient';
 import { TokoEditor } from './TokoEditor';
 import { AntreanEditor } from './AntreanEditor';
 import { HeroEditor } from './HeroEditor';
@@ -12,6 +13,23 @@ export function AdminDashboard({ onBackToSite }) {
   const { content, resetToDefault, logout } = useSiteData();
   const { brand } = content;
   const [activeTab, setActiveTab] = useState('antrean');
+  const [isSyncing, setIsSyncing] = useState(false);
+
+  const handleManualSync = async () => {
+    setIsSyncing(true);
+    try {
+      const success = await saveRemoteSiteContent(content);
+      if (success) {
+        alert('Berhasil! Seluruh data website telah tersimpan di Supabase Cloud Database. Perubahan sekarang langsung tampil di komputer, laptop, dan HP lain.');
+      } else {
+        alert('Gagal menyimpan ke cloud. Periksa koneksi internet Anda.');
+      }
+    } catch (err) {
+      alert('Terjadi kesalahan sinkronisasi: ' + err.message);
+    } finally {
+      setIsSyncing(false);
+    }
+  };
 
   const pendingCount = (content?.bookings || []).filter((b) => b.status === 'Menunggu').length;
 
@@ -58,6 +76,24 @@ export function AdminDashboard({ onBackToSite }) {
           </div>
 
           <div className="flex items-center gap-2 sm:gap-3">
+            {/* Status Indikator Supabase Multi-Device */}
+            <div className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold bg-emerald-950/60 text-emerald-300 border border-emerald-500/30">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Cloud Sync Aktif</span>
+            </div>
+
+            <button
+              onClick={handleManualSync}
+              disabled={isSyncing}
+              className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm rounded-xl transition-all flex items-center gap-1.5 shadow-sm disabled:opacity-50 active:scale-[0.98]"
+              title="Sinkronkan data saat ini ke Supabase Cloud agar muncul di semua komputer"
+            >
+              <span className={`material-symbols-outlined text-[18px] ${isSyncing ? 'animate-spin' : ''}`}>
+                cloud_sync
+              </span>
+              <span className="hidden sm:inline">{isSyncing ? 'Menyimpan...' : 'Simpan ke Cloud'}</span>
+            </button>
+
             <button
               onClick={onBackToSite}
               className="px-3.5 py-2 bg-[#002884] hover:bg-[#001C5D] text-white font-bold text-xs sm:text-sm rounded-xl transition-all flex items-center gap-1.5 shadow-sm"

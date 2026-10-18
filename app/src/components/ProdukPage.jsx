@@ -3,6 +3,7 @@ import { useSiteData } from '../context/SiteDataContext';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { FloatingAction } from './FloatingAction';
+import { formatRupiah } from '../lib/supabaseClient';
 
 export function ProdukPage({ onBackToHome }) {
   const { content } = useSiteData();
@@ -231,22 +232,34 @@ export function ProdukPage({ onBackToHome }) {
                       </div>
 
                       <div className="pt-3 border-t border-slate-100 mt-auto">
-                        <div className="flex items-baseline justify-between mb-3">
+                        <div className="flex items-baseline justify-between mb-2">
                           <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                            Estimasi Harga
+                            Harga
                           </span>
-                          <span className="text-sm sm:text-base font-extrabold text-[#002884]">
-                            {prod.priceEstimate}
+                          <span className="text-base sm:text-lg font-black text-[#002884]">
+                            {formatRupiah(prod.price || prod.priceEstimate)}
                           </span>
                         </div>
 
+                        {/* Slot Diskon / Trade-In */}
+                        {prod.discountTradeIn && (
+                          <div className="mb-3 flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-200/80 rounded-xl text-emerald-800 text-xs font-bold shadow-xs">
+                            <span className="material-symbols-outlined text-[16px] text-emerald-600 shrink-0">
+                              swap_horizontal_circle
+                            </span>
+                            <span className="truncate">
+                              {prod.discountTradeIn}
+                            </span>
+                          </div>
+                        )}
+
                         <a
                           href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(
-                            prod.waMessage || `Halo Super Shop & Drive Ampera, saya ingin memesan/tanya ketersediaan produk ${prod.name}`
+                            prod.waMessage || `Halo Super Shop & Drive Ampera, saya ingin memesan/tanya ketersediaan produk ${prod.name} (Harga: ${formatRupiah(prod.price || prod.priceEstimate)}${prod.discountTradeIn ? ` | Promo: ${prod.discountTradeIn}` : ''})`
                           )}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-full py-2.5 px-4 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-md shadow-emerald-950/10"
+                          className="w-full py-2.5 px-4 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-md shadow-emerald-950/10 active:scale-[0.98]"
                         >
                           <span className="material-symbols-outlined text-[18px]">
                             shopping_cart

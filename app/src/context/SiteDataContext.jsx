@@ -122,6 +122,12 @@ export function SiteDataProvider({ children }) {
             } catch {}
             return merged;
           });
+        } else {
+          // Database cloud masih kosong (fresh setup), auto-seed data aktif ke Supabase Cloud
+          setContent((current) => {
+            saveRemoteSiteContent(current);
+            return current;
+          });
         }
       });
     }

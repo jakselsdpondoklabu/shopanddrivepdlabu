@@ -37,10 +37,14 @@ create table if not exists products (
   image_url text,
   description text,
   price_estimate text,
+  discount_trade_in text,
   wa_message text,
   show_in_banner boolean default false,
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
+
+-- Migrasi: Tambahkan kolom discount_trade_in jika tabel sudah terlanjur dibuat sebelumnya
+alter table products add column if not exists discount_trade_in text;
 
 -- Row Level Security (RLS) untuk products
 alter table products enable row level security;

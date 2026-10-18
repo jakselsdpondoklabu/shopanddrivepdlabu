@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSiteData } from '../context/SiteDataContext';
+import { formatRupiah } from '../lib/supabaseClient';
 
 export function ProdukPreviewBanner() {
   const { content } = useSiteData();
@@ -84,22 +85,30 @@ export function ProdukPreviewBanner() {
                 </div>
 
                 <div className="pt-2 border-t border-slate-100 mt-auto">
-                  <div className="mb-2.5">
-                    <span className="text-[10px] font-semibold text-slate-400 uppercase block">
-                      Estimasi Ritel
+                  <div className="mb-2">
+                    <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                      Harga
                     </span>
-                    <span className="text-xs sm:text-sm font-extrabold text-[#002884]">
-                      {prod.priceEstimate}
+                    <span className="text-xs sm:text-sm font-black text-[#002884]">
+                      {formatRupiah(prod.price || prod.priceEstimate)}
                     </span>
+                    {prod.discountTradeIn && (
+                      <div className="mt-1 flex items-center gap-1 text-[10px] font-bold text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 shadow-2xs">
+                        <span className="material-symbols-outlined text-[13px] text-emerald-600 shrink-0">
+                          swap_horizontal_circle
+                        </span>
+                        <span className="truncate">{prod.discountTradeIn}</span>
+                      </div>
+                    )}
                   </div>
 
                   <a
                     href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(
-                      prod.waMessage || `Halo Super Shop & Drive Ampera, saya ingin pesan ${prod.name}`
+                      prod.waMessage || `Halo Super Shop & Drive Ampera, saya ingin pesan ${prod.name} (Harga: ${formatRupiah(prod.price || prod.priceEstimate)}${prod.discountTradeIn ? ` | Promo: ${prod.discountTradeIn}` : ''})`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2 px-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1 shadow-sm"
+                    className="w-full py-2 px-3 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1 shadow-sm active:scale-[0.98]"
                   >
                     <span className="material-symbols-outlined text-[15px]">chat</span>
                     <span>Pesan via WA</span>

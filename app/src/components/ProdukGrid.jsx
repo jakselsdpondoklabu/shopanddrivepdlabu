@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSiteData } from '../context/SiteDataContext';
+import { formatRupiah } from '../lib/supabaseClient';
 
 export function ProdukGrid() {
   const { content } = useSiteData();
@@ -104,22 +105,34 @@ export function ProdukGrid() {
                 </div>
 
                 <div className="pt-3 border-t border-slate-200 mt-auto">
-                  <div className="flex items-baseline justify-between mb-3">
-                    <span className="text-[11px] font-semibold text-slate-400 uppercase">
-                      Estimasi Harga
+                  <div className="flex items-baseline justify-between mb-2">
+                    <span className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                      Harga
                     </span>
-                    <span className="text-sm sm:text-base font-extrabold text-[#002884]">
-                      {prod.priceEstimate}
+                    <span className="text-base sm:text-lg font-black text-[#002884]">
+                      {formatRupiah(prod.price || prod.priceEstimate)}
                     </span>
                   </div>
 
+                  {/* Slot Diskon / Trade-In */}
+                  {prod.discountTradeIn && (
+                    <div className="mb-3 flex items-center gap-1.5 px-2.5 py-1.5 bg-emerald-50 border border-emerald-200/80 rounded-xl text-emerald-800 text-xs font-bold shadow-xs">
+                      <span className="material-symbols-outlined text-[15px] text-emerald-600 shrink-0">
+                        swap_horizontal_circle
+                      </span>
+                      <span className="truncate">
+                        {prod.discountTradeIn}
+                      </span>
+                    </div>
+                  )}
+
                   <a
                     href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(
-                      prod.waMessage || `Halo Super Shop & Drive Ampera, saya ingin pesan produk: ${prod.name}`
+                      prod.waMessage || `Halo Super Shop & Drive Ampera, saya ingin pesan produk: ${prod.name} (Harga: ${formatRupiah(prod.price || prod.priceEstimate)}${prod.discountTradeIn ? ` | Promo: ${prod.discountTradeIn}` : ''})`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 px-4 bg-[#E3000F] hover:bg-[#C2000D] text-white font-bold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm"
+                    className="w-full py-2.5 px-4 bg-[#E3000F] hover:bg-[#C2000D] text-white font-bold text-xs sm:text-sm rounded-xl transition-all flex items-center justify-center gap-1.5 shadow-sm active:scale-[0.98]"
                   >
                     <span className="material-symbols-outlined text-[16px]">shopping_cart</span>
                     <span>Pesan via WhatsApp</span>

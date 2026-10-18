@@ -6,6 +6,7 @@ import {
   insertRemoteProduct,
   deleteRemoteProduct,
   isSupabaseConfigured,
+  formatRupiah,
 } from '../lib/supabaseClient';
 
 const PRESET_STOCK_IMAGES = [
@@ -29,7 +30,9 @@ export function ProdukEditor() {
     badge: 'Garansi Resmi',
     image: '/Assets/bg1.jpeg',
     description: '',
-    priceEstimate: 'Rp ',
+    price: 'Rp 850.000',
+    priceEstimate: 'Rp 850.000',
+    discountTradeIn: '',
     waMessage: '',
     showInBanner: false,
   });
@@ -49,6 +52,9 @@ export function ProdukEditor() {
     setStagedFile(null);
     setFormData({
       ...p,
+      price: p.price || p.priceEstimate || '',
+      priceEstimate: p.priceEstimate || p.price || '',
+      discountTradeIn: p.discountTradeIn || '',
       showInBanner: p.showInBanner ?? false,
     });
   };
@@ -64,8 +70,10 @@ export function ProdukEditor() {
       badge: 'Produk Baru',
       image: '/Assets/ganti aki.jpg',
       description: '',
-      priceEstimate: 'Mulai Rp 500.000',
-      waMessage: 'Halo Super Shop & Drive Ampera, saya ingin tanya produk ini',
+      price: 'Rp 850.000',
+      priceEstimate: 'Rp 850.000',
+      discountTradeIn: 'Trade-in aki s/d Rp 150.000',
+      waMessage: 'Halo Super Shop & Drive Ampera, saya ingin tanya ketersediaan produk ini',
       showInBanner: currentFeaturedCount < 5,
     });
   };
@@ -149,8 +157,12 @@ export function ProdukEditor() {
         }
       }
 
+      const basePrice = formatRupiah(formData.price || formData.priceEstimate || '');
       const itemToSave = {
         ...formData,
+        price: basePrice,
+        priceEstimate: basePrice,
+        discountTradeIn: (formData.discountTradeIn || '').trim(),
         image: finalImageUrl,
       };
 
@@ -520,7 +532,7 @@ export function ProdukEditor() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
                   Merk / Brand Badge
@@ -529,21 +541,7 @@ export function ProdukEditor() {
                   type="text"
                   value={formData.brandBadge}
                   onChange={(e) => setFormData({ ...formData, brandBadge: e.target.value })}
-                  placeholder="GS Astra / Shell / KYB"
-                  className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-sm"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                  Estimasi Harga <span className="text-[#E3000F]">*</span>
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.priceEstimate}
-                  onChange={(e) => setFormData({ ...formData, priceEstimate: e.target.value })}
-                  placeholder="Mulai Rp 750.000"
+                  placeholder="GS Astra / Shell / KYB / Incoe"
                   className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-sm"
                 />
               </div>
@@ -556,9 +554,51 @@ export function ProdukEditor() {
                   type="text"
                   value={formData.badge}
                   onChange={(e) => setFormData({ ...formData, badge: e.target.value })}
-                  placeholder="Garansi 24 Bulan"
+                  placeholder="Garansi 24 Bulan / Fully Synthetic"
                   className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-sm"
                 />
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                  Harga Nominal (Rupiah) <span className="text-[#E3000F]">*</span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={formData.price || formData.priceEstimate || ''}
+                  onChange={(e) => {
+                    const val = e.target.value;
+                    setFormData({ ...formData, price: val, priceEstimate: val });
+                  }}
+                  onBlur={(e) => {
+                    const formatted = formatRupiah(e.target.value);
+                    if (formatted) {
+                      setFormData((prev) => ({ ...prev, price: formatted, priceEstimate: formatted }));
+                    }
+                  }}
+                  placeholder="Contoh: Rp 850.000 atau 850000"
+                  className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-sm font-bold text-[#002884]"
+                />
+                <span className="text-[11px] text-slate-400 block mt-1">
+                  Masukkan angka nominal Rupiah (cth: Rp 850.000 atau 850000).
+                </span>
+              </div>
+
+              <div>
+                <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
+                  Slot Diskon / Trade-In (Opsional)
+                </label>
+                <input
+                  type="text"
+                  value={formData.discountTradeIn || ''}
+                  onChange={(e) => setFormData({ ...formData, discountTradeIn: e.target.value })}
+                  placeholder="Contoh: Trade-in aki s/d Rp 150.000 atau Diskon Rp 50.000"
+                  className="w-full h-10 px-3 bg-white border border-emerald-300 rounded-lg text-sm font-semibold text-emerald-800 bg-emerald-50/40"
+                />
+                <span className="text-[11px] text-slate-400 block mt-1">
+                  Penawaran tukar tambah aki/ban bekas atau potongan promo spesial.
+                </span>
               </div>
             </div>
 
@@ -706,8 +746,16 @@ export function ProdukEditor() {
                 <td className="py-3 px-4 font-semibold text-slate-600">
                   {prod.brandBadge || '-'}
                 </td>
-                <td className="py-3 px-4 font-extrabold text-[#002884]">
-                  {prod.priceEstimate}
+                <td className="py-3 px-4">
+                  <div className="font-extrabold text-[#002884] text-sm">
+                    {formatRupiah(prod.price || prod.priceEstimate)}
+                  </div>
+                  {prod.discountTradeIn && (
+                    <div className="mt-1 inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold text-emerald-800 bg-emerald-50 border border-emerald-200">
+                      <span className="material-symbols-outlined text-[13px] text-emerald-600">swap_horizontal_circle</span>
+                      <span>{prod.discountTradeIn}</span>
+                    </div>
+                  )}
                 </td>
                 <td className="py-3 px-4 text-center">
                   <button
