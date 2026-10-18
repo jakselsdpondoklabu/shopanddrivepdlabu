@@ -4,7 +4,7 @@ export const defaultSiteContent = {
     subName: "AMPERA",
     tagline: "The Trusted Parts Shop",
     logoUrl: "/Assets/logo.png",
-    phone: "(021) 780-0285",
+    phone: "(021) 782-3844",
     whatsappNumber: "6285117150285",
     whatsappDefaultMessage: "Halo Super Shop & Drive Ampera, saya ingin konsultasi dan booking servis kendaraan.",
     address: "JL. Ampera Raya no.138 Ragunan, Pasar Minggu, Jakarta Selatan",

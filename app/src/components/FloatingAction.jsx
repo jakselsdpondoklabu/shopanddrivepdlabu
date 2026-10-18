@@ -5,17 +5,20 @@ export function FloatingAction() {
   const { content } = useSiteData();
   const { brand } = content;
 
+  // Format target telpon untuk protokol tel: (contoh: 0217823844)
+  const phoneDigits = (brand.phone || '(021) 782-3844').replace(/[^0-9]/g, '');
+
   return (
     <aside className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 pointer-events-auto">
       
       {/* Hotline / Telepon Trigger */}
       <a
-        href={`tel:${brand.whatsappNumber}`}
+        href={`tel:${phoneDigits}`}
         className="group flex items-center gap-2 transition-all transform hover:-translate-y-1"
-        aria-label="Hubungi Hotline Bengkel"
+        aria-label={`Hubungi Telepon Hotline Bengkel ${brand.phone || '(021) 782-3844'}`}
       >
         <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 px-3 py-1.5 rounded-lg bg-[#0B132B]/90 text-white text-xs font-bold shadow-lg backdrop-blur-md pointer-events-none whitespace-nowrap hidden sm:inline-block">
-          Hubungi Hotline
+          Hotline: {brand.phone || '(021) 782-3844'}
         </span>
         <div className="w-12 h-12 rounded-full bg-white p-1.5 shadow-xl border-2 border-[#002884]/30 flex items-center justify-center transition-transform group-hover:scale-105">
           <img

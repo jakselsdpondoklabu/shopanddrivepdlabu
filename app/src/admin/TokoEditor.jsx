@@ -13,6 +13,7 @@ export function TokoEditor() {
       ? 'AMPERA'
       : (brand?.subName || 'AMPERA')
   );
+  const [phone, setPhone] = useState(brand?.phone || '(021) 782-3844');
   const [operationalHours, setOperationalHours] = useState(brand?.operationalHours || '08.00 s/d 20.00 WIB (Buka Setiap Hari)');
   const [address, setAddress] = useState(brand?.address || 'JL. Ampera Raya no.138 Ragunan, Pasar Minggu, Jakarta Selatan');
   const [mapsGoogleUrl, setMapsGoogleUrl] = useState(brand?.mapsGoogleUrl || '');
@@ -28,6 +29,7 @@ export function TokoEditor() {
     });
     updateBrand({
       subName: subName.trim(),
+      phone: phone.trim(),
       operationalHours,
       address,
       mapsGoogleUrl,
@@ -193,6 +195,23 @@ export function TokoEditor() {
           />
           <span className="text-[11px] text-slate-400 mt-1 block">
             Tampil tepat di bawah nama "SUPER SHOP &amp; DRIVE" pada header website.
+          </span>
+        </div>
+
+        {/* Nomor Telepon Hotline Bengkel */}
+        <div>
+          <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+            Nomor Telepon Hotline Bengkel (Tujuan Tombol Telepon)
+          </label>
+          <input
+            type="text"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            placeholder="(021) 782-3844"
+            className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold text-slate-800 focus:outline-none focus:ring-2 focus:ring-[#002884] focus:bg-white"
+          />
+          <span className="text-[11px] text-slate-400 mt-1 block">
+            Nomor telepon tujuan saat pengunjung menekan tombol telepon mengambang (floating hotline) atau tombol kontak telepon di seluruh website.
           </span>
         </div>
 

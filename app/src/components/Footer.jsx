@@ -48,6 +48,19 @@ export function Footer() {
                 <span className="material-symbols-outlined text-[18px]">chat</span>
                 <span>+{brand.whatsappNumber}</span>
               </a>
+
+              <div className="mt-2.5 pt-2 border-t border-slate-800">
+                <span className="text-xs text-slate-400 block mb-1">
+                  Telepon Hotline Cabang:
+                </span>
+                <a
+                  href={`tel:${(brand.phone || '(021) 782-3844').replace(/[^0-9]/g, '')}`}
+                  className="text-sm font-bold text-slate-200 hover:text-white flex items-center gap-1.5"
+                >
+                  <span className="material-symbols-outlined text-[16px] text-red-400">call</span>
+                  <span>{brand.phone || '(021) 782-3844'}</span>
+                </a>
+              </div>
             </div>
           </div>
 

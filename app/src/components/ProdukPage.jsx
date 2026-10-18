@@ -304,11 +304,11 @@ export function ProdukPage({ onBackToHome }) {
                 </a>
 
                 <a
-                  href={`tel:${brand.phone || '0217800285'}`}
+                  href={`tel:${(brand.phone || '(021) 782-3844').replace(/[^0-9]/g, '')}`}
                   className="px-5 py-3.5 bg-[#1C2541] hover:bg-slate-700 text-white font-bold text-sm rounded-xl border border-slate-600 transition-all flex items-center justify-center gap-2"
                 >
                   <span className="material-symbols-outlined text-[18px]">call</span>
-                  <span>Hotline Cabang</span>
+                  <span>Hotline Cabang {brand.phone || '(021) 782-3844'}</span>
                 </a>
               </div>
             </div>

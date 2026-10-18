@@ -83,6 +83,27 @@ export function LokasiMaps() {
                 </div>
               </div>
 
+              {/* Telephone Hotline Box */}
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-[#002884] flex items-center justify-center shrink-0 border border-blue-100">
+                  <span className="material-symbols-outlined text-2xl">call</span>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-[#002884] uppercase tracking-wider mb-1">
+                    Telepon Hotline Cabang
+                  </h3>
+                  <a
+                    href={`tel:${(brand.phone || '(021) 782-3844').replace(/[^0-9]/g, '')}`}
+                    className="text-sm sm:text-base font-bold text-slate-900 hover:text-[#002884] hover:underline leading-snug block"
+                  >
+                    {brand.phone || '(021) 782-3844'}
+                  </a>
+                  <span className="text-xs text-slate-500 mt-0.5 block">
+                    Hubungi langsung saluran telepon bengkel
+                  </span>
+                </div>
+              </div>
+
             </div>
 
             {/* CTA Buttons */}
