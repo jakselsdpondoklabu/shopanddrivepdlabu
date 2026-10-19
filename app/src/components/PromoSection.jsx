@@ -79,33 +79,40 @@ export function PromoSection() {
           </div>
 
           <a
-            href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent('Halo, saya ingin konsultasi tips perawatan mobil dengan teknisi Ampera')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#002884] hover:text-[#E3000F] transition-colors"
+            href="#/edukasi"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 hover:bg-[#002884] text-[#002884] hover:text-white text-xs sm:text-sm font-bold rounded-xl transition-all border border-blue-200/80 shadow-xs group"
           >
-            <span>Konsultasi Bebas Masalah</span>
-            <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
+            <span>Buka Semua Tips &amp; Edukasi</span>
+            <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
+              arrow_forward
+            </span>
           </a>
         </div>
 
-        {/* 3 Articles Grid */}
+        {/* 3 Articles Grid (Cuplikan Saja) */}
         {promo.articles && promo.articles.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {promo.articles.map((art) => (
               <article
                 key={art.id}
-                className="group bg-[#F8FAFC] rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between p-6"
+                className="group bg-[#F8FAFC] rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between p-6"
               >
                 <div>
                   {art.image && (
-                    <div className="w-full h-44 rounded-xl overflow-hidden mb-4 bg-slate-200 border border-slate-200/60">
+                    <a
+                      href={`#/edukasi/${art.id}`}
+                      className="block w-full h-44 rounded-xl overflow-hidden mb-4 bg-slate-200 border border-slate-200/60 relative cursor-pointer"
+                    >
                       <img
                         src={art.image}
                         alt={art.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
-                    </div>
+                      <span className="absolute bottom-2.5 right-2.5 px-2 py-0.5 bg-[#0B132B]/85 text-white text-[10px] font-semibold rounded backdrop-blur-xs flex items-center gap-1">
+                        <span className="material-symbols-outlined text-[12px]">visibility</span>
+                        <span>Baca Full</span>
+                      </span>
+                    </a>
                   )}
 
                   <div className="flex items-center justify-between text-xs text-slate-500 mb-3">
@@ -118,24 +125,40 @@ export function PromoSection() {
                     </div>
                   </div>
 
-                  <h4 className="text-base font-bold text-[#0B1C30] mb-2 leading-snug group-hover:text-[#002884] transition-colors">
-                    {art.title}
-                  </h4>
+                  <a href={`#/edukasi/${art.id}`} className="block">
+                    <h4 className="text-base font-bold text-[#0B1C30] mb-2 leading-snug group-hover:text-[#002884] transition-colors line-clamp-2">
+                      {art.title}
+                    </h4>
+                  </a>
 
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                  {/* Cuplikan / Excerpt Saja */}
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6 line-clamp-3">
                     {art.summary}
                   </p>
                 </div>
 
-                <a
-                  href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(art.waTopic || art.title)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full py-2.5 px-4 bg-white hover:bg-[#002884] hover:text-white text-[#002884] font-bold text-xs rounded-xl border border-slate-200 transition-colors flex items-center justify-center gap-1.5"
-                >
-                  <span>Tanya Solusi ke Teknisi</span>
-                  <span className="material-symbols-outlined text-[16px]">chevron_right</span>
-                </a>
+                <div className="pt-2 flex flex-col sm:flex-row items-center gap-2">
+                  {/* Button Buka Halaman Full Artikel */}
+                  <a
+                    href={`#/edukasi/${art.id}`}
+                    className="w-full py-2.5 px-4 bg-[#002884] hover:bg-[#001551] text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5 shadow-xs"
+                  >
+                    <span>Lihat Selengkapnya</span>
+                    <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </a>
+
+                  {/* WhatsApp Consultation */}
+                  <a
+                    href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(art.waTopic || art.title)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full sm:w-auto py-2.5 px-3 bg-white hover:bg-slate-50 text-slate-600 hover:text-[#25D366] font-bold text-xs rounded-xl border border-slate-200 transition-colors flex items-center justify-center gap-1 shrink-0"
+                    title="Konsultasi ke Teknisi via WhatsApp"
+                  >
+                    <span className="material-symbols-outlined text-[16px] text-[#25D366]">chat</span>
+                    <span className="sm:hidden">Tanya WA</span>
+                  </a>
+                </div>
               </article>
             ))}
           </div>

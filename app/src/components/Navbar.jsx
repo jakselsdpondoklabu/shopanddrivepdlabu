@@ -8,14 +8,17 @@ export function Navbar({ activePage = 'home' }) {
 
   const openNow = isStoreOpen();
   const isProduk = activePage === 'produk';
+  const isEdu = activePage === 'edukasi';
+  const isSubPage = isProduk || isEdu;
 
   const navLinks = [
-    { label: 'Beranda', href: isProduk ? '#/' : '#' },
-    { label: 'Layanan Bengkel', href: isProduk ? '#/layanan' : '#layanan' },
+    { label: 'Beranda', href: isSubPage ? '#/' : '#' },
+    { label: 'Layanan Bengkel', href: isSubPage ? '#/layanan' : '#layanan' },
     { label: 'Produk', href: '#/produk', active: isProduk },
-    { label: 'Promo & Diskon', href: isProduk ? '#/promo' : '#promo' },
-    { label: 'Testimoni', href: isProduk ? '#/testimoni' : '#testimoni' },
-    { label: 'Lokasi & Peta', href: isProduk ? '#/lokasi' : '#lokasi' },
+    { label: 'Edukasi & Tips', href: '#/edukasi', active: isEdu },
+    { label: 'Promo & Diskon', href: isSubPage ? '#/promo' : '#promo' },
+    { label: 'Testimoni', href: isSubPage ? '#/testimoni' : '#testimoni' },
+    { label: 'Lokasi & Peta', href: isSubPage ? '#/lokasi' : '#lokasi' },
   ];
 
   return (
@@ -23,7 +26,7 @@ export function Navbar({ activePage = 'home' }) {
       <div className="h-20 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         
         {/* Brand Logo & Title */}
-        <a href={isProduk ? '#/' : '#'} className="flex items-center gap-3 group focus:outline-none rounded-lg p-1">
+        <a href={isSubPage ? '#/' : '#'} className="flex items-center gap-3 group focus:outline-none rounded-lg p-1">
           <div className="bg-white p-1 rounded-md shadow-sm">
             <img
               src={brand.logoUrl || '/Assets/logo.png'}

@@ -311,7 +311,28 @@ export const defaultSiteContent = {
         image: "/Assets/ganti aki.jpg",
         title: "Kenali 5 Tanda Aki Mobil Mulai Lemah Sebelum Mogok di Jalan",
         summary: "Jangan tunggu starter mobil berputar lambat di pagi hari. Pahami gejala penurunan voltase, suara klik, dan cara cek kelistrikan mandiri.",
-        waTopic: "Halo Super Shop & Drive Ampera, saya ingin konsultasi cek aki mobil"
+        waTopic: "Halo Super Shop & Drive Ampera, saya ingin konsultasi cek aki mobil",
+        content: `Aki (accu) adalah jantung sistem kelistrikan kendaraan Anda. Saat performa aki menurun, tidak hanya mesin yang sulit distarter, tetapi berbagai modul elektronik modern (ECU, power steering elektrik, sistem ABS, hingga head unit) dapat mengalami malfungsi karena suplai voltase yang tidak stabil.
+
+Berikut 5 tanda utama aki mobil Anda mulai soak dan perlu segera diperiksa:
+
+1. Starter Mesin Terasa Lambat (Cranking Berat)
+Tanda paling klasik adalah saat Anda memutar kunci kontak atau menekan tombol Start/Stop Engine, suara dinamo starter terdengar berputar lambat dan berat ("ngik... ngik... brem"). Gejala ini umumnya terasa sangat jelas di pagi hari saat mesin masih dalam kondisi dingin.
+
+2. Lampu Utama dan Indikator Dashboard Meredup
+Saat mesin mati dan Anda menyalakan lampu hazard atau lampu utama (headlamp), cahaya tampak redup atau menguning. Begitu pula saat mesin distarter, lampu dashboard sempat mati sesaat akibat seluruh sisa arus tersedot untuk menyalakan starter.
+
+3. Klakson Sember & Power Window Bergerak Lambat
+Turunnya daya aki membuat komponen kelistrikan sekunder bekerja di bawah kapasitas normalnya. Klakson mobil yang biasanya lantang akan terdengar lirih atau sember, dan kaca jendela power window naik dengan kecepatan lambat.
+
+4. Muncul Kerak Putih/Kehijauan di Kutub Terminal
+Timbulnya serbuk putih atau jamur kehijauan di sekitar terminal kutub positif/negatif merupakan tanda kebocoran uap asam sulfat dan oksidasi. Kerak ini menghambat aliran arus pengisian dari alternator ke aki.
+
+5. Voltase di Bawah 12.2 Volt Saat Mesin Mati
+Kondisi aki sehat memiliki tegangan minimal 12.4 - 12.7 Volt saat mesin istirahat. Jika tegangan turun di kisaran 11.8 - 12.1 Volt, kapasitas Cold Cranking Amperes (CCA) aki sudah menurun drastis dan berisiko gagal starter kapan saja.
+
+Langkah Solusi dari Teknisi Super Shop & Drive Ampera:
+Jangan menunggu mobil mogok di jalan raya atau parkiran mall. Kunjungi gerai Super Shop & Drive Cabang Ampera untuk pengecekan kondisi aki digital secara GRATIS. Kami menggunakan digital battery analyzer berstandar resmi Astra yang mampu membaca voltase, hambatan internal, dan sisa daya CCA dalam waktu kurang dari 3 menit.`
       },
       {
         id: "art-2",
@@ -321,7 +342,23 @@ export const defaultSiteContent = {
         image: "/Assets/ganti oli.webp",
         title: "Kapan Waktu Tepat Mengganti Oli Mesin? Kilometer vs Durasi Bulan",
         summary: "Sering macet di Jakarta Selatan? Ketahui mengapa jam kerja mesin (engine hours) lebih menentukan penggantian oli daripada angka odometer.",
-        waTopic: "Halo Super Shop & Drive Ampera, saya ingin tanya jadwal ganti oli yang tepat"
+        waTopic: "Halo Super Shop & Drive Ampera, saya ingin tanya jadwal ganti oli yang tepat",
+        content: `Banyak pemilik mobil hanya berpatokan pada kelipatan 5.000 atau 10.000 KM di odometer saat menjadwalkan penggantian oli mesin. Namun, untuk pengendara di wilayah Jabodetabek, terutama koridor padat seperti kawasan Ampera, Cilandak, dan TB Simatupang, patokan jarak tempuh saja bisa sangat mengecoh.
+
+Mengapa Jam Kerja Mesin (Engine Hours) Lebih Krusial?
+Saat mobil Anda terjebak macet selama 1,5 jam menempuh jarak hanya 7 KM, roda kendaraan memang berputar lambat. Namun mesin mobil tetap menyala, piston tetap bergerak naik-turun ribuan kali per menit, dan suhu ruang bakar tetap tinggi dengan kipas radiator bekerja ekstra.
+
+Kondisi inilah yang dinamakan "Severe Driving Conditions" (Kondisi Berkendara Ekstrem):
+- Oli mesin terpapar suhu panas tinggi secara terus-menerus tanpa pendinginan hembusan angin alami.
+- Aditif pembersih dan pelindung friksi pada oli terurai lebih cepat.
+- Uap bahan bakar yang tidak terbakar sempurna dapat merembes ke karter (fuel dilution), mengencerkan viskositas oli.
+
+Panduan Praktis Teknisi Shop & Drive Ampera:
+1. Aturan Waktu Maksimal: Ganti oli mesin maksimal setiap 6 bulan sekali, meskipun jarak tempuh baru mencapai 3.000 atau 4.000 KM.
+2. Cek Dipstick Mandiri: Tarik dipstick oli mesin setiap 2 minggu. Perhatikan warna oli (jika sudah hitam pekat pekat dan berbau gosong, segera ganti) serta pastikan volume oli berada tepat di antara batas titik MIN dan MAX.
+3. Selalu Ganti Filter Oli: Jangan berhemat dengan melewatkan filter oli. Filter oli lama menampung sisa kotoran gram besi dan lumpur oli (oil sludge) yang langsung mencemari oli mesin baru Anda.
+
+Nikmati layanan ganti oli bergaransi resmi di Super Shop & Drive Ampera dengan gratis biaya jasa, pengecekan 11 titik kendaraan, dan produk original Astra Otoparts seperti Shell Helix, Pertamina Fastron, Castrol, dan Motul.`
       },
       {
         id: "art-3",
@@ -331,7 +368,47 @@ export const defaultSiteContent = {
         image: "/Assets/bg3.jpg",
         title: "Bahaya Mengabaikan Bunyi Gluduk Kaki-Kaki dan Berdecit pada Rem",
         summary: "Karet bushing getas atau kampas rem tipis dapat merusak piringan rotor cakram dan membahayakan kendali di jalan basah.",
-        waTopic: "Halo Super Shop & Drive Ampera, saya ingin cek rem dan suspensi kaki-kaki"
+        waTopic: "Halo Super Shop & Drive Ampera, saya ingin cek rem dan suspensi kaki-kaki",
+        content: `Mobil yang nyaman adalah mobil yang senyap saat melintasi jalan bergelombang dan responsif saat pedal rem diinjak. Jika Anda mulai mendengar bunyi ketukan "gluduk-gluduk" dari bawah kabin atau suara mendecit bernada tinggi saat memperlambat laju kendaraan, mobil Anda sedang memberikan sinyal bahaya.
+
+Gejala Kerusakan Kaki-Kaki (Suspensi):
+1. Bunyi Gluduk di Jalan Keriting: Biasanya disebabkan oleh karet link stabilizer yang telah pecah atau ball joint yang sudah oblak. Jika dibiarkan, bantingan ban akan liar dan merusak ban secara tidak merata (ban makan dalam/luar).
+2. Mobil Terasa Mengayun Berlebih (Limbung): Menandakan shock absorber (peredam kejut) telah bocor olinya atau kehilangan tekanan gas. Jarak pengereman akan menjadi lebih panjang karena ban tidak menempel sempurna ke aspal.
+3. Bunyi 'Jedug' Keras Saat Menabrak Lubang: Karet bushing arm atau support shock bagian atas sudah robek sehingga besi suspensi langsung membentur sasis mobil.
+
+Gejala Sistem Pengereman Aus:
+1. Suara Mendecit Logam: Kampas rem modern dilengkapi pelat indikator keausan. Saat ketebalan kampas tersisa di bawah 2 mm, pelat ini sengaja menyentuh rotor cakram untuk membunyikan decitan peringatan.
+2. Pedal Rem Terasa Bergetar: Pertanda piringan cakram (rotor disc) sudah bergelombang akibat panas berlebih atau pemakaian kampas rem non-standar yang terlalu keras.
+3. Rem Terasa Dalam / Amblas: Terdapat kebocoran silinder rem atau minyak rem yang sudah terkontaminasi uap air tinggi sehingga terjadi vapor lock.
+
+Rekomendasi Teknisi Ampera:
+Kaki-kaki dan sistem pengereman menyangkut langsung keselamatan nyawa pengendara dan keluarga. Segera periksakan mobil Anda di bengkel Super Shop & Drive Ampera. Kami menyediakan suku cadang orisinal berkualitas tinggi seperti kampas rem Akebono/Aspira serta shock absorber Kayaba Excel-G bergaransi resmi Astra.`
+      },
+      {
+        id: "art-4",
+        category: "Ban & Spooring",
+        readTime: "5 Menit Baca",
+        date: "Update Terbaru",
+        image: "/Assets/bg1.jpeg",
+        title: "Kapan Mobil Wajib Spooring & Balancing? Ini Gejala Setir Lari & Getar",
+        summary: "Setir narik ke kiri atau bergetar di kecepatan 80 km/jam? Simak panduan spooring 3D Hunter dan balancing ban untuk keawetan tapak roda.",
+        waTopic: "Halo Super Shop & Drive Ampera, saya ingin booking spooring 3D Hunter dan balancing",
+        content: `Penyelarasan roda (wheel alignment / spooring) dan penyeimbangan putaran roda (wheel balancing) adalah dua perawatan berkala yang wajib dilakukan agar mobil tetap stabil, ban berumur panjang, dan konsumsi BBM tetap efisien.
+
+Perbedaan Spooring dan Balancing:
+- Spooring (Penyelarasan Sudut): Mengatur ulang sudut kemiringan roda depan dan belakang (Camber, Caster, dan Toe) sesuai spesifikasi pabrikan mobil agar ban meluncur lurus sempurna.
+- Balancing (Penyeimbangan Massa): Menyeimbangkan distribusi bobot velg dan ban menggunakan timah balancing agar roda berputar bulat sempurna tanpa getaran eksentrik.
+
+Tanda-Tanda Mobil Anda Perlu Spooring & Balancing:
+1. Setir Cenderung Menarik ke Kiri atau Kanan: Saat Anda melepas setir sejenak di jalan datar lurus, mobil perlahan membelok sendiri ke salah satu sisi jalan.
+2. Kemudi Tidak Lurus (Posisi Palang Setir Miring): Posisi roda mobil lurus, tetapi posisi palang setir di dashboard tampak miring ke arah tertentu.
+3. Setir Bergetar di Kecepatan Tertentu: Biasanya getaran pada setir terasa kuat saat mobil mencapai kecepatan 80 - 100 km/jam di jalan tol.
+4. Tapak Ban Mengalami Aus Tidak Rata: Salah satu sisi ban (sisi dalam atau sisi luar) gundul lebih cepat dibanding sisi lainnya.
+
+Kapan Harus Dilakukan?
+Rekomendasi pabrikan adalah setiap 10.000 KM atau minimal 6 bulan sekali, atau segera setelah mobil menghantam lubang jalan yang cukup dalam di kecepatan sedang.
+
+Di Super Shop & Drive Ampera, kami menggunakan mesin Hunter 3D Alignment teknologi sensor optik presisi tinggi dari Jerman untuk memastikan sudut roda kendaraan Anda akurat hingga hitungan menit derajat.`
       }
     ]
   },

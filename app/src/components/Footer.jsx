@@ -77,12 +77,19 @@ export function Footer() {
                   </a>
                 </li>
               ))}
-              <li className="pt-1.5 border-t border-slate-800">
+              <li className="pt-1.5 border-t border-slate-800 flex flex-col gap-1.5">
                 <a
                   href="#/produk"
                   className="text-amber-300 font-bold hover:text-white hover:underline transition-colors flex items-center gap-1"
                 >
                   <span>Katalog Suku Cadang &amp; Produk</span>
+                  <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                </a>
+                <a
+                  href="#/edukasi"
+                  className="text-emerald-300 font-bold hover:text-white hover:underline transition-colors flex items-center gap-1"
+                >
+                  <span>Edukasi &amp; Tips Otomotif</span>
                   <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                 </a>
               </li>

@@ -23,6 +23,7 @@ export function EdukasiEditor() {
     readTime: '5 Menit Baca',
     image: '/Assets/ganti aki.jpg',
     summary: '',
+    content: '',
     waTopic: '',
   });
 
@@ -41,6 +42,9 @@ export function EdukasiEditor() {
       image: art.image || '/Assets/ganti aki.jpg',
       category: art.category || 'Tips Otomotif',
       readTime: art.readTime || '5 Menit Baca',
+      summary: art.summary || '',
+      content: art.content || '',
+      waTopic: art.waTopic || '',
     });
   };
 
@@ -58,6 +62,7 @@ export function EdukasiEditor() {
       readTime: '4 Menit Baca',
       image: '/Assets/ganti aki.jpg',
       summary: '',
+      content: '',
       waTopic: 'Halo Super Shop & Drive Ampera, saya ingin konsultasi perawatan mobil',
     });
   };
@@ -322,16 +327,40 @@ export function EdukasiEditor() {
 
             <div>
               <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
-                Isi / Ringkasan Tips Edukasi <span className="text-red-500">*</span>
+                Cuplikan / Ringkasan di Beranda Home <span className="text-red-500">*</span>
               </label>
               <textarea
-                rows="3"
+                rows="2"
                 required
                 value={formData.summary}
                 onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
-                placeholder="Tuliskan rangkuman tips perawatan otomotif yang informatif dan praktis bagi pelanggan."
+                placeholder="Tuliskan rangkuman / cuplikan singkat (1-3 kalimat) yang tampil di kartu beranda website."
                 className="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm leading-relaxed"
               />
+              <span className="text-[11px] text-slate-400 block mt-1">
+                Tampil sebagai teaser di Beranda sebelum pengunjung menekan tombol "Lihat Selengkapnya".
+              </span>
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-xs font-bold text-slate-700 uppercase">
+                  Konten Lengkap Halaman Artikel (Full Article Detail)
+                </label>
+                <span className="text-[11px] font-bold text-[#002884] bg-blue-50 px-2 py-0.5 rounded border border-blue-200">
+                  Tampil Penuh di Halaman Tersendiri
+                </span>
+              </div>
+              <textarea
+                rows="9"
+                value={formData.content}
+                onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                placeholder="Tuliskan penjelasan detail panduan otomotif, poin-poin penyebab kerusakan, langkah perbaikan mandiri, serta tips teknisi. Boleh dipisahkan dengan enter/baris baru. Jika dikosongkan, sistem akan otomatis merender panduan standar terstruktur."
+                className="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm leading-relaxed font-sans"
+              />
+              <span className="text-[11px] text-slate-400 block mt-1">
+                Gunakan baris baru (Enter) antar paragraf untuk keterbacaan yang nyaman di HP dan komputer.
+              </span>
             </div>
 
             <div>
@@ -378,12 +407,17 @@ export function EdukasiEditor() {
             className="bg-slate-50/70 rounded-2xl border border-slate-200 overflow-hidden flex flex-col justify-between p-4 hover:shadow-md transition-shadow"
           >
             <div>
-              <div className="w-full h-36 rounded-xl overflow-hidden bg-slate-200 border border-slate-200 mb-3">
+              <div className="w-full h-36 rounded-xl overflow-hidden bg-slate-200 border border-slate-200 mb-3 relative">
                 <img
                   src={art.image || '/Assets/bg1.jpeg'}
                   alt={art.title}
                   className="w-full h-full object-cover"
                 />
+                {art.content && (
+                  <span className="absolute top-2 right-2 px-2 py-0.5 bg-emerald-600/90 text-white text-[10px] font-bold rounded shadow-xs">
+                    Full Content Aktif
+                  </span>
+                )}
               </div>
 
               <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
@@ -397,15 +431,22 @@ export function EdukasiEditor() {
                 {art.title}
               </h4>
 
-              <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed mb-4">
+              <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-4">
                 {art.summary}
               </p>
             </div>
 
             <div className="pt-3 border-t border-slate-200/80 flex items-center justify-between">
-              <span className="text-[11px] text-slate-400 font-medium">
-                {art.date || 'Update Terbaru'}
-              </span>
+              <a
+                href={`#/edukasi/${art.id}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] text-blue-600 hover:text-blue-800 font-bold flex items-center gap-1"
+                title="Buka halaman full artikel ini di tab baru"
+              >
+                <span>Lihat di Web</span>
+                <span className="material-symbols-outlined text-[14px]">open_in_new</span>
+              </a>
 
               <div className="flex items-center gap-1">
                 <button

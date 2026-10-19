@@ -6,6 +6,7 @@ import { LayananGrid } from './components/LayananGrid';
 import { ProdukPreviewBanner } from './components/ProdukPreviewBanner';
 import { PromoSection } from './components/PromoSection';
 import { ProdukPage } from './components/ProdukPage';
+import { EdukasiPage } from './components/EdukasiPage';
 import { TestimoniSection } from './components/TestimoniSection';
 import { LokasiMaps } from './components/LokasiMaps';
 import { Footer } from './components/Footer';
@@ -17,6 +18,8 @@ function MainApp() {
   const { isAdminLoggedIn } = useSiteData();
   const [isAdminRoute, setIsAdminRoute] = useState(false);
   const [isProdukRoute, setIsProdukRoute] = useState(false);
+  const [isEdukasiRoute, setIsEdukasiRoute] = useState(false);
+  const [activeArticleId, setActiveArticleId] = useState(null);
 
   // Check route on mount and when popstate / hash changes
   useEffect(() => {
@@ -25,12 +28,40 @@ function MainApp() {
       const hash = window.location.hash.toLowerCase();
       const isRouteAdmin = path === '/admin' || path === '/admin/' || hash === '#admin' || hash === '#/admin';
       const isRouteProduk = path === '/produk' || path === '/produk/' || hash === '#produk' || hash === '#/produk';
-      
+      const isRouteEdu =
+        path === '/edukasi' ||
+        path === '/edukasi/' ||
+        path === '/tips' ||
+        path === '/tips/' ||
+        hash.startsWith('#edukasi') ||
+        hash.startsWith('#/edukasi') ||
+        hash.startsWith('#tips') ||
+        hash.startsWith('#/tips');
+
       setIsAdminRoute(isRouteAdmin);
       setIsProdukRoute(isRouteProduk);
+      setIsEdukasiRoute(isRouteEdu);
+
+      if (isRouteEdu) {
+        if (hash.includes('id=')) {
+          const m = hash.match(/id=([^&]+)/);
+          if (m && m[1]) {
+            setActiveArticleId(decodeURIComponent(m[1]));
+          }
+        } else {
+          const parts = hash.replace(/^#\/?/, '').split('/');
+          if ((parts[0] === 'edukasi' || parts[0] === 'tips') && parts[1]) {
+            setActiveArticleId(decodeURIComponent(parts[1]));
+          } else {
+            setActiveArticleId(null);
+          }
+        }
+      } else {
+        setActiveArticleId(null);
+      }
 
       // If switching to home with anchor hash (e.g., #layanan, #promo, #lokasi), scroll smoothly
-      if (!isRouteAdmin && !isRouteProduk && hash && hash !== '#' && hash !== '#/') {
+      if (!isRouteAdmin && !isRouteProduk && !isRouteEdu && hash && hash !== '#' && hash !== '#/') {
         const id = hash.replace('#/', '').replace('#', '');
         setTimeout(() => {
           const el = document.getElementById(id);
@@ -58,6 +89,8 @@ function MainApp() {
     }
     setIsAdminRoute(false);
     setIsProdukRoute(false);
+    setIsEdukasiRoute(false);
+    setActiveArticleId(null);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -82,6 +115,16 @@ function MainApp() {
   // 2. If URL is /produk or #/produk (Dedicated Tempat Sendiri untuk Produk)
   if (isProdukRoute) {
     return <ProdukPage onBackToHome={handleBackToSite} />;
+  }
+
+  // 3. If URL is /edukasi or #/edukasi (Halaman Sendiri untuk Edukasi & Tips Otomotif)
+  if (isEdukasiRoute) {
+    return (
+      <EdukasiPage
+        onBackToHome={handleBackToSite}
+        initialArticleId={activeArticleId}
+      />
+    );
   }
 
   // 3. Public Landing Page (Layanan Bengkel & Promo di Bawah Hero Banner)
