@@ -332,7 +332,8 @@ Timbulnya serbuk putih atau jamur kehijauan di sekitar terminal kutub positif/ne
 Kondisi aki sehat memiliki tegangan minimal 12.4 - 12.7 Volt saat mesin istirahat. Jika tegangan turun di kisaran 11.8 - 12.1 Volt, kapasitas Cold Cranking Amperes (CCA) aki sudah menurun drastis dan berisiko gagal starter kapan saja.
 
 Langkah Solusi dari Teknisi Super Shop & Drive Ampera:
-Jangan menunggu mobil mogok di jalan raya atau parkiran mall. Kunjungi gerai Super Shop & Drive Cabang Ampera untuk pengecekan kondisi aki digital secara GRATIS. Kami menggunakan digital battery analyzer berstandar resmi Astra yang mampu membaca voltase, hambatan internal, dan sisa daya CCA dalam waktu kurang dari 3 menit.`
+Jangan menunggu mobil mogok di jalan raya atau parkiran mall. Kunjungi gerai Super Shop & Drive Cabang Ampera untuk pengecekan kondisi aki digital secara GRATIS. Kami menggunakan digital battery analyzer berstandar resmi Astra yang mampu membaca voltase, hambatan internal, dan sisa daya CCA dalam waktu kurang dari 3 menit.`,
+        technicianRecommendation: "Hindari menyalakan lampu kabin atau audio mobil terlalu lama saat mesin mati. Kunjungi Super Shop & Drive Ampera untuk uji voltase & sisa CCA aki secara GRATIS sebelum aki benar-benar mogok di jalan. Kami menyediakan trade-in aki GS Astra & Incoe bergaransi resmi hingga 24 bulan."
       },
       {
         id: "art-2",
@@ -358,7 +359,8 @@ Panduan Praktis Teknisi Shop & Drive Ampera:
 2. Cek Dipstick Mandiri: Tarik dipstick oli mesin setiap 2 minggu. Perhatikan warna oli (jika sudah hitam pekat pekat dan berbau gosong, segera ganti) serta pastikan volume oli berada tepat di antara batas titik MIN dan MAX.
 3. Selalu Ganti Filter Oli: Jangan berhemat dengan melewatkan filter oli. Filter oli lama menampung sisa kotoran gram besi dan lumpur oli (oil sludge) yang langsung mencemari oli mesin baru Anda.
 
-Nikmati layanan ganti oli bergaransi resmi di Super Shop & Drive Ampera dengan gratis biaya jasa, pengecekan 11 titik kendaraan, dan produk original Astra Otoparts seperti Shell Helix, Pertamina Fastron, Castrol, dan Motul.`
+Nikmati layanan ganti oli bergaransi resmi di Super Shop & Drive Ampera dengan gratis biaya jasa, pengecekan 11 titik kendaraan, dan produk original Astra Otoparts seperti Shell Helix, Pertamina Fastron, Castrol, dan Motul.`,
+        technicianRecommendation: "Bila mobil Anda beroperasi di area perkotaan yang sering macet seperti koridor Ampera dan TB Simatupang, ganti oli mesin maksimal setiap 6 bulan sekali tanpa menunggu 10.000 KM. Selalu ganti filter oli original Astra secara bersamaan agar sirkulasi pelumasan tetap bersih sempurna."
       },
       {
         id: "art-3",
@@ -382,7 +384,8 @@ Gejala Sistem Pengereman Aus:
 3. Rem Terasa Dalam / Amblas: Terdapat kebocoran silinder rem atau minyak rem yang sudah terkontaminasi uap air tinggi sehingga terjadi vapor lock.
 
 Rekomendasi Teknisi Ampera:
-Kaki-kaki dan sistem pengereman menyangkut langsung keselamatan nyawa pengendara dan keluarga. Segera periksakan mobil Anda di bengkel Super Shop & Drive Ampera. Kami menyediakan suku cadang orisinal berkualitas tinggi seperti kampas rem Akebono/Aspira serta shock absorber Kayaba Excel-G bergaransi resmi Astra.`
+Kaki-kaki dan sistem pengereman menyangkut langsung keselamatan nyawa pengendara dan keluarga. Segera periksakan mobil Anda di bengkel Super Shop & Drive Ampera. Kami menyediakan suku cadang orisinal berkualitas tinggi seperti kampas rem Akebono/Aspira serta shock absorber Kayaba Excel-G bergaransi resmi Astra.`,
+        technicianRecommendation: "Jangan menunda penggantian kampas rem yang sudah menipis atau shock absorber yang bocor. Hubungi teknisi kami untuk pemeriksaan fisik kaki-kaki dan ketebalan kampas rem tanpa dipungut biaya di bengkel Super Shop & Drive Ampera."
       },
       {
         id: "art-4",
@@ -408,7 +411,8 @@ Tanda-Tanda Mobil Anda Perlu Spooring & Balancing:
 Kapan Harus Dilakukan?
 Rekomendasi pabrikan adalah setiap 10.000 KM atau minimal 6 bulan sekali, atau segera setelah mobil menghantam lubang jalan yang cukup dalam di kecepatan sedang.
 
-Di Super Shop & Drive Ampera, kami menggunakan mesin Hunter 3D Alignment teknologi sensor optik presisi tinggi dari Jerman untuk memastikan sudut roda kendaraan Anda akurat hingga hitungan menit derajat.`
+Di Super Shop & Drive Ampera, kami menggunakan mesin Hunter 3D Alignment teknologi sensor optik presisi tinggi dari Jerman untuk memastikan sudut roda kendaraan Anda akurat hingga hitungan menit derajat.`,
+        technicianRecommendation: "Lakukan spooring dan finish balancing setiap 10.000 KM atau setelah mobil menghantam lubang jalan keras. Penyelarasan sudut 3D Hunter menjaga usia pakai ban hingga 40% lebih awet dan setir stabil di jalan tol."
       }
     ]
   },

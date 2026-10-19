@@ -321,25 +321,26 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
                           </li>
                         </ul>
                       </section>
-
-                      {/* Kotak Rekomendasi Teknisi Ampera */}
-                      <section className="p-5 sm:p-6 rounded-2xl bg-amber-50/70 border border-amber-200/90 text-amber-950">
-                        <div className="flex items-start gap-3">
-                          <span className="material-symbols-outlined text-amber-600 text-2xl shrink-0 mt-0.5">
-                            verified_user
-                          </span>
-                          <div>
-                            <h4 className="text-sm font-bold uppercase tracking-wider text-amber-900 mb-1">
-                              Rekomendasi Teknisi Super Shop &amp; Drive Ampera
-                            </h4>
-                            <p className="text-xs sm:text-sm text-amber-800 leading-relaxed">
-                              Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jalan Ampera Raya. Teknisi kami menyediakan <strong>layanan uji aki digital &amp; cek kelayakan pelumas secara gratis</strong> dengan alat diagnostik akurat standar Astra Otoparts.
-                            </p>
-                          </div>
-                        </div>
-                      </section>
                     </>
                   )}
+
+                  {/* Kotak Rekomendasi Teknisi Super Shop & Drive Ampera */}
+                  <section className="p-5 sm:p-6 rounded-2xl bg-amber-50/80 border border-amber-200/90 text-amber-950 not-prose shadow-xs my-6">
+                    <div className="flex items-start gap-3.5">
+                      <span className="material-symbols-outlined text-amber-600 text-2xl sm:text-3xl shrink-0 mt-0.5">
+                        verified_user
+                      </span>
+                      <div className="flex-1">
+                        <h4 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-amber-900 mb-1.5">
+                          {currentArticle.technicianRecommendationTitle || 'Rekomendasi Teknisi Super Shop & Drive Ampera'}
+                        </h4>
+                        <p className="text-xs sm:text-sm text-amber-900/90 leading-relaxed whitespace-pre-line font-medium">
+                          {currentArticle.technicianRecommendation ||
+                            'Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jalan Ampera Raya. Teknisi kami menyediakan layanan uji aki digital & cek kelayakan pelumas secara gratis dengan alat diagnostik akurat standar Astra Otoparts.'}
+                        </p>
+                      </div>
+                    </div>
+                  </section>
                 </div>
 
                 {/* Consultation & Booking Action Card */}

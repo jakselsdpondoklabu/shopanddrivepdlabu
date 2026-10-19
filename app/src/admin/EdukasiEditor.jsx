@@ -24,6 +24,7 @@ export function EdukasiEditor() {
     image: '/Assets/ganti aki.jpg',
     summary: '',
     content: '',
+    technicianRecommendation: '',
     waTopic: '',
   });
 
@@ -44,6 +45,7 @@ export function EdukasiEditor() {
       readTime: art.readTime || '5 Menit Baca',
       summary: art.summary || '',
       content: art.content || '',
+      technicianRecommendation: art.technicianRecommendation || '',
       waTopic: art.waTopic || '',
     });
   };
@@ -63,6 +65,8 @@ export function EdukasiEditor() {
       image: '/Assets/ganti aki.jpg',
       summary: '',
       content: '',
+      technicianRecommendation:
+        'Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jalan Ampera Raya. Teknisi kami menyediakan layanan uji aki digital & cek kelayakan pelumas secara gratis dengan alat diagnostik akurat standar Astra Otoparts.',
       waTopic: 'Halo Super Shop & Drive Ampera, saya ingin konsultasi perawatan mobil',
     });
   };
@@ -363,6 +367,48 @@ export function EdukasiEditor() {
               </span>
             </div>
 
+            {/* Slot Khusus: Rekomendasi Teknisi Super Shop & Drive Ampera */}
+            <div className="p-4 sm:p-5 bg-amber-50/80 rounded-2xl border border-amber-200/90 shadow-xs">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                <label className="text-xs font-bold text-amber-950 uppercase flex items-center gap-1.5 tracking-wide">
+                  <span className="material-symbols-outlined text-amber-600 text-lg">verified_user</span>
+                  <span>Rekomendasi Teknisi Super Shop &amp; Drive Ampera</span>
+                </label>
+                <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-300/80 w-fit">
+                  Kotak Kuning Khusus Artikel
+                </span>
+              </div>
+
+              <textarea
+                rows="3"
+                value={formData.technicianRecommendation}
+                onChange={(e) => setFormData({ ...formData, technicianRecommendation: e.target.value })}
+                placeholder="Tuliskan saran khusus, langkah antisipasi, atau peringatan penting dari teknisi Super Shop & Drive Ampera untuk topik artikel ini..."
+                className="w-full p-3 bg-white border border-amber-200 focus:border-amber-500 rounded-xl text-sm leading-relaxed text-amber-950 placeholder-amber-900/40 focus:outline-none"
+              />
+
+              <div className="flex flex-wrap items-center justify-between gap-2 mt-2 pt-2 border-t border-amber-200/60">
+                <span className="text-[11px] text-amber-800">
+                  Teks di atas akan tampil di dalam kotak kuning berikon perisai di bagian bawah artikel.
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      technicianRecommendation:
+                        'Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jalan Ampera Raya. Teknisi kami menyediakan layanan uji aki digital & cek kelayakan pelumas secara gratis dengan alat diagnostik akurat standar Astra Otoparts.',
+                    }))
+                  }
+                  className="text-[11px] font-bold text-amber-800 hover:text-amber-950 underline flex items-center gap-1"
+                >
+                  <span className="material-symbols-outlined text-[14px]">refresh</span>
+                  <span>Gunakan Teks Rekomendasi Standar</span>
+                </button>
+              </div>
+            </div>
+
             <div>
               <label className="block text-xs font-bold text-slate-700 uppercase mb-1">
                 Topik / Pesan WhatsApp Otomatis
@@ -413,11 +459,19 @@ export function EdukasiEditor() {
                   alt={art.title}
                   className="w-full h-full object-cover"
                 />
-                {art.content && (
-                  <span className="absolute top-2 right-2 px-2 py-0.5 bg-emerald-600/90 text-white text-[10px] font-bold rounded shadow-xs">
-                    Full Content Aktif
-                  </span>
-                )}
+                <div className="absolute top-2 right-2 flex flex-col gap-1 items-end">
+                  {art.content && (
+                    <span className="px-2 py-0.5 bg-emerald-600/95 text-white text-[10px] font-bold rounded shadow-xs">
+                      Full Content
+                    </span>
+                  )}
+                  {art.technicianRecommendation && (
+                    <span className="px-2 py-0.5 bg-amber-600/95 text-white text-[10px] font-bold rounded shadow-xs flex items-center gap-0.5">
+                      <span className="material-symbols-outlined text-[11px]">verified_user</span>
+                      <span>Rekomendasi Teknisi</span>
+                    </span>
+                  )}
+                </div>
               </div>
 
               <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
@@ -431,9 +485,16 @@ export function EdukasiEditor() {
                 {art.title}
               </h4>
 
-              <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-4">
+              <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-3">
                 {art.summary}
               </p>
+
+              {art.technicianRecommendation && (
+                <div className="p-2 rounded-lg bg-amber-50 border border-amber-200/70 mb-3 text-[11px] text-amber-950 leading-relaxed flex items-start gap-1.5">
+                  <span className="material-symbols-outlined text-amber-600 text-sm shrink-0 mt-0.5">verified_user</span>
+                  <span className="line-clamp-2 font-medium">{art.technicianRecommendation}</span>
+                </div>
+              )}
             </div>
 
             <div className="pt-3 border-t border-slate-200/80 flex items-center justify-between">
