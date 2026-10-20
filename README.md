@@ -1,6 +1,6 @@
-# shopanddriveampera.com
+# shopanddrivepdlabu.com
 
-Website Resmi & Sistem Katalog Produk Super Shop & Drive Cabang Ampera, Jakarta Selatan.
+Website Resmi & Sistem Katalog Produk Shop & Drive Pondok Labu, Jakarta Selatan.
 
 ## Fitur Utama
 - **Landing Page Interaktif**: Layanan bengkel, promo, estimasi harga, dan testimoni.
