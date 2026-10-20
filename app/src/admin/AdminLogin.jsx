@@ -42,7 +42,7 @@ export function AdminLogin({ onClose, onSuccess }) {
               Portal Admin
             </h2>
             <p className="text-xs text-slate-500">
-              Super Shop &amp; Drive Ampera
+              Shop &amp; Drive Pondok Labu
             </p>
           </div>
         </div>
@@ -105,7 +105,7 @@ export function AdminLogin({ onClose, onSuccess }) {
         </form>
 
         <div className="mt-6 text-center text-xs text-slate-400">
-          Akses terbatas staf internal Super Shop &amp; Drive Cabang Ampera
+          Akses terbatas staf internal Shop &amp; Drive Pondok Labu
         </div>
 
       </div>

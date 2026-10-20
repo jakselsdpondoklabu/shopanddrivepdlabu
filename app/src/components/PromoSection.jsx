@@ -51,7 +51,7 @@ export function PromoSection() {
 
               <a
                 href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(
-                  promo.waMessage || `Halo Super Shop & Drive Ampera, saya ingin klaim ${promo.title}`
+                  promo.waMessage || `Halo Shop & Drive Pondok Labu, saya ingin klaim ${promo.title}`
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -74,7 +74,7 @@ export function PromoSection() {
               Tips &amp; Artikel Perawatan Otomotif
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 mt-1">
-              Panduan praktis teknisi Super Shop &amp; Drive agar mobil Anda selalu prima dan terhindar dari mogok.
+              Panduan praktis teknisi Shop &amp; Drive agar mobil Anda selalu prima dan terhindar dari mogok.
             </p>
           </div>
 

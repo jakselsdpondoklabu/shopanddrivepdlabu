@@ -1,5 +1,5 @@
 -- ==============================================================================
--- SKEMA DATABASE SUPABASE UNTUK SUPER SHOP & DRIVE AMPERA
+-- SKEMA DATABASE SUPABASE UNTUK SHOP & DRIVE PONDOK LABU
 -- Jalankan query ini di SQL Editor Supabase (https://supabase.com/dashboard)
 -- ==============================================================================
 

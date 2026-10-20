@@ -15,7 +15,7 @@ export function LokasiMaps() {
             Kunjungi Cabang Resmi
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#002884] tracking-tight">
-            Lokasi Super Shop &amp; Drive Ampera
+            Lokasi Shop &amp; Drive Pondok Labu
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-2">
             Mudah diakses dari Ragunan, Cilandak Timur, Kemang, dan kawasan TB Simatupang Jakarta Selatan.
@@ -134,7 +134,7 @@ export function LokasiMaps() {
           {/* Right Column: Google Maps Embed Iframe */}
           <div className="lg:col-span-7 rounded-3xl overflow-hidden border border-slate-200/80 shadow-md min-h-[360px] lg:min-h-full relative bg-slate-200">
             <iframe
-              title="Peta Super Shop & Drive Cabang Ampera"
+              title="Peta Shop & Drive Pondok Labu"
               src={brand.mapsEmbedUrl || "https://maps.google.com/maps?q=-6.2822913,106.8196073&hl=id&z=17&output=embed"}
               width="100%"
               height="100%"

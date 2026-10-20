@@ -173,7 +173,7 @@ export function ProdukPage({ onBackToHome }) {
                     Reset Filter
                   </button>
                   <a
-                    href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(`Halo Super Shop & Drive Ampera, saya mencari suku cadang: ${searchQuery}`)}`}
+                    href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(`Halo Shop & Drive Pondok Labu, saya mencari suku cadang: ${searchQuery}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-4 py-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white text-xs font-bold rounded-xl transition-colors inline-flex items-center gap-1.5"
@@ -255,7 +255,7 @@ export function ProdukPage({ onBackToHome }) {
 
                         <a
                           href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(
-                            prod.waMessage || `Halo Super Shop & Drive Ampera, saya ingin memesan/tanya ketersediaan produk ${prod.name} (Harga: ${formatRupiah(prod.price || prod.priceEstimate)}${prod.discountTradeIn ? ` | Promo: ${prod.discountTradeIn}` : ''})`
+                            prod.waMessage || `Halo Shop & Drive Pondok Labu, saya ingin memesan/tanya ketersediaan produk ${prod.name} (Harga: ${formatRupiah(prod.price || prod.priceEstimate)}${prod.discountTradeIn ? ` | Promo: ${prod.discountTradeIn}` : ''})`
                           )}`}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -294,7 +294,7 @@ export function ProdukPage({ onBackToHome }) {
 
               <div className="shrink-0 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
                 <a
-                  href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent('Halo Super Shop & Drive Ampera, saya butuh Home Delivery Service untuk ganti aki di lokasi saya')}`}
+                  href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent('Halo Shop & Drive Pondok Labu, saya butuh Home Delivery Service untuk ganti aki di lokasi saya')}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-6 py-3.5 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-sm rounded-xl shadow-lg transition-all flex items-center justify-center gap-2"

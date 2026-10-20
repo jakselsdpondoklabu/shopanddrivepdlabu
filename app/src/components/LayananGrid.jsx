@@ -13,10 +13,10 @@ export function LayananGrid() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div className="max-w-2xl">
             <span className="text-xs sm:text-sm font-bold text-[#E3000F] uppercase tracking-widest block mb-1">
-              Katalog Layanan Super Shop&amp;Drive Ampera
+              Katalog Layanan Shop&amp;Drive Pondok Labu
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#002884] tracking-tight">
-              7 Layanan Andalan Super Shop &amp; Drive Ampera
+              7 Layanan Andalan Shop &amp; Drive Pondok Labu
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
               Dikerjakan oleh teknisi bersertifikasi dengan alat modern berstandar pabrikan dan suku cadang asli Astra Otoparts bergaransi resmi.
@@ -82,7 +82,7 @@ export function LayananGrid() {
 
                   <a
                     href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(
-                      item.waMessage || `Halo Super Shop & Drive Ampera, saya ingin tanya harga untuk ${item.title}`
+                      item.waMessage || `Halo Shop & Drive Pondok Labu, saya ingin tanya harga untuk ${item.title}`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -112,14 +112,14 @@ export function LayananGrid() {
                 Mogok di Jalan atau Sibuk di Rumah? Gunakan Delivery Service!
               </h4>
               <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
-                Armada motor mekanik Super Shop &amp; Drive Ampera siap datang langsung ke lokasi Anda untuk penggantian aki dan pengecekan darurat.
+                Armada motor mekanik Shop &amp; Drive Pondok Labu siap datang langsung ke lokasi Anda untuk penggantian aki dan pengecekan darurat.
               </p>
             </div>
           </div>
 
           <a
             href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(
-              'Halo Super Shop & Drive Ampera, saya butuh layanan darurat / aki delivery ke lokasi saya.'
+              'Halo Shop & Drive Pondok Labu, saya butuh layanan darurat / aki delivery ke lokasi saya.'
             )}`}
             target="_blank"
             rel="noopener noreferrer"

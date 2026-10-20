@@ -143,7 +143,7 @@ export function HeroEditor() {
             type="text"
             value={currentBanner.badgeText || ''}
             onChange={(e) => handleUpdateCurrentBanner('badgeText', e.target.value)}
-            placeholder="Contoh: Super Shop & Drive Ampera • Bengkel Resmi Astra Otoparts"
+            placeholder="Contoh: Shop & Drive Pondok Labu • Bengkel Resmi Astra Otoparts"
             className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#002884] focus:bg-white"
           />
         </div>
@@ -171,7 +171,7 @@ export function HeroEditor() {
               type="text"
               value={currentBanner.headlineHighlight || ''}
               onChange={(e) => handleUpdateCurrentBanner('headlineHighlight', e.target.value)}
-              placeholder="Contoh: Super Shop & Drive Ampera"
+              placeholder="Contoh: Shop & Drive Pondok Labu"
               className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[#002884] focus:bg-white text-red-600 font-bold"
             />
           </div>

@@ -1,36 +1,36 @@
 export const defaultSiteContent = {
   brand: {
-    name: "SUPER SHOP & DRIVE",
-    subName: "AMPERA",
+    name: "SHOP & DRIVE",
+    subName: "Pondok Labu",
     tagline: "The Trusted Parts Shop",
     logoUrl: "/Assets/logo.png",
-    phone: "(021) 782-3844",
-    whatsappNumber: "6285117150285",
-    whatsappDefaultMessage: "Halo Super Shop & Drive Ampera, saya ingin konsultasi dan booking servis kendaraan.",
-    address: "JL. Ampera Raya no.138 Ragunan, Pasar Minggu, Jakarta Selatan",
-    mapsEmbedUrl: "https://maps.google.com/maps?q=-6.2822913,106.8196073&hl=id&z=17&output=embed",
-    mapsGoogleUrl: "https://www.google.com/maps/place/Super+Shop+%26+Drive+-+Ampera,+Jakarta+Selatan/@-6.2822913,106.8196073,17z/data=!4m6!3m5!1s0x2e69f1f700000001:0xc3953d532f800ad!8m2!3d-6.2822913!4d106.8196073!16s%2Fg%2F12xqp709m",
-    coordinates: "-6.2822913, 106.8196073",
-    operationalHours: "08.00 s/d 20.00 WIB (Buka Setiap Hari)",
+    phone: "(021) 2276-9606",
+    whatsappNumber: "6285117769606",
+    whatsappDefaultMessage: "Halo Shop & Drive Pondok Labu, saya ingin konsultasi dan booking servis kendaraan.",
+    address: "JL. RS. Fatmawati Raya No.26 B - C, RT.2/RW.7, Cilandak Bar., Kec. Cilandak, Jakarta Selatan",
+    mapsEmbedUrl: "https://www.google.com/maps/place/Shop+%26+Drive+-+Pondok+Labu,+Jakarta+Selatan/@-6.3045542,106.7915712,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f1ead1698961:0x1e9caaf29f6cfb38!8m2!3d-6.3045542!4d106.7941461!16s%2Fg%2F1pv2bsz8m?entry=ttu&g_ep=EgoyMDI2MTAxNC4wIKXMDSoASAFQAw%3D%3D",
+    mapsGoogleUrl: "https://maps.app.goo.gl/UcZE2Eg2Z5QWfJfy6",
+    coordinates: "-6.3045542,106.7915712,17z",
+    operationalHours: "08.00 s/d 18.00 WIB (Buka Setiap Hari)",
     instagram: "@shopanddrive",
     instagramUrl: "https://instagram.com/shopanddrive",
   },
   storeStatus: {
     mode: "auto", // "auto" | "open" | "closed"
     openTime: "08:00",
-    closeTime: "20:00",
+    closeTime: "18:00",
     statusNote: "Buka Setiap Hari",
   },
   gowa: {
-    apiUrl: "https://gowa285.ssdampera.web.id",
-    targetGroupJid: "120363426744122299@g.us",
-    targetGroupName: "🔥 SUPER SHOP&DRIVE AMPERA 🔥",
+    apiUrl: "https://gowa590.ssdampera.web.id",
+    targetGroupJid: "120363417372591982@g.us",
+    targetGroupName: "FORMAT WA BLAST✅",
     isEnabled: true,
   },
   hero: {
-    badgeText: "Super Shop & Drive Ampera • Pusat Servis & Suku Cadang Resmi Astra",
+    badgeText: "Shop & Drive Pondok Labu • Pusat Servis & Suku Cadang Resmi Astra",
     headline: "Servis & Perawatan Mobil Presisi",
-    headlineHighlight: "Super Shop & Drive Ampera",
+    headlineHighlight: "Shop & Drive Pondok Labu",
     subheadline: "Solusi cepat, terpercaya, dan bergaransi resmi dari Astra Otoparts untuk ratusan tipe kendaraan Anda di Jakarta Selatan. Tersedia layanan di bengkel & Home Delivery Service.",
     bgImage: "/Assets/bg1.jpeg",
     availableBgImages: [
@@ -51,9 +51,9 @@ export const defaultSiteContent = {
     banners: [
       {
         id: "banner-1",
-        badgeText: "Super Shop & Drive Ampera • Bengkel Resmi Astra Otoparts",
+        badgeText: "Shop & Drive Pondok Labu • Bengkel Resmi Astra Otoparts",
         headline: "Servis & Perawatan Mobil Presisi",
-        headlineHighlight: "Super Shop & Drive Ampera",
+        headlineHighlight: "Shop & Drive Pondok Labu",
         subheadline: "Solusi cepat, terpercaya, dan bergaransi resmi dari Astra Otoparts untuk ratusan tipe kendaraan Anda di Jakarta Selatan. Teknisi bersertifikasi & peralatan standar pabrikan.",
         bgImage: "/Assets/bg1.jpeg",
         ctaText: "Booking via WhatsApp",
@@ -116,7 +116,7 @@ export const defaultSiteContent = {
       image: "/Assets/ganti aki.jpg",
       description: "Gratis pasang di bengkel atau delivery ke lokasi. Termasuk cek alternator dinamo pengisian, kebocoran arus, dan pembersihan kutub aki.",
       priceEstimate: "Gratis Pasang",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin booking jasa ganti aki mobil"
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin booking jasa ganti aki mobil"
     },
     {
       id: "srv-oli",
@@ -126,7 +126,7 @@ export const defaultSiteContent = {
       image: "/Assets/ganti oli.webp",
       description: "Penggantian pelumas mesin menggunakan mesin sedot modern, penggantian filter oli presisi, serta gratis 24 poin inspeksi keselamatan.",
       priceEstimate: "Gratis Jasa Cek 24 Poin",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin jadwal paket servis ganti oli"
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin jadwal paket servis ganti oli"
     },
     {
       id: "srv-shock",
@@ -136,7 +136,7 @@ export const defaultSiteContent = {
       image: "/Assets/bg3.jpg",
       description: "Pemasangan shock absorber KYB bergaransi resmi. Memulihkan bantingan empuk, meredam limbung saat tikungan, dan menjaga keawetan ban.",
       priceEstimate: "Mulai Rp 150.000 (Jasa)",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin jadwal pemasangan shock absorber"
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin jadwal pemasangan shock absorber"
     },
     {
       id: "srv-ban",
@@ -146,7 +146,7 @@ export const defaultSiteContent = {
       image: "/Assets/bg2.jpg",
       description: "Pemasangan ban menggunakan mesin tyre changer otomatis tanpa merusak velg, gratis pentil baru dan pengisian nitrogen murni.",
       priceEstimate: "Mulai Rp 35.000 / Roda",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin pasang dan ganti ban baru"
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin pasang dan ganti ban baru"
     },
     {
       id: "srv-spooring",
@@ -156,7 +156,7 @@ export const defaultSiteContent = {
       image: "/Assets/bg1.jpeg",
       description: "Penyelarasan sudut camber, caster, dan toe dengan sensor optik Hunter 3D Germany. Menghilangkan getaran setir dan mencegah keausan ban tidak rata.",
       priceEstimate: "Mulai Rp 250.000",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin booking spooring balancing 3D"
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin booking spooring balancing 3D"
     },
     {
       id: "srv-tuneup",
@@ -166,7 +166,7 @@ export const defaultSiteContent = {
       image: "/Assets/bg3.jpg",
       description: "Pembersihan kerak ruang bakar (carbon cleaner), throttle body injection, kalibrasi busi, dan scan OBD2 komputer untuk tarikan enteng dan irit BBM.",
       priceEstimate: "Mulai Rp 450.000",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin booking paket tune-up mesin mobil"
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin booking paket tune-up mesin mobil"
     },
     {
       id: "srv-kakikaki",
@@ -176,7 +176,7 @@ export const defaultSiteContent = {
       image: "/Assets/bg2.jpg",
       description: "Pemeriksaan dan rekondisi/penggantian ball joint, tie rod end, link stabilizer, dan bushing arm agar bantingan senyap dan stabil di jalan berlubang.",
       priceEstimate: "Mulai Rp 100.000 (Inspeksi)",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin cek kondisi kaki-kaki mobil"
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin cek kondisi kaki-kaki mobil"
     }
   ],
   // Produk / Suku Cadang Fisik (Dipisahkan dari Layanan)
@@ -192,7 +192,7 @@ export const defaultSiteContent = {
       price: "Rp 850.000",
       priceEstimate: "Rp 850.000",
       discountTradeIn: "Trade-in aki s/d Rp 150.000",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin tanya ketersediaan Aki GS Astra MF",
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin tanya ketersediaan Aki GS Astra MF",
       showInBanner: true,
     },
     {
@@ -206,7 +206,7 @@ export const defaultSiteContent = {
       price: "Rp 680.000",
       priceEstimate: "Rp 680.000",
       discountTradeIn: "Trade-in aki s/d Rp 120.000",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin tanya harga Aki Incoe",
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin tanya harga Aki Incoe",
       showInBanner: true,
     },
     {
@@ -220,7 +220,7 @@ export const defaultSiteContent = {
       price: "Rp 165.000",
       priceEstimate: "Rp 165.000",
       discountTradeIn: "Gratis Biaya Jasa Ganti Oli",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin beli Oli Shell Helix HX8 5W-30",
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin beli Oli Shell Helix HX8 5W-30",
       showInBanner: true,
     },
     {
@@ -234,7 +234,7 @@ export const defaultSiteContent = {
       price: "Rp 145.000",
       priceEstimate: "Rp 145.000",
       discountTradeIn: "Gratis Filter Oli (Syarat Berlaku)",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin pesan Oli Pertamina Fastron Gold",
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin pesan Oli Pertamina Fastron Gold",
       showInBanner: true,
     },
     {
@@ -248,7 +248,7 @@ export const defaultSiteContent = {
       price: "Rp 750.000",
       priceEstimate: "Rp 750.000",
       discountTradeIn: "Gratis Cek Kaki-Kaki & Diskon Pemasangan",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin cek ketersediaan Shock Kayaba Excel-G",
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin cek ketersediaan Shock Kayaba Excel-G",
       showInBanner: true,
     },
     {
@@ -262,7 +262,7 @@ export const defaultSiteContent = {
       price: "Rp 650.000",
       priceEstimate: "Rp 650.000",
       discountTradeIn: "Gratis Pasang, Balancing & Nitrogen",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin tanya ukuran Ban Bridgestone",
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin tanya ukuran Ban Bridgestone",
       showInBanner: false,
     },
     {
@@ -276,7 +276,7 @@ export const defaultSiteContent = {
       price: "Rp 45.000",
       priceEstimate: "Rp 45.000",
       discountTradeIn: "Diskon 10% Pembelian Bundling Oli",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin beli filter oli original Astra",
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin beli filter oli original Astra",
       showInBanner: false,
     },
     {
@@ -290,7 +290,7 @@ export const defaultSiteContent = {
       price: "Rp 220.000",
       priceEstimate: "Rp 220.000",
       discountTradeIn: "Gratis Cek Ketebalan Rem & Pembersihan",
-      waMessage: "Halo Super Shop & Drive Ampera, saya ingin tanya harga kampas rem Akebono",
+      waMessage: "Halo Shop & Drive Pondok Labu, saya ingin tanya harga kampas rem Akebono",
       showInBanner: false,
     }
   ],
@@ -301,7 +301,7 @@ export const defaultSiteContent = {
     description: "Segera pulihkan tenaga mesin mobil Anda agar kembali bertenaga dan irit bahan bakar. Berlaku untuk kendaraan bensin maupun diesel di Cabang Ampera.",
     promoCode: "AMPERAPRO20",
     ctaText: "Klaim Diskon via WhatsApp",
-    waMessage: "Halo Super Shop & Drive Ampera, saya ingin klaim promo diskon AMPERAPRO20",
+    waMessage: "Halo Shop & Drive Pondok Labu, saya ingin klaim promo diskon AMPERAPRO20",
     articles: [
       {
         id: "art-1",
@@ -311,7 +311,7 @@ export const defaultSiteContent = {
         image: "/Assets/ganti aki.jpg",
         title: "Kenali 5 Tanda Aki Mobil Mulai Lemah Sebelum Mogok di Jalan",
         summary: "Jangan tunggu starter mobil berputar lambat di pagi hari. Pahami gejala penurunan voltase, suara klik, dan cara cek kelistrikan mandiri.",
-        waTopic: "Halo Super Shop & Drive Ampera, saya ingin konsultasi cek aki mobil",
+        waTopic: "Halo Shop & Drive Pondok Labu, saya ingin konsultasi cek aki mobil",
         content: `Aki (accu) adalah jantung sistem kelistrikan kendaraan Anda. Saat performa aki menurun, tidak hanya mesin yang sulit distarter, tetapi berbagai modul elektronik modern (ECU, power steering elektrik, sistem ABS, hingga head unit) dapat mengalami malfungsi karena suplai voltase yang tidak stabil.
 
 Berikut 5 tanda utama aki mobil Anda mulai soak dan perlu segera diperiksa:
@@ -331,9 +331,9 @@ Timbulnya serbuk putih atau jamur kehijauan di sekitar terminal kutub positif/ne
 5. Voltase di Bawah 12.2 Volt Saat Mesin Mati
 Kondisi aki sehat memiliki tegangan minimal 12.4 - 12.7 Volt saat mesin istirahat. Jika tegangan turun di kisaran 11.8 - 12.1 Volt, kapasitas Cold Cranking Amperes (CCA) aki sudah menurun drastis dan berisiko gagal starter kapan saja.
 
-Langkah Solusi dari Teknisi Super Shop & Drive Ampera:
-Jangan menunggu mobil mogok di jalan raya atau parkiran mall. Kunjungi gerai Super Shop & Drive Cabang Ampera untuk pengecekan kondisi aki digital secara GRATIS. Kami menggunakan digital battery analyzer berstandar resmi Astra yang mampu membaca voltase, hambatan internal, dan sisa daya CCA dalam waktu kurang dari 3 menit.`,
-        technicianRecommendation: "Hindari menyalakan lampu kabin atau audio mobil terlalu lama saat mesin mati. Kunjungi Super Shop & Drive Ampera untuk uji voltase & sisa CCA aki secara GRATIS sebelum aki benar-benar mogok di jalan. Kami menyediakan trade-in aki GS Astra & Incoe bergaransi resmi hingga 24 bulan."
+Langkah Solusi dari Teknisi Shop & Drive Pondok Labu:
+Jangan menunggu mobil mogok di jalan raya atau parkiran mall. Kunjungi gerai Shop & Drive Pondok Labu untuk pengecekan kondisi aki digital secara GRATIS. Kami menggunakan digital battery analyzer berstandar resmi Astra yang mampu membaca voltase, hambatan internal, dan sisa daya CCA dalam waktu kurang dari 3 menit.`,
+        technicianRecommendation: "Hindari menyalakan lampu kabin atau audio mobil terlalu lama saat mesin mati. Kunjungi Shop & Drive Pondok Labu untuk uji voltase & sisa CCA aki secara GRATIS sebelum aki benar-benar mogok di jalan. Kami menyediakan trade-in aki GS Astra & Incoe bergaransi resmi hingga 24 bulan."
       },
       {
         id: "art-2",
@@ -343,7 +343,7 @@ Jangan menunggu mobil mogok di jalan raya atau parkiran mall. Kunjungi gerai Sup
         image: "/Assets/ganti oli.webp",
         title: "Kapan Waktu Tepat Mengganti Oli Mesin? Kilometer vs Durasi Bulan",
         summary: "Sering macet di Jakarta Selatan? Ketahui mengapa jam kerja mesin (engine hours) lebih menentukan penggantian oli daripada angka odometer.",
-        waTopic: "Halo Super Shop & Drive Ampera, saya ingin tanya jadwal ganti oli yang tepat",
+        waTopic: "Halo Shop & Drive Pondok Labu, saya ingin tanya jadwal ganti oli yang tepat",
         content: `Banyak pemilik mobil hanya berpatokan pada kelipatan 5.000 atau 10.000 KM di odometer saat menjadwalkan penggantian oli mesin. Namun, untuk pengendara di wilayah Jabodetabek, terutama koridor padat seperti kawasan Ampera, Cilandak, dan TB Simatupang, patokan jarak tempuh saja bisa sangat mengecoh.
 
 Mengapa Jam Kerja Mesin (Engine Hours) Lebih Krusial?
@@ -359,7 +359,7 @@ Panduan Praktis Teknisi Shop & Drive Ampera:
 2. Cek Dipstick Mandiri: Tarik dipstick oli mesin setiap 2 minggu. Perhatikan warna oli (jika sudah hitam pekat pekat dan berbau gosong, segera ganti) serta pastikan volume oli berada tepat di antara batas titik MIN dan MAX.
 3. Selalu Ganti Filter Oli: Jangan berhemat dengan melewatkan filter oli. Filter oli lama menampung sisa kotoran gram besi dan lumpur oli (oil sludge) yang langsung mencemari oli mesin baru Anda.
 
-Nikmati layanan ganti oli bergaransi resmi di Super Shop & Drive Ampera dengan gratis biaya jasa, pengecekan 11 titik kendaraan, dan produk original Astra Otoparts seperti Shell Helix, Pertamina Fastron, Castrol, dan Motul.`,
+Nikmati layanan ganti oli bergaransi resmi di Shop & Drive Pondok Labu dengan gratis biaya jasa, pengecekan 11 titik kendaraan, dan produk original Astra Otoparts seperti Shell Helix, Pertamina Fastron, Castrol, dan Motul.`,
         technicianRecommendation: "Bila mobil Anda beroperasi di area perkotaan yang sering macet seperti koridor Ampera dan TB Simatupang, ganti oli mesin maksimal setiap 6 bulan sekali tanpa menunggu 10.000 KM. Selalu ganti filter oli original Astra secara bersamaan agar sirkulasi pelumasan tetap bersih sempurna."
       },
       {
@@ -370,7 +370,7 @@ Nikmati layanan ganti oli bergaransi resmi di Super Shop & Drive Ampera dengan g
         image: "/Assets/bg3.jpg",
         title: "Bahaya Mengabaikan Bunyi Gluduk Kaki-Kaki dan Berdecit pada Rem",
         summary: "Karet bushing getas atau kampas rem tipis dapat merusak piringan rotor cakram dan membahayakan kendali di jalan basah.",
-        waTopic: "Halo Super Shop & Drive Ampera, saya ingin cek rem dan suspensi kaki-kaki",
+        waTopic: "Halo Shop & Drive Pondok Labu, saya ingin cek rem dan suspensi kaki-kaki",
         content: `Mobil yang nyaman adalah mobil yang senyap saat melintasi jalan bergelombang dan responsif saat pedal rem diinjak. Jika Anda mulai mendengar bunyi ketukan "gluduk-gluduk" dari bawah kabin atau suara mendecit bernada tinggi saat memperlambat laju kendaraan, mobil Anda sedang memberikan sinyal bahaya.
 
 Gejala Kerusakan Kaki-Kaki (Suspensi):
@@ -384,8 +384,8 @@ Gejala Sistem Pengereman Aus:
 3. Rem Terasa Dalam / Amblas: Terdapat kebocoran silinder rem atau minyak rem yang sudah terkontaminasi uap air tinggi sehingga terjadi vapor lock.
 
 Rekomendasi Teknisi Ampera:
-Kaki-kaki dan sistem pengereman menyangkut langsung keselamatan nyawa pengendara dan keluarga. Segera periksakan mobil Anda di bengkel Super Shop & Drive Ampera. Kami menyediakan suku cadang orisinal berkualitas tinggi seperti kampas rem Akebono/Aspira serta shock absorber Kayaba Excel-G bergaransi resmi Astra.`,
-        technicianRecommendation: "Jangan menunda penggantian kampas rem yang sudah menipis atau shock absorber yang bocor. Hubungi teknisi kami untuk pemeriksaan fisik kaki-kaki dan ketebalan kampas rem tanpa dipungut biaya di bengkel Super Shop & Drive Ampera."
+Kaki-kaki dan sistem pengereman menyangkut langsung keselamatan nyawa pengendara dan keluarga. Segera periksakan mobil Anda di bengkel Shop & Drive Pondok Labu. Kami menyediakan suku cadang orisinal berkualitas tinggi seperti kampas rem Akebono/Aspira serta shock absorber Kayaba Excel-G bergaransi resmi Astra.`,
+        technicianRecommendation: "Jangan menunda penggantian kampas rem yang sudah menipis atau shock absorber yang bocor. Hubungi teknisi kami untuk pemeriksaan fisik kaki-kaki dan ketebalan kampas rem tanpa dipungut biaya di bengkel Shop & Drive Pondok Labu."
       },
       {
         id: "art-4",
@@ -395,7 +395,7 @@ Kaki-kaki dan sistem pengereman menyangkut langsung keselamatan nyawa pengendara
         image: "/Assets/bg1.jpeg",
         title: "Kapan Mobil Wajib Spooring & Balancing? Ini Gejala Setir Lari & Getar",
         summary: "Setir narik ke kiri atau bergetar di kecepatan 80 km/jam? Simak panduan spooring 3D Hunter dan balancing ban untuk keawetan tapak roda.",
-        waTopic: "Halo Super Shop & Drive Ampera, saya ingin booking spooring 3D Hunter dan balancing",
+        waTopic: "Halo Shop & Drive Pondok Labu, saya ingin booking spooring 3D Hunter dan balancing",
         content: `Penyelarasan roda (wheel alignment / spooring) dan penyeimbangan putaran roda (wheel balancing) adalah dua perawatan berkala yang wajib dilakukan agar mobil tetap stabil, ban berumur panjang, dan konsumsi BBM tetap efisien.
 
 Perbedaan Spooring dan Balancing:
@@ -411,7 +411,7 @@ Tanda-Tanda Mobil Anda Perlu Spooring & Balancing:
 Kapan Harus Dilakukan?
 Rekomendasi pabrikan adalah setiap 10.000 KM atau minimal 6 bulan sekali, atau segera setelah mobil menghantam lubang jalan yang cukup dalam di kecepatan sedang.
 
-Di Super Shop & Drive Ampera, kami menggunakan mesin Hunter 3D Alignment teknologi sensor optik presisi tinggi dari Jerman untuk memastikan sudut roda kendaraan Anda akurat hingga hitungan menit derajat.`,
+Di Shop & Drive Pondok Labu, kami menggunakan mesin Hunter 3D Alignment teknologi sensor optik presisi tinggi dari Jerman untuk memastikan sudut roda kendaraan Anda akurat hingga hitungan menit derajat.`,
         technicianRecommendation: "Lakukan spooring dan finish balancing setiap 10.000 KM atau setelah mobil menghantam lubang jalan keras. Penyelarasan sudut 3D Hunter menjaga usia pakai ban hingga 40% lebih awet dan setir stabil di jalan tol."
       }
     ]
@@ -419,7 +419,7 @@ Di Super Shop & Drive Ampera, kami menggunakan mesin Hunter 3D Alignment teknolo
   testimonials: {
     score: "4.9",
     totalReviews: "1.420+",
-    subtitle: "Kepuasan ribuan pemilik mobil di Ampera, Cilandak, Kemang, dan sekitarnya yang mempercayakan kendaraannya kepada Super Shop & Drive Ampera.",
+    subtitle: "Kepuasan ribuan pemilik mobil di Ampera, Cilandak, Kemang, dan sekitarnya yang mempercayakan kendaraannya kepada Shop & Drive Pondok Labu.",
     items: [
       {
         id: "testi-1",

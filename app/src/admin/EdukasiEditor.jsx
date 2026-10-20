@@ -67,7 +67,7 @@ export function EdukasiEditor() {
       content: '',
       technicianRecommendation:
         'Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jalan Ampera Raya. Teknisi kami menyediakan layanan uji aki digital & cek kelayakan pelumas secara gratis dengan alat diagnostik akurat standar Astra Otoparts.',
-      waTopic: 'Halo Super Shop & Drive Ampera, saya ingin konsultasi perawatan mobil',
+      waTopic: 'Halo Shop & Drive Pondok Labu, saya ingin konsultasi perawatan mobil',
     });
   };
 
@@ -367,12 +367,12 @@ export function EdukasiEditor() {
               </span>
             </div>
 
-            {/* Slot Khusus: Rekomendasi Teknisi Super Shop & Drive Ampera */}
+            {/* Slot Khusus: Rekomendasi Teknisi Shop & Drive Pondok Labu */}
             <div className="p-4 sm:p-5 bg-amber-50/80 rounded-2xl border border-amber-200/90 shadow-xs">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                 <label className="text-xs font-bold text-amber-950 uppercase flex items-center gap-1.5 tracking-wide">
                   <span className="material-symbols-outlined text-amber-600 text-lg">verified_user</span>
-                  <span>Rekomendasi Teknisi Super Shop &amp; Drive Ampera</span>
+                  <span>Rekomendasi Teknisi Shop &amp; Drive Pondok Labu</span>
                 </label>
                 <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-2 py-0.5 rounded border border-amber-300/80 w-fit">
                   Kotak Kuning Khusus Artikel
@@ -383,7 +383,7 @@ export function EdukasiEditor() {
                 rows="3"
                 value={formData.technicianRecommendation}
                 onChange={(e) => setFormData({ ...formData, technicianRecommendation: e.target.value })}
-                placeholder="Tuliskan saran khusus, langkah antisipasi, atau peringatan penting dari teknisi Super Shop & Drive Ampera untuk topik artikel ini..."
+                placeholder="Tuliskan saran khusus, langkah antisipasi, atau peringatan penting dari teknisi Shop & Drive Pondok Labu untuk topik artikel ini..."
                 className="w-full p-3 bg-white border border-amber-200 focus:border-amber-500 rounded-xl text-sm leading-relaxed text-amber-950 placeholder-amber-900/40 focus:outline-none"
               />
 
@@ -417,7 +417,7 @@ export function EdukasiEditor() {
                 type="text"
                 value={formData.waTopic}
                 onChange={(e) => setFormData({ ...formData, waTopic: e.target.value })}
-                placeholder="Halo Super Shop & Drive Ampera, saya ingin konsultasi mengenai..."
+                placeholder="Halo Shop & Drive Pondok Labu, saya ingin konsultasi mengenai..."
                 className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-sm"
               />
             </div>

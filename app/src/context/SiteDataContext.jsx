@@ -379,8 +379,8 @@ export function SiteDataProvider({ children }) {
       return { success: false, reason: 'GOWA disabled' };
     }
 
-    const apiUrl = (gowaConfig?.apiUrl || 'https://gowa285.ssdampera.web.id').replace(/\/+$/, '');
-    const groupJid = gowaConfig?.targetGroupJid || '120363426744122299@g.us';
+    const apiUrl = (gowaConfig?.apiUrl || 'https://gowa590.ssdampera.web.id').replace(/\/+$/, '');
+    const groupJid = gowaConfig?.targetGroupJid || '120363417372591982@g.us';
 
     const formattedMessage =
       `🔔 *RESERVASI SERVIS BARU - WEBSITE CABANG AMPERA*\n\n` +
@@ -442,7 +442,7 @@ export function SiteDataProvider({ children }) {
     const p = password.trim();
     if (
       (u === 'admin' && p === '@Komponen0285') ||
-      (u === 'ssdampera' && p === 'Komponen0285')
+      (u === 'sm0590' && p === 'Komponen0590')
     ) {
       setIsAdminLoggedIn(true);
       sessionStorage.setItem(AUTH_KEY, 'true');

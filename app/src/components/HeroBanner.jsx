@@ -11,9 +11,9 @@ export function HeroBanner() {
     : [
       {
         id: 'banner-1',
-        badgeText: hero?.badgeText || 'Super Shop & Drive Ampera • Bengkel Resmi Astra Otoparts',
+        badgeText: hero?.badgeText || 'Shop & Drive Pondok Labu • Bengkel Resmi Astra Otoparts',
         headline: hero?.headline || 'Servis & Perawatan Mobil Presisi',
-        headlineHighlight: hero?.headlineHighlight || 'Super Shop & Drive Ampera',
+        headlineHighlight: hero?.headlineHighlight || 'Shop & Drive Pondok Labu',
         subheadline: hero?.subheadline || 'Solusi cepat, terpercaya, dan bergaransi resmi dari Astra Otoparts untuk ratusan tipe kendaraan Anda di Jakarta Selatan.',
         bgImage: hero?.bgImage || '/Assets/bg1.jpeg',
         ctaText: hero?.ctaText || 'Booking via WhatsApp',
@@ -110,7 +110,7 @@ export function HeroBanner() {
       className="relative w-full bg-[#0B132B] overflow-hidden pt-20"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
-      aria-label="Hero Carousel Banner Super Shop & Drive Ampera"
+      aria-label="Hero Carousel Banner Shop & Drive Pondok Labu"
     >
       {/* Background Image Carousel Slider (Maximum Visibility & High Definition) */}
       {banners.map((b, idx) => (
@@ -278,7 +278,7 @@ export function HeroBanner() {
               </div>
 
               <p className="text-[11px] text-slate-500 mb-2.5 leading-snug">
-                Cek jadwal Super Shop &amp; Drive Ampera.
+                Cek jadwal Shop &amp; Drive Pondok Labu.
               </p>
 
               {submitSuccess ? (
@@ -292,7 +292,7 @@ export function HeroBanner() {
                       Pesan Berhasil Terkirim!
                     </h3>
                     <p className="text-[11px] text-slate-600 mt-1 leading-snug">
-                      Data terkirim ke WhatsApp tim Super Shop &amp; Drive Ampera. Mohon ditunggu balasan kami.
+                      Data terkirim ke WhatsApp tim Shop &amp; Drive Pondok Labu. Mohon ditunggu balasan kami.
                     </p>
                   </div>
 

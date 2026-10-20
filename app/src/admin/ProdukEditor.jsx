@@ -14,7 +14,7 @@ const PRESET_STOCK_IMAGES = [
   { label: 'Oli Mesin', url: '/Assets/ganti oli.webp' },
   { label: 'Shock Absorber KYB', url: '/Assets/shock-kyb.jpg' },
   { label: 'Spooring & Ban', url: '/Assets/spooring.webp' },
-  { label: 'Super Shop&Drive Banner', url: '/Assets/bg1.jpeg' },
+  { label: 'Shop&Drive Banner', url: '/Assets/bg1.jpeg' },
 ];
 
 export function ProdukEditor() {
@@ -73,7 +73,7 @@ export function ProdukEditor() {
       price: 'Rp 850.000',
       priceEstimate: 'Rp 850.000',
       discountTradeIn: 'Trade-in aki s/d Rp 150.000',
-      waMessage: 'Halo Super Shop & Drive Ampera, saya ingin tanya ketersediaan produk ini',
+      waMessage: 'Halo Shop & Drive Pondok Labu, saya ingin tanya ketersediaan produk ini',
       showInBanner: currentFeaturedCount < 5,
     });
   };
@@ -624,7 +624,7 @@ export function ProdukEditor() {
                 type="text"
                 value={formData.waMessage}
                 onChange={(e) => setFormData({ ...formData, waMessage: e.target.value })}
-                placeholder="Halo Super Shop & Drive Ampera, saya ingin pesan produk ini..."
+                placeholder="Halo Shop & Drive Pondok Labu, saya ingin pesan produk ini..."
                 className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-sm"
               />
             </div>

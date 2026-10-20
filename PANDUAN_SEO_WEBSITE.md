@@ -1,5 +1,5 @@
 # Panduan Lengkap Konfigurasi & Optimasi SEO
-### Super Shop & Drive Ampera (`shopanddriveampera.com`)
+### Shop & Drive Pondok Labu (`shopanddrivepdlabu.com`)
 
 Panduan ini berisi penjelasan konfigurasi teknis SEO yang telah diterapkan pada website Anda, serta langkah demi langkah mendaftarkan website ke **Google Search Console**, **Google Maps (Local SEO)**, dan mesin pencari modern berbasis AI (Google AI Mode, ChatGPT Search, Perplexity).
 
@@ -25,7 +25,7 @@ Sistem website kini telah dilengkapi fondasi SEO modern:
 - ✅ **Structured Data (JSON-LD Schema.org)**: Format data resmi `AutoRepair` & `AutomotiveBusiness` yang terbaca oleh Google Rich Results dan AI Search Engine.
 - ✅ **robots.txt**: Mengizinkan Googlebot, Bingbot, serta AI crawler resmi (GPTBot, ClaudeBot, PerplexityBot, Applebot).
 - ✅ **sitemap.xml**: Peta indeks seluruh bagian website dan gambar banner untuk indexing cepat.
-- ✅ **llms.txt**: Standar indeks rujukan AI generasi baru (GEO / Generative Engine Optimization) agar Super Shop & Drive Ampera dikutip langsung oleh ChatGPT dan Google AI Overviews.
+- ✅ **llms.txt**: Standar indeks rujukan AI generasi baru (GEO / Generative Engine Optimization) agar Shop & Drive Pondok Labu dikutip langsung oleh ChatGPT dan Google AI Overviews.
 
 ---
 
@@ -71,17 +71,17 @@ Setelah properti terverifikasi di Google Search Console:
 
 ## 4. Langkah 3: Sinkronisasi Google Business Profile (Local SEO Maps)
 
-Untuk bengkel fisik seperti Super Shop & Drive Ampera, 70% pencarian pelanggan berasal dari **Google Maps ("ganti aki terdekat", "bengkel mobil dekat sini")**.
+Untuk bengkel fisik seperti Shop & Drive Pondok Labu, 70% pencarian pelanggan berasal dari **Google Maps ("ganti aki terdekat", "bengkel mobil dekat sini")**.
 
-1. Buka [https://business.google.com](https://business.google.com) atau cari *"Super Shop & Drive - Ampera"* di Google Maps saat login dengan akun admin toko.
+1. Buka [https://business.google.com](https://business.google.com) atau cari *"Shop & Drive - Pondok Labu"* di Google Maps saat login dengan akun admin toko.
 2. Klik **Edit Profil (Edit Profile)**:
-   - **Situs Web (Website)**: Pastikan terisi persis: `https://shopanddriveampera.com`
-   - **Nama Bisnis**: `Super Shop & Drive - Ampera, Jakarta Selatan`
-   - **Alamat**: `JL. Ampera Raya no.138 Ragunan, Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12560`
+   - **Situs Web (Website)**: Pastikan terisi persis: `https://shopanddrivepdlabu.com`
+   - **Nama Bisnis**: `Shop & Drive - Pondok Labu, Jakarta Selatan`
+   - **Alamat**: `JL. Pondok Labu Raya no.138 Ragunan, Ps. Minggu, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12560`
    - **Nomor Telepon**: `(021) 780-0285` dan nomor WA `0851-1715-0285`.
    - **Jam Buka**: `Setiap Hari 08.00 - 20.00 WIB`.
 3. Mengapa ini sangat penting?
-   Konsistensi NAP (*Name, Address, Phone*) antara Google Maps dan data JSON-LD di website akan membuat Google memberikan skor otoritas tertinggi untuk ranking nomor 1 pada pencarian lokal kawasan Ampera, Ragunan, Cilandak, Kemang, dan Pasar Minggu.
+   Konsistensi NAP (*Name, Address, Phone*) antara Google Maps dan data JSON-LD di website akan membuat Google memberikan skor otoritas tertinggi untuk ranking nomor 1 pada pencarian lokal kawasan Pondok Labu, Ragunan, Cilandak, Kemang, dan Pasar Minggu.
 
 ---
 
@@ -124,4 +124,4 @@ Halaman website dan metadata telah dioptimasi untuk menjaring kata kunci berdaya
   - *"toko ban bridgestone ampera"*
 
 ---
-*Dokumentasi ini disiapkan khusus untuk Super Shop & Drive Ampera.*
+*Dokumentasi ini disiapkan khusus untuk Shop & Drive Pondok Labu.*

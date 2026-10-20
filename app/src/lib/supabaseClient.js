@@ -1,6 +1,6 @@
 import { createClient } from '@supabase/supabase-js';
 
-// Default Supabase project credentials for Super Shop & Drive Ampera
+// Default Supabase project credentials for Shop & Drive Pondok Labu
 const DEFAULT_SUPABASE_URL = 'https://zhlbucryrtdrryqwswsd.supabase.co';
 const DEFAULT_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpobGJ1Y3J5cnRkcnJ5cXdzd3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIxNDM0OTEsImV4cCI6MjEwNzcxOTQ5MX0.VGjp2Warw54J_v5hgG2Haik6RkY9K43PvjCddNCPGU8';
 

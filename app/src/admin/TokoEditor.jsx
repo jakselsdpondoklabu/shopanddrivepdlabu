@@ -194,7 +194,7 @@ export function TokoEditor() {
             className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold tracking-widest text-[#E3000F] uppercase focus:outline-none focus:ring-2 focus:ring-[#002884] focus:bg-white"
           />
           <span className="text-[11px] text-slate-400 mt-1 block">
-            Tampil tepat di bawah nama "SUPER SHOP &amp; DRIVE" pada header website.
+            Tampil tepat di bawah nama "SHOP &amp; DRIVE" pada header website.
           </span>
         </div>
 
@@ -236,7 +236,7 @@ export function TokoEditor() {
 
           <div>
             <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-              Alamat Lengkap Super Shop &amp; Drive Ampera
+              Alamat Lengkap Shop &amp; Drive Pondok Labu
             </label>
             <input
               type="text"

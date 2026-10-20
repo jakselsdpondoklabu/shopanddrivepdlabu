@@ -1,6 +1,6 @@
 # Product Requirements Document (PRD)
-**Project Name:** Super Shop&Drive Ampera (Landing Page & CMS)
-**Objective:** Membangun *landing page* yang ringan, responsif, dan berorientasi pada konversi (Chat WhatsApp) untuk cabang Ampera, dilengkapi dengan Dashboard Admin (CRUD) mandiri.
+**Project Name:** Shop&Drive Pondok Labu (Landing Page & CMS)
+**Objective:** Membangun *landing page* yang ringan, responsif, dan berorientasi pada konversi (Chat WhatsApp) untuk cabang Pondok Labu, dilengkapi dengan Dashboard Admin (CRUD) mandiri.
 
 ## 1. Arsitektur & Teknologi (Tech Stack)
 - **Frontend:** React.js dengan Tailwind CSS (Di-generate via Google Stitch).

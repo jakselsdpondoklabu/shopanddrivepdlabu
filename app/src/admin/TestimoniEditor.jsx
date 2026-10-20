@@ -206,7 +206,7 @@ export function TestimoniEditor() {
                 required
                 value={formData.review}
                 onChange={(e) => setFormData({ ...formData, review: e.target.value })}
-                placeholder="Pengalaman servis di Super Shop & Drive Ampera..."
+                placeholder="Pengalaman servis di Shop & Drive Pondok Labu..."
                 className="w-full p-3 bg-white border border-slate-200 rounded-lg text-sm"
               />
             </div>

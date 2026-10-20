@@ -6,9 +6,9 @@ export function AntreanEditor() {
   const bookings = content?.bookings || [];
   const services = content?.services || [];
   const gowaConfig = content?.gowa || {
-    apiUrl: 'https://gowa285.ssdampera.web.id',
-    targetGroupJid: '120363426744122299@g.us',
-    targetGroupName: '🔥 SUPER SHOP&DRIVE AMPERA 🔥',
+    apiUrl: 'https://gowa590.ssdampera.web.id',
+    targetGroupJid: '120363417372591982@g.us',
+    targetGroupName: '🔥 SHOP&DRIVE PONDOK LABU 🔥',
     isEnabled: true,
   };
 
@@ -111,7 +111,7 @@ export function AntreanEditor() {
     if (formattedPhone.startsWith('0')) {
       formattedPhone = '62' + formattedPhone.slice(1);
     }
-    const message = `Halo Bapak/Ibu ${booking.name},\nKami dari Super Shop & Drive Ampera mengonfirmasi reservasi servis mobil ${booking.carModel} untuk kebutuhan ${booking.serviceNeed} pada tanggal ${booking.serviceDate}.\nSlot montir telah kami jadwalkan. Apakah ada hal lain yang ingin dikonsultasikan? Terima kasih.`;
+    const message = `Halo Bapak/Ibu ${booking.name},\nKami dari Shop & Drive Pondok Labu mengonfirmasi reservasi servis mobil ${booking.carModel} untuk kebutuhan ${booking.serviceNeed} pada tanggal ${booking.serviceDate}.\nSlot montir telah kami jadwalkan. Apakah ada hal lain yang ingin dikonsultasikan? Terima kasih.`;
     const waUrl = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
     window.open(waUrl, '_blank');
   };
@@ -556,7 +556,7 @@ export function AntreanEditor() {
                   type="text"
                   value={gowaConfig.apiUrl || ''}
                   onChange={(e) => updateGowaConfig({ apiUrl: e.target.value.trim() })}
-                  placeholder="https://gowa285.ssdampera.web.id"
+                  placeholder="https://gowa590.ssdampera.web.id"
                   className="w-full h-10 px-3 bg-slate-50 border border-slate-200 rounded-xl text-sm"
                 />
                 <span className="text-[11px] text-slate-400 mt-0.5 block">
@@ -569,24 +569,24 @@ export function AntreanEditor() {
                   Pilih Grup WhatsApp Tujuan
                 </label>
                 <select
-                  value={gowaConfig.targetGroupJid || '120363426744122299@g.us'}
+                  value={gowaConfig.targetGroupJid || '120363417372591982@g.us'}
                   onChange={(e) => {
                     const jid = e.target.value;
                     const name =
-                      jid === '120363426744122299@g.us'
-                        ? '🔥 SUPER SHOP&DRIVE AMPERA 🔥'
+                      jid === '120363417372591982@g.us'
+                        ? '🔥 SHOP&DRIVE PONDOK LABU 🔥'
                         : jid === '120363371245308279@g.us'
-                        ? 'Ampera Squad (0285)'
+                        ? 'Pondok Labu Squad (0285)'
                         : 'Grup WhatsApp Kustom';
                     updateGowaConfig({ targetGroupJid: jid, targetGroupName: name });
                   }}
                   className="w-full h-10 px-3 bg-slate-50 border border-slate-200 rounded-xl text-sm cursor-pointer"
                 >
-                  <option value="120363426744122299@g.us">
-                    🔥 SUPER SHOP&amp;DRIVE AMPERA 🔥 (Grup WhatsApp Utama)
+                  <option value="120363417372591982@g.us">
+                    🔥 SHOP&amp;DRIVE PONDOK LABU 🔥 (Grup WhatsApp Utama)
                   </option>
                   <option value="120363371245308279@g.us">
-                    Ampera Squad (0285)
+                    Pondok Labu Squad (0285)
                   </option>
                 </select>
               </div>

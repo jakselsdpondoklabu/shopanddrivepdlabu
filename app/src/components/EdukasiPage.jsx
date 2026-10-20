@@ -215,7 +215,7 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
                     <span className="material-symbols-outlined text-[18px]">verified</span>
                   </div>
                   <div>
-                    <span className="font-bold text-white block">Tim Teknisi Super Shop &amp; Drive Ampera</span>
+                    <span className="font-bold text-white block">Tim Teknisi Shop &amp; Drive Pondok Labu</span>
                     <span className="text-slate-400 text-[11px]">Standar Servis Resmi Astra Otoparts Indonesia</span>
                   </div>
                 </div>
@@ -234,8 +234,8 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
                       className="w-full h-64 sm:h-96 lg:h-[460px] object-cover"
                     />
                     <div className="py-2.5 px-4 bg-slate-50 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500">
-                      <span>Dokumentasi Servis Cabang Ampera, Jakarta Selatan</span>
-                      <span className="font-semibold text-[#002884]">Super Shop &amp; Drive</span>
+                      <span>Dokumentasi Servis Shop &amp; Drive Pondok Labu, Jakarta Selatan</span>
+                      <span className="font-semibold text-[#002884]">Shop &amp; Drive</span>
                     </div>
                   </div>
                 )}
@@ -324,7 +324,7 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
                     </>
                   )}
 
-                  {/* Kotak Rekomendasi Teknisi Super Shop & Drive Ampera */}
+                  {/* Kotak Rekomendasi Teknisi Shop & Drive Pondok Labu */}
                   <section className="p-5 sm:p-6 rounded-2xl bg-amber-50/80 border border-amber-200/90 text-amber-950 not-prose shadow-xs my-6">
                     <div className="flex items-start gap-3.5">
                       <span className="material-symbols-outlined text-amber-600 text-2xl sm:text-3xl shrink-0 mt-0.5">
@@ -332,7 +332,7 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
                       </span>
                       <div className="flex-1">
                         <h4 className="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-amber-900 mb-1.5">
-                          {currentArticle.technicianRecommendationTitle || 'Rekomendasi Teknisi Super Shop & Drive Ampera'}
+                          {currentArticle.technicianRecommendationTitle || 'Rekomendasi Teknisi Shop & Drive Pondok Labu'}
                         </h4>
                         <p className="text-xs sm:text-sm text-amber-900/90 leading-relaxed whitespace-pre-line font-medium">
                           {currentArticle.technicianRecommendation ||
@@ -354,7 +354,7 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
                         Butuh Saran Langsung dari Teknisi Kami Mengenai Topik Ini?
                       </h3>
                       <p className="text-xs sm:text-sm text-slate-200 leading-relaxed">
-                        Tanyakan gejala mobil Anda langsung ke tim mekanik Super Shop &amp; Drive Cabang Ampera via WhatsApp. Kami siap memberikan solusi transparan dan estimasi biaya tanpa biaya tersembunyi.
+                        Tanyakan gejala mobil Anda langsung ke tim mekanik Shop &amp; Drive Pondok Labu via WhatsApp. Kami siap memberikan solusi transparan dan estimasi biaya tanpa biaya tersembunyi.
                       </p>
                     </div>
 
@@ -362,7 +362,7 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
                       <a
                         href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(
                           currentArticle.waTopic ||
-                            `Halo Super Shop & Drive Ampera, saya membaca artikel "${currentArticle.title}" di website dan ingin konsultasi mengenai mobil saya.`
+                            `Halo Shop & Drive Pondok Labu, saya membaca artikel "${currentArticle.title}" di website dan ingin konsultasi mengenai mobil saya.`
                         )}`}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -527,7 +527,7 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
                     Tips &amp; Edukasi Seputar Kendaraan Anda
                   </h1>
                   <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-                    Kumpulan artikel praktis, panduan perawatan rutin, dan tips preventif dari teknisi Super Shop &amp; Drive Ampera untuk menjaga performa mobil Anda tetap prima, aman, dan nyaman di segala rute perjalanan.
+                    Kumpulan artikel praktis, panduan perawatan rutin, dan tips preventif dari teknisi Shop &amp; Drive Pondok Labu untuk menjaga performa mobil Anda tetap prima, aman, dan nyaman di segala rute perjalanan.
                   </p>
                 </div>
               </div>
@@ -711,13 +711,13 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
                     Punya Keluhan atau Gejala Kerusakan pada Mobil Anda?
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-200 max-w-xl leading-relaxed">
-                    Kunjungi Super Shop &amp; Drive Ampera di Jalan Ampera Raya No. 7, Jakarta Selatan. Nikmati pemeriksaan aki, ban, oli, dan kaki-kaki gratis oleh mekanik profesional kami.
+                    Kunjungi Shop &amp; Drive Pondok Labu di Jalan Pondok Labu Raya No. 7, Jakarta Selatan. Nikmati pemeriksaan aki, ban, oli, dan kaki-kaki gratis oleh mekanik profesional kami.
                   </p>
                 </div>
 
                 <a
                   href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(
-                    'Halo Super Shop & Drive Ampera, saya ingin konsultasi servis mobil saya'
+                    'Halo Shop & Drive Pondok Labu, saya ingin konsultasi servis mobil saya'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"

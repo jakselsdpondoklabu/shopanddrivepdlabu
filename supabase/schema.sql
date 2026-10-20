@@ -1,5 +1,5 @@
 -- ==============================================================================
--- SCHEMA DATABASE & STORAGE BUCKET: SUPER SHOP & DRIVE CABANG AMPERA
+-- SCHEMA DATABASE & STORAGE BUCKET: SHOP & DRIVE PONDOK LABU
 -- Jalankan skrip SQL ini di SQL Editor pada Dashboard Supabase Anda
 -- ==============================================================================
 

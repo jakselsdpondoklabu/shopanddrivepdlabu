@@ -1,5 +1,5 @@
 # Panduan Lengkap Menghubungkan Domain Cloudflare ke Vercel
-### Khusus: Super Shop & Drive Ampera (`shopanddriveampera.com`)
+### Khusus: Shop & Drive Pondok Labu (`shopanddrivepdlabu.com`)
 
 Panduan ini berisi langkah demi langkah menghubungkan domain Anda yang terdaftar/dikelola di **Cloudflare** ke project website Anda di **Vercel**, lengkap dengan konfigurasi SSL/HTTPS agar tidak terjadi error redirect loop atau SSL handshake failed, serta panduan environment variables Supabase agar database tersinkronisasi di semua perangkat.
 
@@ -146,4 +146,4 @@ Untuk mengaktifkan sinkronisasi otomatis antar komputer/laptop/HP:
 - **Solusi**: Cek apakah IP `76.76.21.21` sudah benar diketik tanpa ada spasi atau titik berlebih. Anda bisa mengecek status propagasi melalui situs [whatsmydns.net](https://www.whatsmydns.net/#A/).
 
 ---
-*Dokumentasi ini dibuat untuk Super Shop & Drive Ampera. Simpan file ini untuk referensi maintenance berkala.*
+*Dokumentasi ini dibuat untuk Shop & Drive Pondok Labu. Simpan file ini untuk referensi maintenance berkala.*

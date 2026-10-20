@@ -58,7 +58,7 @@ export function LayananEditor() {
       image: '/Assets/bg1.jpeg',
       description: '',
       priceEstimate: 'Mulai Rp 200.000',
-      waMessage: 'Halo Super Shop & Drive Ampera, saya ingin tanya layanan ini',
+      waMessage: 'Halo Shop & Drive Pondok Labu, saya ingin tanya layanan ini',
     });
   };
 
@@ -326,7 +326,7 @@ export function LayananEditor() {
                   type="text"
                   value={formData.waMessage}
                   onChange={(e) => setFormData({ ...formData, waMessage: e.target.value })}
-                  placeholder="Halo Super Shop & Drive Ampera, saya ingin booking layanan ini..."
+                  placeholder="Halo Shop & Drive Pondok Labu, saya ingin booking layanan ini..."
                   className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-sm"
                 />
               </div>

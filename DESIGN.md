@@ -1,8 +1,8 @@
-# Design Direction: Super Shop&Drive Cabang Ampera
+# Design Direction: Shop&Drive Pondok Labu
 
 ## 1. Identity & Character
-- **Brand:** Super Shop&Drive by Astra Otoparts
-- **Branch:** Cabang Ampera Raya, Jakarta Selatan
+- **Brand:** Shop&Drive by Astra Otoparts
+- **Branch:** Pondok Labu, Jakarta Selatan
 - **Tagline:** The Trusted Parts Shop
 - **Core Aesthetic:** Precision Automotive Workshop, High-Trust, Authoritative, Clean & Efficient
 - **Design Inspiration:** Google Stitch AI Design System (`Stitch AI Design System` / `Precision Auto Workshop`)

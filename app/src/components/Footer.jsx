@@ -154,7 +154,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
           <p>
-            &copy; 2026 Super Shop &amp; Drive Ampera. Hak Cipta Dilindungi Undang-Undang.
+            &copy; 2026 Shop &amp; Drive Pondok Labu. Hak Cipta Dilindungi Undang-Undang.
           </p>
           <p className="mt-1 text-slate-600">
             PT Astra Otoparts, Tbk • Garansi Resmi Suku Cadang Asli Indonesia

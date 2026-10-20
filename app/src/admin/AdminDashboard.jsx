@@ -106,10 +106,10 @@ export function AdminDashboard({ onBackToSite }) {
             </div>
             <div>
               <span className="font-extrabold text-xs sm:text-sm text-white tracking-tight block leading-tight">
-                Dashboard Manajemen Cabang
+                Dashboard Manajemen Toko
               </span>
               <span className="text-[10px] font-bold text-red-400 uppercase tracking-wider">
-                Super Shop &amp; Drive Ampera
+                Shop &amp; Drive Pondok Labu
               </span>
             </div>
           </div>

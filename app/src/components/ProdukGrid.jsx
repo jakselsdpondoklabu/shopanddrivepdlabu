@@ -27,7 +27,7 @@ export function ProdukGrid() {
               Katalog Suku Cadang &amp; Komponen
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0B1C30] tracking-tight">
-              Produk Resmi Super Shop &amp; Drive Ampera
+              Produk Resmi Shop &amp; Drive Pondok Labu
             </h2>
             <p className="text-sm sm:text-base text-slate-600 mt-2 leading-relaxed">
               Jaminan 100% suku cadang original Astra Otoparts dan merek global ternama dengan jaminan garansi resmi serta harga transparan.
@@ -128,7 +128,7 @@ export function ProdukGrid() {
 
                   <a
                     href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(
-                      prod.waMessage || `Halo Super Shop & Drive Ampera, saya ingin pesan produk: ${prod.name} (Harga: ${formatRupiah(prod.price || prod.priceEstimate)}${prod.discountTradeIn ? ` | Promo: ${prod.discountTradeIn}` : ''})`
+                      prod.waMessage || `Halo Shop & Drive Pondok Labu, saya ingin pesan produk: ${prod.name} (Harga: ${formatRupiah(prod.price || prod.priceEstimate)}${prod.discountTradeIn ? ` | Promo: ${prod.discountTradeIn}` : ''})`
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
