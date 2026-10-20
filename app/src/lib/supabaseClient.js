@@ -1,8 +1,8 @@
 import { createClient } from '@supabase/supabase-js';
 
 // Default Supabase project credentials for Shop & Drive Pondok Labu
-const DEFAULT_SUPABASE_URL = 'https://zhlbucryrtdrryqwswsd.supabase.co';
-const DEFAULT_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpobGJ1Y3J5cnRkcnJ5cXdzd3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIxNDM0OTEsImV4cCI6MjEwNzcxOTQ5MX0.VGjp2Warw54J_v5hgG2Haik6RkY9K43PvjCddNCPGU8';
+const DEFAULT_SUPABASE_URL = 'https://uxdipdlhfgcnddoshiib.supabase.co';
+const DEFAULT_SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV4ZGlwZGxoZmdjbmRkb3NoaWliIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI0OTE0NTcsImV4cCI6MjEwODA2NzQ1N30.mTOVHdKXguIRapUOzM3gKnbtQHr15C_UE7hjY0u7e94';
 
 // Retrieve credentials from environment variables, localStorage override, or project fallback
 const envUrl = import.meta.env.VITE_SUPABASE_URL || DEFAULT_SUPABASE_URL;
