@@ -20,7 +20,7 @@
 - **Daftar Produk/Layanan:** Grid menampilkan kategori (Aki, Oli, Ban) dengan harga dinamis.
 - **Promo & Artikel:** Menampilkan list promo terbaru layaknya blog post.
 - **Testimoni:** Slider ringan ulasan pelanggan.
-- **Footer:** Google Maps cabang Ampera, jam operasional, link sosial media.
+- **Footer:** Google Maps cabang Pondok Labu, jam operasional, link sosial media.
 
 ### B. Tampilan Admin (CMS)
 - **Autentikasi:** Halaman Login khusus Admin (Protected Route).

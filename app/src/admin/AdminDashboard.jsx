@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSiteData } from '../context/SiteDataContext';
-import { isSupabaseConfigured, saveRemoteSiteContent } from '../lib/supabaseClient';
+import { saveRemoteSiteContent } from '../lib/supabaseClient';
 import { TokoEditor } from './TokoEditor';
 import { AntreanEditor } from './AntreanEditor';
 import { HeroEditor } from './HeroEditor';

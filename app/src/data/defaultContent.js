@@ -65,7 +65,7 @@ export const defaultSiteContent = {
         badgeText: "Garansi Resmi Hingga 24 Bulan • Aki GS Astra & Incoe",
         headline: "Ganti Aki Mobil Bergaransi Resmi",
         headlineHighlight: "Gratis Antar & Pasang di Lokasi",
-        subheadline: "Layanan darurat aki tekor cepat untuk kawasan Ampera, Kemang, TB Simatupang, dan Cilandak. Gratis cek alternator pengisian & kebocoran arus kelistrikan.",
+        subheadline: "Layanan darurat aki tekor cepat untuk kawasan Pondok Labu, Fatmawati, Cinere, dan Cilandak. Gratis cek alternator pengisian & kebocoran arus kelistrikan.",
         bgImage: "/Assets/ganti aki.jpg",
         ctaText: "Pesan Aki Sekarang",
         secondaryCtaText: "Pilihan Aki Tersedia",
@@ -297,11 +297,11 @@ export const defaultSiteContent = {
   promo: {
     isActive: true,
     badgeText: "Penawaran Terbatas Bulan Ini",
-    title: "Promo Spesial Ampera: Diskon Paket Tune-Up + Free Cek Rem!",
-    description: "Segera pulihkan tenaga mesin mobil Anda agar kembali bertenaga dan irit bahan bakar. Berlaku untuk kendaraan bensin maupun diesel di Cabang Ampera.",
-    promoCode: "AMPERAPRO20",
+    title: "Promo Spesial Pondok Labu: Diskon Paket Tune-Up + Free Cek Rem!",
+    description: "Segera pulihkan tenaga mesin mobil Anda agar kembali bertenaga dan irit bahan bakar. Berlaku untuk kendaraan bensin maupun diesel di Cabang Pondok Labu.",
+    promoCode: "PDLABUPRO20",
     ctaText: "Klaim Diskon via WhatsApp",
-    waMessage: "Halo Shop & Drive Pondok Labu, saya ingin klaim promo diskon AMPERAPRO20",
+    waMessage: "Halo Shop & Drive Pondok Labu, saya ingin klaim promo diskon PDLABUPRO20",
     articles: [
       {
         id: "art-1",
@@ -344,7 +344,7 @@ Jangan menunggu mobil mogok di jalan raya atau parkiran mall. Kunjungi gerai Sho
         title: "Kapan Waktu Tepat Mengganti Oli Mesin? Kilometer vs Durasi Bulan",
         summary: "Sering macet di Jakarta Selatan? Ketahui mengapa jam kerja mesin (engine hours) lebih menentukan penggantian oli daripada angka odometer.",
         waTopic: "Halo Shop & Drive Pondok Labu, saya ingin tanya jadwal ganti oli yang tepat",
-        content: `Banyak pemilik mobil hanya berpatokan pada kelipatan 5.000 atau 10.000 KM di odometer saat menjadwalkan penggantian oli mesin. Namun, untuk pengendara di wilayah Jabodetabek, terutama koridor padat seperti kawasan Ampera, Cilandak, dan TB Simatupang, patokan jarak tempuh saja bisa sangat mengecoh.
+        content: `Banyak pemilik mobil hanya berpatokan pada kelipatan 5.000 atau 10.000 KM di odometer saat menjadwalkan penggantian oli mesin. Namun, untuk pengendara di wilayah Jabodetabek, terutama koridor padat seperti kawasan Pondok Labu, Fatmawati, Cilandak, dan TB Simatupang, patokan jarak tempuh saja bisa sangat mengecoh.
 
 Mengapa Jam Kerja Mesin (Engine Hours) Lebih Krusial?
 Saat mobil Anda terjebak macet selama 1,5 jam menempuh jarak hanya 7 KM, roda kendaraan memang berputar lambat. Namun mesin mobil tetap menyala, piston tetap bergerak naik-turun ribuan kali per menit, dan suhu ruang bakar tetap tinggi dengan kipas radiator bekerja ekstra.
@@ -354,13 +354,13 @@ Kondisi inilah yang dinamakan "Severe Driving Conditions" (Kondisi Berkendara Ek
 - Aditif pembersih dan pelindung friksi pada oli terurai lebih cepat.
 - Uap bahan bakar yang tidak terbakar sempurna dapat merembes ke karter (fuel dilution), mengencerkan viskositas oli.
 
-Panduan Praktis Teknisi Shop & Drive Ampera:
+Panduan Praktis Teknisi Shop & Drive Pondok Labu:
 1. Aturan Waktu Maksimal: Ganti oli mesin maksimal setiap 6 bulan sekali, meskipun jarak tempuh baru mencapai 3.000 atau 4.000 KM.
 2. Cek Dipstick Mandiri: Tarik dipstick oli mesin setiap 2 minggu. Perhatikan warna oli (jika sudah hitam pekat pekat dan berbau gosong, segera ganti) serta pastikan volume oli berada tepat di antara batas titik MIN dan MAX.
 3. Selalu Ganti Filter Oli: Jangan berhemat dengan melewatkan filter oli. Filter oli lama menampung sisa kotoran gram besi dan lumpur oli (oil sludge) yang langsung mencemari oli mesin baru Anda.
 
 Nikmati layanan ganti oli bergaransi resmi di Shop & Drive Pondok Labu dengan gratis biaya jasa, pengecekan 11 titik kendaraan, dan produk original Astra Otoparts seperti Shell Helix, Pertamina Fastron, Castrol, dan Motul.`,
-        technicianRecommendation: "Bila mobil Anda beroperasi di area perkotaan yang sering macet seperti koridor Ampera dan TB Simatupang, ganti oli mesin maksimal setiap 6 bulan sekali tanpa menunggu 10.000 KM. Selalu ganti filter oli original Astra secara bersamaan agar sirkulasi pelumasan tetap bersih sempurna."
+        technicianRecommendation: "Bila mobil Anda beroperasi di area perkotaan yang sering macet seperti koridor Pondok Labu, Fatmawati, dan TB Simatupang, ganti oli mesin maksimal setiap 6 bulan sekali tanpa menunggu 10.000 KM. Selalu ganti filter oli original Astra secara bersamaan agar sirkulasi pelumasan tetap bersih sempurna."
       },
       {
         id: "art-3",
@@ -383,7 +383,7 @@ Gejala Sistem Pengereman Aus:
 2. Pedal Rem Terasa Bergetar: Pertanda piringan cakram (rotor disc) sudah bergelombang akibat panas berlebih atau pemakaian kampas rem non-standar yang terlalu keras.
 3. Rem Terasa Dalam / Amblas: Terdapat kebocoran silinder rem atau minyak rem yang sudah terkontaminasi uap air tinggi sehingga terjadi vapor lock.
 
-Rekomendasi Teknisi Ampera:
+Rekomendasi Teknisi Pondok Labu:
 Kaki-kaki dan sistem pengereman menyangkut langsung keselamatan nyawa pengendara dan keluarga. Segera periksakan mobil Anda di bengkel Shop & Drive Pondok Labu. Kami menyediakan suku cadang orisinal berkualitas tinggi seperti kampas rem Akebono/Aspira serta shock absorber Kayaba Excel-G bergaransi resmi Astra.`,
         technicianRecommendation: "Jangan menunda penggantian kampas rem yang sudah menipis atau shock absorber yang bocor. Hubungi teknisi kami untuk pemeriksaan fisik kaki-kaki dan ketebalan kampas rem tanpa dipungut biaya di bengkel Shop & Drive Pondok Labu."
       },
@@ -419,14 +419,14 @@ Di Shop & Drive Pondok Labu, kami menggunakan mesin Hunter 3D Alignment teknolog
   testimonials: {
     score: "4.9",
     totalReviews: "1.420+",
-    subtitle: "Kepuasan ribuan pemilik mobil di Ampera, Cilandak, Kemang, dan sekitarnya yang mempercayakan kendaraannya kepada Shop & Drive Pondok Labu.",
+    subtitle: "Kepuasan ribuan pemilik mobil di Pondok Labu, Fatmawati, Cilandak, Cinere, dan sekitarnya yang mempercayakan kendaraannya kepada Shop & Drive Pondok Labu.",
     items: [
       {
         id: "testi-1",
         initials: "HW",
         avatarBg: "bg-[#002884]",
         name: "Hendra Wijaya",
-        vehicle: "Honda CR-V Turbo • Ampera Raya",
+        vehicle: "Honda CR-V Turbo • Jl. RS Fatmawati",
         rating: 5,
         review: "Bengkel paling jujur dan transparan di Jakarta Selatan. Diagnosa masalah kaki-kaki tepat sasaran, estimasi biaya dijelaskan di awal tanpa biaya siluman. Sangat recommended!"
       },

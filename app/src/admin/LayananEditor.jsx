@@ -3,7 +3,6 @@ import { useSiteData } from '../context/SiteDataContext';
 import {
   uploadProductPhoto,
   compressImage,
-  formatRupiah,
 } from '../lib/supabaseClient';
 
 const PRESET_SERVICE_IMAGES = [

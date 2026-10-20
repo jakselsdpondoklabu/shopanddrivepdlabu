@@ -23,12 +23,15 @@ export function HeroEditor() {
 
   // Sync internal state when site context changes
   useEffect(() => {
-    if (hero?.banners && hero.banners.length > 0) {
-      setBanners(hero.banners);
-    }
-    if (hero?.stats && hero.stats.length > 0) {
-      setStats(hero.stats);
-    }
+    const timer = setTimeout(() => {
+      if (hero?.banners && hero.banners.length > 0) {
+        setBanners(hero.banners);
+      }
+      if (hero?.stats && hero.stats.length > 0) {
+        setStats(hero.stats);
+      }
+    }, 0);
+    return () => clearTimeout(timer);
   }, [hero?.banners, hero?.stats]);
 
   const currentBanner = banners[selectedIdx] || banners[0] || {};

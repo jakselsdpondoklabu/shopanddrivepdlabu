@@ -1,4 +1,4 @@
-﻿{
+{
   "brand": {
     "name": "SHOP & DRIVE",
     "subName": "Pondok Labu",
@@ -65,7 +65,7 @@
         "badgeText": "Garansi Resmi Hingga 24 Bulan â€¢ Aki GS Astra & Incoe",
         "headline": "Ganti Aki Mobil Bergaransi Resmi",
         "headlineHighlight": "Gratis Antar & Pasang di Lokasi",
-        "subheadline": "Layanan darurat aki tekor cepat untuk kawasan Ampera, Kemang, TB Simatupang, dan Cilandak. Gratis cek alternator pengisian & kebocoran arus kelistrikan.",
+        "subheadline": "Layanan darurat aki tekor cepat untuk kawasan Pondok Labu, Fatmawati, Cinere, dan Cilandak. Gratis cek alternator pengisian & kebocoran arus kelistrikan.",
         "bgImage": "/Assets/ganti aki.jpg",
         "ctaText": "Pesan Aki Sekarang",
         "secondaryCtaText": "Pilihan Aki Tersedia",
@@ -128,11 +128,11 @@
   "promo": {
     "isActive": true,
     "badgeText": "Penawaran Terbatas Bulan Ini",
-    "title": "Promo Spesial Ampera: Diskon Paket Tune-Up + Free Cek Rem!",
-    "description": "Segera pulihkan tenaga mesin mobil Anda agar kembali bertenaga dan irit bahan bakar. Berlaku untuk kendaraan bensin maupun diesel di Cabang Ampera.",
-    "promoCode": "AMPERAPRO20",
+    "title": "Promo Spesial Pondok Labu: Diskon Paket Tune-Up + Free Cek Rem!",
+    "description": "Segera pulihkan tenaga mesin mobil Anda agar kembali bertenaga dan irit bahan bakar. Berlaku untuk kendaraan bensin maupun diesel di Cabang Pondok Labu.",
+    "promoCode": "PDLABUPRO20",
     "ctaText": "Klaim Diskon via WhatsApp",
-    "waMessage": "Halo Shop & Drive Pondok Labu, saya ingin klaim promo diskon AMPERAPRO20",
+    "waMessage": "Halo Shop & Drive Pondok Labu, saya ingin klaim promo diskon PDLABUPRO20",
     "articles": [
       {"id": "art-1", "category": "Tips Aki", "readTime": "5 Menit Baca", "date": "Update Terbaru", "image": "/Assets/ganti aki.jpg", "title": "Kenali 5 Tanda Aki Mobil Mulai Lemah Sebelum Mogok di Jalan", "summary": "Jangan tunggu starter mobil berputar lambat di pagi hari. Pahami gejala penurunan voltase, suara klik, dan cara cek kelistrikan mandiri.", "waTopic": "Halo Shop & Drive Pondok Labu, saya ingin konsultasi cek aki mobil", "content": "Aki (accu) adalah jantung sistem kelistrikan kendaraan Anda. Saat performa aki menurun, tidak hanya mesin yang sulit distarter, tetapi berbagai modul elektronik modern (ECU, power steering elektrik, sistem ABS, hingga head unit) dapat mengalami malfungsi karena suplai voltase yang tidak stabil.", "technicianRecommendation": "Hindari menyalakan lampu kabin atau audio mobil terlalu lama saat mesin mati. Kunjungi Shop & Drive Pondok Labu untuk uji voltase & sisa CCA aki secara GRATIS sebelum aki benar-benar mogok di jalan. Kami menyediakan trade-in aki GS Astra & Incoe bergaransi resmi hingga 24 bulan."},
       {"id": "art-2", "category": "Perawatan Oli", "readTime": "4 Menit Baca", "date": "Update Terbaru", "image": "/Assets/ganti oli.webp", "title": "Kapan Waktu Tepat Mengganti Oli Mesin? Kilometer vs Durasi Bulan", "summary": "Sering macet di Jakarta Selatan? Ketahui mengapa jam kerja mesin (engine hours) lebih menentukan penggantian oli daripada angka odometer.", "waTopic": "Halo Shop & Drive Pondok Labu, saya ingin tanya jadwal ganti oli yang tepat", "content": "Banyak pemilik mobil hanya berpatokan pada kelipatan 5.000 atau 10.000 KM di odometer saat menjadwalkan penggantian oli mesin. Namun, untuk pengendara di wilayah Jabodetabek, patokan jarak tempuh saja bisa sangat mengecoh.", "technicianRecommendation": "Bila mobil Anda beroperasi di area perkotaan yang sering macet, ganti oli mesin maksimal setiap 6 bulan sekali tanpa menunggu 10.000 KM."},
@@ -143,9 +143,9 @@
   "testimonials": {
     "score": "4.9",
     "totalReviews": "1.420+",
-    "subtitle": "Kepuasan ribuan pemilik mobil di Ampera, Cilandak, Kemang, dan sekitarnya yang mempercayakan kendaraannya kepada Shop & Drive Pondok Labu.",
+    "subtitle": "Kepuasan ribuan pemilik mobil di Pondok Labu, Fatmawati, Cilandak, Cinere, dan sekitarnya yang mempercayakan kendaraannya kepada Shop & Drive Pondok Labu.",
     "items": [
-      {"id": "testi-1", "initials": "HW", "avatarBg": "bg-[#002884]", "name": "Hendra Wijaya", "vehicle": "Honda CR-V Turbo â€¢ Ampera Raya", "rating": 5, "review": "Bengkel paling jujur dan transparan di Jakarta Selatan. Diagnosa masalah kaki-kaki tepat sasaran, estimasi biaya dijelaskan di awal tanpa biaya siluman. Sangat recommended!"},
+      {"id": "testi-1", "initials": "HW", "avatarBg": "bg-[#002884]", "name": "Hendra Wijaya", "vehicle": "Honda CR-V Turbo • Jl. RS Fatmawati", "rating": 5, "review": "Bengkel paling jujur dan transparan di Jakarta Selatan. Diagnosa masalah kaki-kaki tepat sasaran, estimasi biaya dijelaskan di awal tanpa biaya siluman. Sangat recommended!"},
       {"id": "testi-2", "initials": "SN", "avatarBg": "bg-[#E3000F]", "name": "dr. Siti Nurhaliza", "vehicle": "Toyota Yaris GR Sport â€¢ Kemang", "rating": 5, "review": "Pelayanan cepat dan ruang tunggu AC sangat nyaman. Bisa booking via WhatsApp dulu jadi gak perlu antre berjam-jam saat ganti aki & oli sebelum praktik di RS."},
       {"id": "testi-3", "initials": "BS", "avatarBg": "bg-[#008239]", "name": "Budi Santoso", "vehicle": "Mitsubishi Pajero Sport â€¢ Cilandak", "rating": 5, "review": "Spooring 3D presisi sekali, setir yang tadinya narik ke kiri sekarang lurus stabil saat melaju di tol TB Simatupang. Teknisi paham betul spesifikasi suspensi mobil besar."}
     ]

@@ -3,8 +3,8 @@ import { SiteDataContext } from './SiteDataContextObject';
 import { defaultSiteContent } from '../data/defaultContent';
 import { fetchRemoteProducts, fetchRemoteSiteContent, saveRemoteSiteContent, isSupabaseConfigured } from '../lib/supabaseClient';
 
-const STORAGE_KEY = 'ssdampera_site_content_v2';
-const AUTH_KEY = 'ssdampera_admin_authenticated';
+const STORAGE_KEY = 'ssdpdlabu_site_content_v2';
+const AUTH_KEY = 'ssdpdlabu_admin_authenticated';
 
 
 export function SiteDataProvider({ children }) {
@@ -26,7 +26,7 @@ export function SiteDataProvider({ children }) {
           ...defaultSiteContent.brand,
           ...(parsed.brand || {}),
           subName: (parsed.brand?.subName && parsed.brand.subName.toUpperCase().includes('WORKSHOP'))
-            ? 'AMPERA'
+            ? 'Pondok Labu'
             : (parsed.brand?.subName || defaultSiteContent.brand.subName),
           coordinates: defaultSiteContent.brand.coordinates,
           mapsEmbedUrl: defaultSiteContent.brand.mapsEmbedUrl,
@@ -105,8 +105,8 @@ export function SiteDataProvider({ children }) {
                 ...prev.brand,
                 ...(cloudData.brand || {}),
                 subName: (cloudData.brand?.subName && cloudData.brand.subName.toUpperCase().includes('WORKSHOP'))
-                  ? 'AMPERA'
-                  : (cloudData.brand?.subName || prev.brand?.subName || 'AMPERA'),
+                  ? 'Pondok Labu'
+                  : (cloudData.brand?.subName || prev.brand?.subName || 'Pondok Labu'),
               },
               hero: {
                 ...prev.hero,
@@ -145,8 +145,8 @@ export function SiteDataProvider({ children }) {
                 ...prev.brand,
                 ...(remoteData.brand || {}),
                 subName: (remoteData.brand?.subName && remoteData.brand.subName.toUpperCase().includes('WORKSHOP'))
-                  ? 'AMPERA'
-                  : (remoteData.brand?.subName || prev.brand?.subName || 'AMPERA'),
+                  ? 'Pondok Labu'
+                  : (remoteData.brand?.subName || prev.brand?.subName || 'Pondok Labu'),
               },
               hero: {
                 ...prev.hero,
@@ -383,14 +383,14 @@ export function SiteDataProvider({ children }) {
     const groupJid = gowaConfig?.targetGroupJid || '120363417372591982@g.us';
 
     const formattedMessage =
-      `🔔 *RESERVASI SERVIS BARU - WEBSITE CABANG AMPERA*\n\n` +
+      `🔔 *RESERVASI SERVIS BARU - WEBSITE CABANG PONDOK LABU*\n\n` +
       `👤 *Nama:* ${bookingData.name}\n` +
       `📱 *No. HP/WA:* ${bookingData.phone}\n` +
       `🚗 *Kendaraan:* ${bookingData.carModel}\n` +
       `🔧 *Layanan:* ${bookingData.serviceNeed}\n` +
       `📅 *Rencana Tanggal:* ${bookingData.serviceDate}\n` +
       `⏰ *Waktu Pengajuan:* ${bookingData.createdAt || new Date().toLocaleString('id-ID')}\n\n` +
-      `_Pesan otomatis dikirim melalui Sistem Reservasi shopanddriveampera.com_`;
+      `_Pesan otomatis dikirim melalui Sistem Reservasi shopanddrivepdlabu.com_`;
 
     try {
       const response = await fetch(`${apiUrl}/send/message`, {
@@ -458,8 +458,8 @@ export function SiteDataProvider({ children }) {
 
   const setSupabaseCredentials = (url, key) => {
     try {
-      localStorage.setItem('ssdampera_supabase_url', url.trim());
-      localStorage.setItem('ssdampera_supabase_key', key.trim());
+      localStorage.setItem('ssdpdlabu_supabase_url', url.trim());
+      localStorage.setItem('ssdpdlabu_supabase_key', key.trim());
       window.location.reload();
     } catch (e) {
       console.error('Error saving supabase credentials:', e);
@@ -499,5 +499,6 @@ export function SiteDataProvider({ children }) {
 }
 
 export { SiteDataContext } from './SiteDataContextObject';
+// oxlint-disable-next-line react/only-export-components
 export { useSiteData } from './useSiteData';
 

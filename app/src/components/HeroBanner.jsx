@@ -273,7 +273,7 @@ export function HeroBanner() {
                   </h2>
                 </div>
                 <span className="px-2 py-0.5 bg-red-50 text-[#E3000F] font-bold text-[10px] rounded-full uppercase tracking-wider">
-                  Ampera
+                  Pondok Labu
                 </span>
               </div>
 
@@ -317,7 +317,7 @@ export function HeroBanner() {
 
                   <div className="flex flex-col gap-1.5 pt-1">
                     <a
-                      href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(`Halo Admin Shop & Drive Ampera, saya ${customerName} telah mengisi form reservasi untuk mobil ${carModel} pada tanggal ${selectedDate}.`)}`}
+                      href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(`Halo Admin Shop & Drive Pondok Labu, saya ${customerName} telah mengisi form reservasi untuk mobil ${carModel} pada tanggal ${selectedDate}.`)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="w-full py-2 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs rounded-lg shadow-sm transition-colors flex items-center justify-center gap-1.5"

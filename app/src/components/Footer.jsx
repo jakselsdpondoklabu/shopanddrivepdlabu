@@ -32,7 +32,7 @@ export function Footer() {
             </div>
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-              Pusat servis berkala, ganti aki, oli, ban, suspensi, dan uji diagnostik kendaraan berstandar resmi Astra Otoparts terpercaya di kawasan Ampera, Jakarta Selatan.
+              Pusat servis berkala, ganti aki, oli, ban, suspensi, dan uji diagnostik kendaraan berstandar resmi Astra Otoparts terpercaya di kawasan Pondok Labu, Fatmawati, Jakarta Selatan.
             </p>
 
             <div className="pt-2">

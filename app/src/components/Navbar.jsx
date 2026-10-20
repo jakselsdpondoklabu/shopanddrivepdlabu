@@ -100,7 +100,7 @@ export function Navbar({ activePage = 'home' }) {
               {brand.name}
             </span>
             <span className="text-[11px] sm:text-xs font-bold tracking-widest text-red-300 uppercase">
-              {(brand?.subName && brand.subName.toUpperCase().includes('WORKSHOP')) ? 'AMPERA' : (brand?.subName || 'AMPERA')}
+              {(brand?.subName && brand.subName.toUpperCase().includes('WORKSHOP')) ? 'PONDOK LABU' : (brand?.subName || 'PONDOK LABU')}
             </span>
           </div>
         </a>

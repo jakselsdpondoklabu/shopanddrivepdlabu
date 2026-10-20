@@ -1,5 +1,5 @@
 # ==============================================================================
-# ROBOTS.TXT - SUPER SHOP & DRIVE AMPERA (shopanddriveampera.com)
+# ROBOTS.TXT - SHOP & DRIVE PONDOK LABU (shopanddrivepdlabu.com)
 # ==============================================================================
 
 User-agent: *
@@ -30,4 +30,4 @@ User-agent: Applebot
 Allow: /
 
 # Lokasi XML Sitemap & LLMs Index
-Sitemap: https://shopanddriveampera.com/sitemap.xml
+Sitemap: https://shopanddrivepdlabu.com/sitemap.xml

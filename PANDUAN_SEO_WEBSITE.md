@@ -36,7 +36,7 @@ Google Search Console (GSC) adalah alat resmi dari Google agar website Anda teri
 1. Buka [https://search.google.com/search-console](https://search.google.com/search-console) dan login dengan akun Google bengkel.
 2. Pada bagian **Pilih jenis properti**:
    - Pilih opsi **Awalan URL (URL Prefix)**.
-   - Masukkan: `https://shopanddriveampera.com`
+   - Masukkan: `https://shopanddrivepdlabu.com`
    - Klik **Lanjutkan (Continue)**.
 3. **Verifikasi Kepemilikan (Pilih salah satu cara tercepat):**
    - **Cara A (Rekomendasi via Cloudflare DNS - Paling Kuat):**
@@ -110,18 +110,18 @@ Untuk bengkel fisik seperti Shop & Drive Pondok Labu, 70% pencarian pelanggan be
 Halaman website dan metadata telah dioptimasi untuk menjaring kata kunci berdaya beli tinggi (high commercial intent) berikut:
 
 - 🔋 **Aki Mobil & Delivery**:
-  - *"ganti aki mobil ampera"*
-  - *"toko aki gs astra jakarta selatan"*
-  - *"battery home delivery ampera"*
-  - *"tukar tambah aki bekas pasar minggu"*
+  - *"ganti aki mobil pondok labu"*
+  - *"toko aki gs astra fatmawati"*
+  - *"battery home delivery pondok labu"*
+  - *"tukar tambah aki bekas cilandak cinere"*
 - 🛢️ **Oli Mesin**:
-  - *"bengkel ganti oli ampera raya"*
+  - *"bengkel ganti oli pondok labu fatmawati"*
   - *"oli shell helix original jakarta selatan"*
-  - *"promo ganti oli gratis jasa ampera"*
+  - *"promo ganti oli gratis jasa pondok labu"*
 - 🚗 **Kaki-Kaki & Ban**:
-  - *"spooring balancing ampera"*
-  - *"bengkel shock absorber kyb jakarta selatan"*
-  - *"toko ban bridgestone ampera"*
+  - *"spooring balancing pondok labu"*
+  - *"bengkel shock absorber kyb fatmawati"*
+  - *"toko ban bridgestone pondok labu"*
 
 ---
 *Dokumentasi ini disiapkan khusus untuk Shop & Drive Pondok Labu.*

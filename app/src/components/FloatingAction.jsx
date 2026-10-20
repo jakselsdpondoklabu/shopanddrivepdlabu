@@ -40,7 +40,7 @@ export function FloatingAction() {
         target="_blank"
         rel="noopener noreferrer"
         className="group flex items-center gap-2 transition-all transform hover:-translate-y-1"
-        aria-label="Chat WhatsApp Admin Ampera"
+        aria-label="Chat WhatsApp Admin Pondok Labu"
       >
         <span className="px-3.5 py-1.5 rounded-xl bg-[#0B132B]/90 text-white text-xs font-bold shadow-xl backdrop-blur-md whitespace-nowrap hidden sm:inline-flex items-center gap-2 border border-slate-700">
           <span className="w-2 h-2 rounded-full bg-[#25D366] animate-ping" />

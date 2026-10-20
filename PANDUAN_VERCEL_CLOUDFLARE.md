@@ -18,13 +18,13 @@ Panduan ini berisi langkah demi langkah menghubungkan domain Anda yang terdaftar
 ## Langkah 1: Tambahkan Domain di Dashboard Vercel
 
 1. Buka [https://vercel.com](https://vercel.com) dan login ke akun Anda.
-2. Masuk ke project website **shopanddriveampera**.
+2. Masuk ke project website **shopanddrivepdlabu**.
 3. Klik tab **Settings** (di menu atas project) -> pilih **Domains** di bilah sisi kiri.
 4. Pada kolom **Domain**, ketikkan domain utama Anda:
-   - Masukkan: `shopanddriveampera.com` (atau domain yang Anda miliki).
+   - Masukkan: `shopanddrivepdlabu.com` (atau domain yang Anda miliki).
    - Klik tombol **Add**.
 5. Vercel akan merekomendasikan opsi:
-   - Pilih rekomendasi standar Vercel: **Add `shopanddriveampera.com` and redirect `www.shopanddriveampera.com` to it** (atau sebaliknya).
+   - Pilih rekomendasi standar Vercel: **Add `shopanddrivepdlabu.com` and redirect `www.shopanddrivepdlabu.com` to it** (atau sebaliknya).
 6. Vercel akan menampilkan instruksi DNS Record yang diperlukan:
    - **Type A**:
      - Name: `@`
@@ -106,19 +106,19 @@ Cloudflare memiliki dua mode untuk setiap DNS record:
 Untuk mengaktifkan sinkronisasi otomatis antar komputer/laptop/HP:
 
 1. Buka dashboard Vercel: [https://vercel.com](https://vercel.com).
-2. Pilih project **shopanddriveampera**.
+2. Pilih project **shopanddrivepdlabu**.
 3. Masuk ke menu **Settings** -> pilih **Environment Variables**.
 4. Tambahkan 2 variabel berikut:
 
    **Variabel 1:**
    - **Key**: `VITE_SUPABASE_URL`
-   - **Value**: `https://zhlbucryrtdrryqwswsd.supabase.co`
+   - **Value**: `https://uxdipdlhfgcnddoshiib.supabase.co`
    - Centang target: **Production**, **Preview**, dan **Development**.
    - Klik **Save**.
 
    **Variabel 2:**
    - **Key**: `VITE_SUPABASE_ANON_KEY`
-   - **Value**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpobGJ1Y3J5cnRkcnJ5cXdzd3NkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTIxNDM0OTEsImV4cCI6MjEwNzcxOTQ5MX0.VGjp2Warw54J_v5hgG2Haik6RkY9K43PvjCddNCPGU8`
+   - **Value**: `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV4ZGlwZGxoZmdjbmRkb3NoaWliIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTI0OTE0NTcsImV4cCI6MjEwODA2NzQ1N30.mTOVHdKXguIRapUOzM3gKnbtQHr15C_UE7hjY0u7e94`
    - Centang target: **Production**, **Preview**, dan **Development**.
    - Klik **Save**.
 

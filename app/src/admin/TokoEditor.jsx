@@ -7,18 +7,26 @@ export function TokoEditor() {
 
   const [mode, setMode] = useState(storeStatus?.mode || 'auto');
   const [openTime, setOpenTime] = useState(storeStatus?.openTime || '08:00');
-  const [closeTime, setCloseTime] = useState(storeStatus?.closeTime || '20:00');
+  const [closeTime, setCloseTime] = useState(storeStatus?.closeTime || '18:00');
   const [subName, setSubName] = useState(
     brand?.subName && brand.subName.toUpperCase().includes('WORKSHOP')
-      ? 'AMPERA'
-      : (brand?.subName || 'AMPERA')
+      ? 'Pondok Labu'
+      : (brand?.subName || 'Pondok Labu')
   );
-  const [phone, setPhone] = useState(brand?.phone || '(021) 782-3844');
-  const [operationalHours, setOperationalHours] = useState(brand?.operationalHours || '08.00 s/d 20.00 WIB (Buka Setiap Hari)');
-  const [address, setAddress] = useState(brand?.address || 'JL. Ampera Raya no.138 Ragunan, Pasar Minggu, Jakarta Selatan');
+  const [phone, setPhone] = useState(brand?.phone || '(021) 2276-9606');
+  const [operationalHours, setOperationalHours] = useState(brand?.operationalHours || '08.00 s/d 18.00 WIB (Buka Setiap Hari)');
+  const [address, setAddress] = useState(brand?.address || 'JL. RS. Fatmawati Raya No.26 B - C, RT.2/RW.7, Cilandak Bar., Kec. Cilandak, Jakarta Selatan');
   const [mapsGoogleUrl, setMapsGoogleUrl] = useState(brand?.mapsGoogleUrl || '');
-  const [coordinates, setCoordinates] = useState(brand?.coordinates || '-6.2822913, 106.8196073');
+  const [coordinates, setCoordinates] = useState(brand?.coordinates || '-6.3045542, 106.7915712');
   const [savedNotice, setSavedNotice] = useState(false);
+  const [currentTime, setCurrentTime] = useState('');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurrentTime(new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }));
+    }, 0);
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -83,7 +91,7 @@ export function TokoEditor() {
         </div>
 
         <div className="text-xs text-slate-500">
-          Waktu Server/Lokal: <strong className="text-slate-800">{new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })} WIB</strong>
+          Waktu Server/Lokal: <strong className="text-slate-800">{currentTime || '--:--'} WIB</strong>
         </div>
       </div>
 
@@ -190,7 +198,7 @@ export function TokoEditor() {
             type="text"
             value={subName}
             onChange={(e) => setSubName(e.target.value)}
-            placeholder="AMPERA"
+            placeholder="PONDOK LABU"
             className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-bold tracking-widest text-[#E3000F] uppercase focus:outline-none focus:ring-2 focus:ring-[#002884] focus:bg-white"
           />
           <span className="text-[11px] text-slate-400 mt-1 block">

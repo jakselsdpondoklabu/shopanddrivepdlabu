@@ -9,8 +9,8 @@ const envUrl = import.meta.env.VITE_SUPABASE_URL || DEFAULT_SUPABASE_URL;
 const envAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
 
 // Check localStorage for manual override if admin configured it in dashboard
-const localUrl = typeof window !== 'undefined' ? localStorage.getItem('ssdampera_supabase_url') : null;
-const localKey = typeof window !== 'undefined' ? localStorage.getItem('ssdampera_supabase_key') : null;
+const localUrl = typeof window !== 'undefined' ? localStorage.getItem('ssdpdlabu_supabase_url') : null;
+const localKey = typeof window !== 'undefined' ? localStorage.getItem('ssdpdlabu_supabase_key') : null;
 
 const sanitizeUrl = (url) => {
   if (!url) return '';
@@ -46,10 +46,10 @@ export function formatRupiah(val) {
 const getSupabaseClient = () => {
   if (!isSupabaseConfigured()) return null;
   if (typeof window !== 'undefined') {
-    if (!window.__ssdamperaSupabase) {
-      window.__ssdamperaSupabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    if (!window.__ssdpdlabuSupabase) {
+      window.__ssdpdlabuSupabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     }
-    return window.__ssdamperaSupabase;
+    return window.__ssdpdlabuSupabase;
   }
   return createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 };

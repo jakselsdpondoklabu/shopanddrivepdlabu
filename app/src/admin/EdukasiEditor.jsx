@@ -8,7 +8,7 @@ const PRESET_ARTICLE_IMAGES = [
   { label: 'Kaki-kaki & Suspensi', url: '/Assets/shock-kyb.jpg' },
   { label: 'Spooring & Ban', url: '/Assets/spooring.webp' },
   { label: 'Pengereman Mobil', url: '/Assets/bg3.jpg' },
-  { label: 'Servis Bengkel Ampera', url: '/Assets/bg1.jpeg' },
+  { label: 'Servis Bengkel Pondok Labu', url: '/Assets/bg1.jpeg' },
 ];
 
 export function EdukasiEditor() {
@@ -66,7 +66,7 @@ export function EdukasiEditor() {
       summary: '',
       content: '',
       technicianRecommendation:
-        'Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jalan Ampera Raya. Teknisi kami menyediakan layanan uji aki digital & cek kelayakan pelumas secara gratis dengan alat diagnostik akurat standar Astra Otoparts.',
+        'Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jl. RS Fatmawati Raya (Pondok Labu). Teknisi kami menyediakan layanan uji aki digital & cek kelayakan pelumas secara gratis dengan alat diagnostik akurat standar Astra Otoparts.',
       waTopic: 'Halo Shop & Drive Pondok Labu, saya ingin konsultasi perawatan mobil',
     });
   };
@@ -398,7 +398,7 @@ export function EdukasiEditor() {
                     setFormData((prev) => ({
                       ...prev,
                       technicianRecommendation:
-                        'Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jalan Ampera Raya. Teknisi kami menyediakan layanan uji aki digital & cek kelayakan pelumas secara gratis dengan alat diagnostik akurat standar Astra Otoparts.',
+                        'Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jl. RS Fatmawati Raya (Pondok Labu). Teknisi kami menyediakan layanan uji aki digital & cek kelayakan pelumas secara gratis dengan alat diagnostik akurat standar Astra Otoparts.',
                     }))
                   }
                   className="text-[11px] font-bold text-amber-800 hover:text-amber-950 underline flex items-center gap-1"

@@ -91,7 +91,7 @@ export function PromoEditor() {
               type="text"
               value={promoCode}
               onChange={(e) => setPromoCode(e.target.value)}
-              placeholder="AMPERAPRO20"
+              placeholder="PDLABUPRO20"
               className="w-full h-11 px-3.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-mono font-bold focus:outline-none focus:ring-2 focus:ring-[#002884]"
             />
           </div>

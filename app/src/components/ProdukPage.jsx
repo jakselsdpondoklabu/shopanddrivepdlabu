@@ -84,7 +84,7 @@ export function ProdukPage({ onBackToHome }) {
                 Katalog Produk Resmi Astra Otoparts
               </h1>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-                Temukan aki mobil bergaransi resmi hingga 24 bulan, oli mesin original pabrikan, shock absorber Kayaba, dan ban berstandar internasional untuk performa terbaik kendaraan Anda di Cabang Ampera.
+                Temukan aki mobil bergaransi resmi hingga 24 bulan, oli mesin original pabrikan, shock absorber Kayaba, dan ban berstandar internasional untuk performa terbaik kendaraan Anda di Cabang Pondok Labu.
               </p>
             </div>
           </div>
@@ -281,13 +281,13 @@ export function ProdukPage({ onBackToHome }) {
                 </div>
                 <div>
                   <span className="text-xs font-bold text-red-300 uppercase tracking-widest block mb-1">
-                    Home Delivery Service Ampera
+                    Home Delivery Service Pondok Labu
                   </span>
                   <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight">
                     Mogok di Rumah atau Kantor? Kami Antar &amp; Pasang ke Lokasi Anda
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-300 mt-2 max-w-2xl leading-relaxed">
-                    Layanan pengantaran dan pemasangan aki serta penggantian oli ke rumah atau kantor untuk wilayah Ampera, Kemang, Cilandak, Pasar Minggu, dan sekitarnya. Teknisi kami datang langsung dengan perlengkapan lengkap.
+                    Layanan pengantaran dan pemasangan aki serta penggantian oli ke rumah atau kantor untuk wilayah Pondok Labu, Fatmawati, Cilandak, Cinere, dan sekitarnya. Teknisi kami datang langsung dengan perlengkapan lengkap.
                   </p>
                 </div>
               </div>

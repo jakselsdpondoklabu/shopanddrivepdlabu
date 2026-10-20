@@ -30,7 +30,7 @@ export function TestimoniSection() {
             </div>
 
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-3 tracking-tight">
-              Testimoni Pelanggan Cabang Ampera
+              Testimoni Pelanggan Cabang Pondok Labu
             </h2>
 
             <p className="text-sm sm:text-base text-slate-300 mb-8 leading-relaxed">

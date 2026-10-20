@@ -82,20 +82,20 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
 
   const handleSelectArticle = (id) => {
     setActiveArticleId(id);
-    if (window.history.pushState) {
+    if (typeof window !== 'undefined' && window.history?.pushState) {
       window.history.pushState(null, '', `#/edukasi/${id}`);
-    } else {
-      window.location.hash = `#/edukasi/${id}`;
+    } else if (typeof window !== 'undefined') {
+      window.location.assign(`#/edukasi/${id}`);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleBackToList = () => {
     setActiveArticleId(null);
-    if (window.history.pushState) {
+    if (typeof window !== 'undefined' && window.history?.pushState) {
       window.history.pushState(null, '', `#/edukasi`);
-    } else {
-      window.location.hash = `#/edukasi`;
+    } else if (typeof window !== 'undefined') {
+      window.location.assign(`#/edukasi`);
     }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -336,7 +336,7 @@ export function EdukasiPage({ onBackToHome, initialArticleId = null }) {
                         </h4>
                         <p className="text-xs sm:text-sm text-amber-900/90 leading-relaxed whitespace-pre-line font-medium">
                           {currentArticle.technicianRecommendation ||
-                            'Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jalan Ampera Raya. Teknisi kami menyediakan layanan uji aki digital & cek kelayakan pelumas secara gratis dengan alat diagnostik akurat standar Astra Otoparts.'}
+                            'Jika Anda merasa ada yang janggal pada tarikan mesin, kelistrikan, atau bantingan mobil, bawa mobil Anda langsung ke bengkel kami di Jl. RS Fatmawati Raya (Pondok Labu). Teknisi kami menyediakan layanan uji aki digital & cek kelayakan pelumas secara gratis dengan alat diagnostik akurat standar Astra Otoparts.'}
                         </p>
                       </div>
                     </div>

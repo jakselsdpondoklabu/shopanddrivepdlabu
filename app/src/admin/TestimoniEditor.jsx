@@ -39,7 +39,7 @@ export function TestimoniEditor() {
     setEditingId('new');
     setFormData({
       name: '',
-      vehicle: 'Pemilik Kendaraan • Ampera',
+      vehicle: 'Pemilik Kendaraan • Pondok Labu',
       rating: 5,
       review: '',
     });
@@ -88,7 +88,7 @@ export function TestimoniEditor() {
             Kelola Testimoni &amp; Ulasan Pelanggan
           </h2>
           <p className="text-xs sm:text-sm text-slate-500 mt-0.5">
-            Kelola data skor Google Maps dan ulasan terverifikasi dari para pelanggan cabang Ampera.
+            Kelola data skor Google Maps dan ulasan terverifikasi dari para pelanggan cabang Pondok Labu.
           </p>
         </div>
 
@@ -176,7 +176,7 @@ export function TestimoniEditor() {
                   required
                   value={formData.vehicle}
                   onChange={(e) => setFormData({ ...formData, vehicle: e.target.value })}
-                  placeholder="Honda CR-V Turbo • Ampera"
+                  placeholder="Honda CR-V Turbo • Pondok Labu"
                   className="w-full h-10 px-3 bg-white border border-slate-200 rounded-lg text-sm"
                 />
               </div>
