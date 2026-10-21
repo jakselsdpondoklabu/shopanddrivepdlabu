@@ -6,6 +6,51 @@ import { fetchRemoteProducts, fetchRemoteSiteContent, saveRemoteSiteContent, isS
 const STORAGE_KEY = 'ssdpdlabu_site_content_v2';
 const AUTH_KEY = 'ssdpdlabu_admin_authenticated';
 
+export const sanitizeBrand = (brandObj, fallbackBrand = defaultSiteContent.brand) => {
+  const base = { ...fallbackBrand, ...(brandObj || {}) };
+  const rawEmbed = base.mapsEmbedUrl || '';
+  const isEmbedBlocked = !rawEmbed || !rawEmbed.includes('output=embed') || rawEmbed.includes('/maps/place/');
+  const cleanCoords = String(base.coordinates || fallbackBrand.coordinates || '-6.3045542, 106.7941461')
+    .replace(/[^0-9.,-]/g, '')
+    .replace(/,+$/, '')
+    .trim() || '-6.3045542, 106.7941461';
+
+  let embedUrl = rawEmbed;
+  if (isEmbedBlocked) {
+    const cidMatch = (rawEmbed + ' ' + (base.mapsGoogleUrl || '')).match(/0x[a-f0-9]+:(0x[a-f0-9]+)/i);
+    if (cidMatch && cidMatch[1]) {
+      try {
+        const dec = BigInt(cidMatch[1]).toString();
+        embedUrl = `https://maps.google.com/maps?q=Shop%20%26%20Drive%20-%20Pondok%20Labu%2C%20Jakarta%20Selatan&cid=${dec}&hl=id&output=embed`;
+      } catch {
+        embedUrl = `https://maps.google.com/maps?q=Shop%20%26%20Drive%20-%20Pondok%20Labu%2C%20Jakarta%20Selatan&cid=2205825876538227512&hl=id&output=embed`;
+      }
+    } else {
+      embedUrl = `https://maps.google.com/maps?q=Shop%20%26%20Drive%20-%20Pondok%20Labu%2C%20Jakarta%20Selatan&cid=2205825876538227512&hl=id&output=embed`;
+    }
+  }
+
+  return {
+    ...base,
+    coordinates: cleanCoords,
+    mapsEmbedUrl: embedUrl,
+    mapsGoogleUrl: base.mapsGoogleUrl || fallbackBrand.mapsGoogleUrl,
+    subName: (base.subName && typeof base.subName === 'string' && base.subName.toUpperCase().includes('WORKSHOP'))
+      ? 'Pondok Labu'
+      : (base.subName || fallbackBrand.subName || 'Pondok Labu'),
+  };
+};
+
+export const sanitizeStoreStatus = (statusObj, fallbackStatus = defaultSiteContent.storeStatus) => {
+  const base = { ...fallbackStatus, ...(statusObj || {}) };
+  return {
+    ...base,
+    mode: ['auto', 'open', 'closed'].includes(base.mode) ? base.mode : 'auto',
+    openTime: typeof base.openTime === 'string' && base.openTime.includes(':') ? base.openTime : '08:00',
+    closeTime: typeof base.closeTime === 'string' && base.closeTime.includes(':') ? base.closeTime : '18:00',
+    statusNote: base.statusNote || 'Buka Setiap Hari',
+  };
+};
 
 export function SiteDataProvider({ children }) {
   const [content, setContent] = useState(() => {
@@ -22,16 +67,8 @@ export function SiteDataProvider({ children }) {
             : defaultSiteContent.hero.banners,
         };
 
-        const brand = {
-          ...defaultSiteContent.brand,
-          ...(parsed.brand || {}),
-          subName: (parsed.brand?.subName && parsed.brand.subName.toUpperCase().includes('WORKSHOP'))
-            ? 'Pondok Labu'
-            : (parsed.brand?.subName || defaultSiteContent.brand.subName),
-          coordinates: defaultSiteContent.brand.coordinates,
-          mapsEmbedUrl: defaultSiteContent.brand.mapsEmbedUrl,
-          mapsGoogleUrl: defaultSiteContent.brand.mapsGoogleUrl,
-        };
+        const brand = sanitizeBrand(parsed.brand, defaultSiteContent.brand);
+        const storeStatus = sanitizeStoreStatus(parsed.storeStatus, defaultSiteContent.storeStatus);
 
         return {
           ...defaultSiteContent,
@@ -43,7 +80,7 @@ export function SiteDataProvider({ children }) {
             ...(parsed.gowa || {}),
           },
           bookings: parsed.bookings || defaultSiteContent.bookings || [],
-          storeStatus: parsed.storeStatus || defaultSiteContent.storeStatus,
+          storeStatus,
           products: parsed.products || defaultSiteContent.products,
           services: parsed.services || defaultSiteContent.services,
         };
@@ -51,7 +88,11 @@ export function SiteDataProvider({ children }) {
     } catch (e) {
       console.error('Error loading stored content:', e);
     }
-    return defaultSiteContent;
+    return {
+      ...defaultSiteContent,
+      brand: sanitizeBrand(defaultSiteContent.brand),
+      storeStatus: sanitizeStoreStatus(defaultSiteContent.storeStatus),
+    };
   });
 
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(() => {
@@ -101,13 +142,8 @@ export function SiteDataProvider({ children }) {
             const merged = {
               ...prev,
               ...cloudData,
-              brand: {
-                ...prev.brand,
-                ...(cloudData.brand || {}),
-                subName: (cloudData.brand?.subName && cloudData.brand.subName.toUpperCase().includes('WORKSHOP'))
-                  ? 'Pondok Labu'
-                  : (cloudData.brand?.subName || prev.brand?.subName || 'Pondok Labu'),
-              },
+              brand: sanitizeBrand(cloudData.brand, prev.brand),
+              storeStatus: sanitizeStoreStatus(cloudData.storeStatus, prev.storeStatus),
               hero: {
                 ...prev.hero,
                 ...(cloudData.hero || {}),
@@ -134,20 +170,18 @@ export function SiteDataProvider({ children }) {
 
     // Fallback: Sync with local server API on LAN if active
     fetch('/api/site-content')
-      .then((res) => (res.ok ? res.json() : null))
+      .then((res) => {
+        const cType = res.headers.get('content-type') || '';
+        return res.ok && cType.includes('application/json') ? res.json() : null;
+      })
       .then((remoteData) => {
         if (remoteData && typeof remoteData === 'object' && Object.keys(remoteData).length > 0) {
           setContent((prev) => {
             const merged = {
               ...prev,
               ...remoteData,
-              brand: {
-                ...prev.brand,
-                ...(remoteData.brand || {}),
-                subName: (remoteData.brand?.subName && remoteData.brand.subName.toUpperCase().includes('WORKSHOP'))
-                  ? 'Pondok Labu'
-                  : (remoteData.brand?.subName || prev.brand?.subName || 'Pondok Labu'),
-              },
+              brand: sanitizeBrand(remoteData.brand, prev.brand),
+              storeStatus: sanitizeStoreStatus(remoteData.storeStatus, prev.storeStatus),
               hero: {
                 ...prev.hero,
                 ...(remoteData.hero || {}),
@@ -183,7 +217,7 @@ export function SiteDataProvider({ children }) {
 
   // Check if store is currently open
   const isStoreOpen = useCallback(() => {
-    const { storeStatus } = content;
+    const { storeStatus } = content || {};
     if (!storeStatus) return true;
 
     if (storeStatus.mode === 'open') return true;
@@ -191,20 +225,30 @@ export function SiteDataProvider({ children }) {
 
     // Mode: 'auto'
     try {
-      const jakartaTimeStr = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Asia/Jakarta',
-        hour: '2-digit',
-        minute: '2-digit',
-        hourCycle: 'h23',
-      }).format(new Date());
-      const [currentHours, currentMinutes] = jakartaTimeStr.split(':').map(Number);
-      const currentTotalMin = currentHours * 60 + currentMinutes;
+      let currentHours, currentMinutes;
+      try {
+        const jakartaTimeStr = new Intl.DateTimeFormat('en-GB', {
+          timeZone: 'Asia/Jakarta',
+          hour: '2-digit',
+          minute: '2-digit',
+          hourCycle: 'h23',
+        }).format(new Date());
+        [currentHours, currentMinutes] = jakartaTimeStr.split(':').map(Number);
+      } catch {
+        const now = new Date();
+        currentHours = now.getHours();
+        currentMinutes = now.getMinutes();
+      }
 
-      const [openH, openM] = (storeStatus.openTime || '08:00').split(':').map(Number);
-      const [closeH, closeM] = (storeStatus.closeTime || '18:00').split(':').map(Number);
+      const currentTotalMin = (Number(currentHours) || 0) * 60 + (Number(currentMinutes) || 0);
 
-      const openTotalMin = openH * 60 + openM;
-      const closeTotalMin = closeH * 60 + closeM;
+      const openStr = String(storeStatus.openTime || '08:00');
+      const closeStr = String(storeStatus.closeTime || '18:00');
+      const [openH, openM] = (openStr.includes(':') ? openStr : '08:00').split(':').map(Number);
+      const [closeH, closeM] = (closeStr.includes(':') ? closeStr : '18:00').split(':').map(Number);
+
+      const openTotalMin = (Number(openH) || 8) * 60 + (Number(openM) || 0);
+      const closeTotalMin = (Number(closeH) || 18) * 60 + (Number(closeM) || 0);
 
       if (closeTotalMin >= openTotalMin) {
         return currentTotalMin >= openTotalMin && currentTotalMin < closeTotalMin;

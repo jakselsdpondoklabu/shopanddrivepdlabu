@@ -109,7 +109,7 @@ export function LokasiMaps() {
             {/* CTA Buttons */}
             <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row gap-3">
               <a
-                href={brand.mapsGoogleUrl}
+                href={brand?.mapsGoogleUrl || 'https://www.google.com/maps/place/Shop+%26+Drive+-+Pondok+Labu,+Jakarta+Selatan/@-6.3045542,106.7915712,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f1ead1698961:0x1e9caaf29f6cfb38!8m2!3d-6.3045542!4d106.7941461!16s%2Fg%2F1pv2bsz8m?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D'}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 py-3 px-4 bg-[#002884] hover:bg-[#001C5D] text-white font-bold text-xs sm:text-sm rounded-xl transition-colors text-center flex items-center justify-center gap-2 shadow-sm"
@@ -119,7 +119,7 @@ export function LokasiMaps() {
               </a>
 
               <a
-                href={`https://wa.me/${brand.whatsappNumber}?text=${encodeURIComponent(brand.whatsappDefaultMessage)}`}
+                href={`https://wa.me/${brand?.whatsappNumber || '6285117769606'}?text=${encodeURIComponent(brand?.whatsappDefaultMessage || 'Halo Shop & Drive Pondok Labu')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 py-3 px-4 bg-[#25D366] hover:bg-[#1EBE5D] text-white font-bold text-xs sm:text-sm rounded-xl transition-colors text-center flex items-center justify-center gap-2 shadow-sm"
@@ -133,17 +133,40 @@ export function LokasiMaps() {
 
           {/* Right Column: Google Maps Embed Iframe */}
           <div className="lg:col-span-7 rounded-3xl overflow-hidden border border-slate-200/80 shadow-md min-h-[360px] lg:min-h-full relative bg-slate-200">
-            <iframe
-              title="Peta Shop & Drive Pondok Labu"
-              src={brand.mapsEmbedUrl || "https://maps.google.com/maps?q=-6.2822913,106.8196073&hl=id&z=17&output=embed"}
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: '380px' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full block"
-            />
+            {(() => {
+              const rawUrl = brand?.mapsEmbedUrl || '';
+              const isEmbedValid = rawUrl && rawUrl.includes('output=embed') && !rawUrl.includes('/maps/place/');
+
+              let embedSrc = rawUrl;
+              if (!isEmbedValid) {
+                const combined = (rawUrl + ' ' + (brand?.mapsGoogleUrl || ''));
+                const cidMatch = combined.match(/0x[a-f0-9]+:(0x[a-f0-9]+)/i);
+                if (cidMatch && cidMatch[1]) {
+                  try {
+                    const dec = BigInt(cidMatch[1]).toString();
+                    embedSrc = `https://maps.google.com/maps?q=Shop%20%26%20Drive%20-%20Pondok%20Labu%2C%20Jakarta%20Selatan&cid=${dec}&hl=id&output=embed`;
+                  } catch {
+                    embedSrc = 'https://maps.google.com/maps?q=Shop%20%26%20Drive%20-%20Pondok%20Labu%2C%20Jakarta%20Selatan&cid=2205825876538227512&hl=id&output=embed';
+                  }
+                } else {
+                  embedSrc = 'https://maps.google.com/maps?q=Shop%20%26%20Drive%20-%20Pondok%20Labu%2C%20Jakarta%20Selatan&cid=2205825876538227512&hl=id&output=embed';
+                }
+              }
+
+              return (
+                <iframe
+                  title="Peta Shop & Drive Pondok Labu"
+                  src={embedSrc}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: '380px' }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="w-full h-full block"
+                />
+              );
+            })()}
           </div>
 
         </div>

@@ -3,21 +3,30 @@ import { useSiteData } from '../context/SiteDataContext';
 
 export function TokoEditor() {
   const { content, updateStoreStatus, updateBrand, isStoreOpen } = useSiteData();
-  const { storeStatus, brand } = content;
+  const storeStatus = content?.storeStatus || {};
+  const brand = content?.brand || {};
 
   const [mode, setMode] = useState(storeStatus?.mode || 'auto');
   const [openTime, setOpenTime] = useState(storeStatus?.openTime || '08:00');
   const [closeTime, setCloseTime] = useState(storeStatus?.closeTime || '18:00');
   const [subName, setSubName] = useState(
-    brand?.subName && brand.subName.toUpperCase().includes('WORKSHOP')
+    brand?.subName && typeof brand.subName === 'string' && brand.subName.toUpperCase().includes('WORKSHOP')
       ? 'Pondok Labu'
       : (brand?.subName || 'Pondok Labu')
   );
   const [phone, setPhone] = useState(brand?.phone || '(021) 2276-9606');
   const [operationalHours, setOperationalHours] = useState(brand?.operationalHours || '08.00 s/d 18.00 WIB (Buka Setiap Hari)');
   const [address, setAddress] = useState(brand?.address || 'JL. RS. Fatmawati Raya No.26 B - C, RT.2/RW.7, Cilandak Bar., Kec. Cilandak, Jakarta Selatan');
-  const [mapsGoogleUrl, setMapsGoogleUrl] = useState(brand?.mapsGoogleUrl || '');
-  const [coordinates, setCoordinates] = useState(brand?.coordinates || '-6.3045542, 106.7915712');
+  const [mapsGoogleUrl, setMapsGoogleUrl] = useState(
+    brand?.mapsGoogleUrl ||
+    'https://www.google.com/maps/place/Shop+%26+Drive+-+Pondok+Labu,+Jakarta+Selatan/@-6.3045542,106.7915712,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f1ead1698961:0x1e9caaf29f6cfb38!8m2!3d-6.3045542!4d106.7941461!16s%2Fg%2F1pv2bsz8m?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D'
+  );
+  const [coordinates, setCoordinates] = useState(
+    String(brand?.coordinates || '-6.3045542, 106.7941461')
+      .replace(/[^0-9.,-]/g, '')
+      .replace(/,+$/, '')
+      .trim() || '-6.3045542, 106.7941461'
+  );
   const [savedNotice, setSavedNotice] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
 
@@ -34,28 +43,43 @@ export function TokoEditor() {
   useEffect(() => {
     if (brand) {
       setSubName(
-        brand.subName && brand.subName.toUpperCase().includes('WORKSHOP')
+        brand.subName && typeof brand.subName === 'string' && brand.subName.toUpperCase().includes('WORKSHOP')
           ? 'Pondok Labu'
           : (brand.subName || 'Pondok Labu')
       );
       setPhone(brand.phone || '(021) 2276-9606');
       setOperationalHours(brand.operationalHours || '08.00 s/d 18.00 WIB (Buka Setiap Hari)');
       setAddress(brand.address || 'JL. RS. Fatmawati Raya No.26 B - C, RT.2/RW.7, Cilandak Bar., Kec. Cilandak, Jakarta Selatan');
-      setMapsGoogleUrl(brand.mapsGoogleUrl || '');
-      setCoordinates(brand.coordinates || '-6.3045542, 106.7915712');
+      setMapsGoogleUrl(
+        brand.mapsGoogleUrl ||
+        'https://www.google.com/maps/place/Shop+%26+Drive+-+Pondok+Labu,+Jakarta+Selatan/@-6.3045542,106.7915712,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f1ead1698961:0x1e9caaf29f6cfb38!8m2!3d-6.3045542!4d106.7941461!16s%2Fg%2F1pv2bsz8m?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D'
+      );
+      setCoordinates(
+        String(brand.coordinates || '-6.3045542, 106.7941461')
+          .replace(/[^0-9.,-]/g, '')
+          .replace(/,+$/, '')
+          .trim() || '-6.3045542, 106.7941461'
+      );
     }
   }, [brand]);
 
   // Live clock formatted in WIB (Asia/Jakarta)
   useEffect(() => {
     const updateTime = () => {
-      setCurrentTime(
-        new Date().toLocaleTimeString('id-ID', {
-          timeZone: 'Asia/Jakarta',
-          hour: '2-digit',
-          minute: '2-digit',
-        })
-      );
+      try {
+        setCurrentTime(
+          new Date().toLocaleTimeString('id-ID', {
+            timeZone: 'Asia/Jakarta',
+            hour: '2-digit',
+            minute: '2-digit',
+          })
+        );
+      } catch {
+        const now = new Date();
+        const hh = String(now.getHours()).padStart(2, '0');
+        const mm = String(now.getMinutes()).padStart(2, '0');
+        setCurrentTime(`${hh}:${mm}`);
+      }
     };
     updateTime();
     const timer = setInterval(updateTime, 1000);
@@ -64,25 +88,46 @@ export function TokoEditor() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const cleanCoords = String(coordinates || '-6.3045542, 106.7941461')
+      .replace(/[^0-9.,-]/g, '')
+      .replace(/,+$/, '')
+      .trim() || '-6.3045542, 106.7941461';
+
+    let embedUrl = '';
+    const combined = String(mapsGoogleUrl || '');
+    const cidMatch = combined.match(/0x[a-f0-9]+:(0x[a-f0-9]+)/i);
+    if (cidMatch && cidMatch[1]) {
+      try {
+        const dec = BigInt(cidMatch[1]).toString();
+        embedUrl = `https://maps.google.com/maps?q=Shop%20%26%20Drive%20-%20Pondok%20Labu%2C%20Jakarta%20Selatan&cid=${dec}&hl=id&output=embed`;
+      } catch {
+        embedUrl = 'https://maps.google.com/maps?q=Shop%20%26%20Drive%20-%20Pondok%20Labu%2C%20Jakarta%20Selatan&cid=2205825876538227512&hl=id&output=embed';
+      }
+    } else {
+      embedUrl = 'https://maps.google.com/maps?q=Shop%20%26%20Drive%20-%20Pondok%20Labu%2C%20Jakarta%20Selatan&cid=2205825876538227512&hl=id&output=embed';
+    }
+
+    const defaultPlaceUrl = 'https://www.google.com/maps/place/Shop+%26+Drive+-+Pondok+Labu,+Jakarta+Selatan/@-6.3045542,106.7915712,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f1ead1698961:0x1e9caaf29f6cfb38!8m2!3d-6.3045542!4d106.7941461!16s%2Fg%2F1pv2bsz8m?entry=ttu&g_ep=EgoyMDI2MTAxOC4wIKXMDSoASAFQAw%3D%3D';
+
     updateStoreStatus({
-      mode,
-      openTime,
-      closeTime,
+      mode: mode || 'auto',
+      openTime: openTime || '08:00',
+      closeTime: closeTime || '18:00',
     });
     updateBrand({
-      subName: subName.trim(),
-      phone: phone.trim(),
-      operationalHours,
-      address,
-      mapsGoogleUrl,
-      coordinates,
-      mapsEmbedUrl: `https://maps.google.com/maps?q=${encodeURIComponent(coordinates.trim())}&hl=id&z=17&output=embed`,
+      subName: String(subName || 'Pondok Labu').trim(),
+      phone: String(phone || '(021) 2276-9606').trim(),
+      operationalHours: String(operationalHours || '').trim(),
+      address: String(address || '').trim(),
+      mapsGoogleUrl: String(mapsGoogleUrl || defaultPlaceUrl).trim(),
+      coordinates: cleanCoords,
+      mapsEmbedUrl: embedUrl,
     });
     setSavedNotice(true);
     setTimeout(() => setSavedNotice(false), 3000);
   };
 
-  const currentOpen = isStoreOpen();
+  const currentOpen = typeof isStoreOpen === 'function' ? isStoreOpen() : true;
 
   return (
     <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/80 shadow-sm max-w-4xl">

@@ -10,6 +10,41 @@ import { PromoEditor } from './PromoEditor';
 import { EdukasiEditor } from './EdukasiEditor';
 import { TestimoniEditor } from './TestimoniEditor';
 
+class TabErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+  componentDidCatch(error, errorInfo) {
+    console.error('Tab render error:', error, errorInfo);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="bg-white rounded-3xl p-6 sm:p-8 border border-red-200 shadow-sm max-w-2xl">
+          <div className="flex items-center gap-3 mb-3 text-red-600 font-bold text-base">
+            <span className="material-symbols-outlined text-2xl">error</span>
+            <span>Gagal Memuat Komponen</span>
+          </div>
+          <p className="text-xs text-slate-600 mb-4 font-mono bg-red-50 p-3 rounded-xl border border-red-100">
+            {this.state.error?.message || 'Terjadi kesalahan saat memuat tampilan'}
+          </p>
+          <button
+            onClick={() => this.setState({ hasError: false, error: null })}
+            className="px-4 py-2 bg-[#002884] text-white text-xs font-bold rounded-xl hover:bg-[#001C5D] transition-colors"
+          >
+            Muat Ulang
+          </button>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 export function AdminDashboard({ onBackToSite }) {
   const { content, resetToDefault, logout } = useSiteData();
   const { brand } = content;
@@ -194,14 +229,16 @@ export function AdminDashboard({ onBackToSite }) {
 
         {/* Tab Active Content Panel */}
         <div className="transition-all duration-200">
-          {activeTab === 'antrean' && <AntreanEditor />}
-          {activeTab === 'hero' && <HeroEditor />}
-          {activeTab === 'toko' && <TokoEditor />}
-          {activeTab === 'layanan' && <LayananEditor />}
-          {activeTab === 'produk' && <ProdukEditor />}
-          {activeTab === 'promo' && <PromoEditor />}
-          {activeTab === 'edukasi' && <EdukasiEditor />}
-          {activeTab === 'testimoni' && <TestimoniEditor />}
+          <TabErrorBoundary key={activeTab}>
+            {activeTab === 'antrean' && <AntreanEditor />}
+            {activeTab === 'hero' && <HeroEditor />}
+            {activeTab === 'toko' && <TokoEditor />}
+            {activeTab === 'layanan' && <LayananEditor />}
+            {activeTab === 'produk' && <ProdukEditor />}
+            {activeTab === 'promo' && <PromoEditor />}
+            {activeTab === 'edukasi' && <EdukasiEditor />}
+            {activeTab === 'testimoni' && <TestimoniEditor />}
+          </TabErrorBoundary>
         </div>
 
       </div>
