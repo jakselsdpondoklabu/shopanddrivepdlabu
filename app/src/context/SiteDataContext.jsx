@@ -191,18 +191,26 @@ export function SiteDataProvider({ children }) {
 
     // Mode: 'auto'
     try {
-      const now = new Date();
-      const currentHours = now.getHours();
-      const currentMinutes = now.getMinutes();
+      const jakartaTimeStr = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Jakarta',
+        hour: '2-digit',
+        minute: '2-digit',
+        hourCycle: 'h23',
+      }).format(new Date());
+      const [currentHours, currentMinutes] = jakartaTimeStr.split(':').map(Number);
       const currentTotalMin = currentHours * 60 + currentMinutes;
 
       const [openH, openM] = (storeStatus.openTime || '08:00').split(':').map(Number);
-      const [closeH, closeM] = (storeStatus.closeTime || '20:00').split(':').map(Number);
+      const [closeH, closeM] = (storeStatus.closeTime || '18:00').split(':').map(Number);
 
       const openTotalMin = openH * 60 + openM;
       const closeTotalMin = closeH * 60 + closeM;
 
-      return currentTotalMin >= openTotalMin && currentTotalMin < closeTotalMin;
+      if (closeTotalMin >= openTotalMin) {
+        return currentTotalMin >= openTotalMin && currentTotalMin < closeTotalMin;
+      }
+      // Overnight shift support
+      return currentTotalMin >= openTotalMin || currentTotalMin < closeTotalMin;
     } catch {
       return true;
     }

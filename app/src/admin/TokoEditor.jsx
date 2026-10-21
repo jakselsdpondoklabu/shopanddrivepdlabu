@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSiteData } from '../context/SiteDataContext';
 
 export function TokoEditor() {
@@ -21,11 +21,45 @@ export function TokoEditor() {
   const [savedNotice, setSavedNotice] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
 
+  // Keep internal form state in sync when storeStatus from context updates
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setCurrentTime(new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }));
-    }, 0);
-    return () => clearTimeout(timer);
+    if (storeStatus) {
+      setMode(storeStatus.mode || 'auto');
+      setOpenTime(storeStatus.openTime || '08:00');
+      setCloseTime(storeStatus.closeTime || '18:00');
+    }
+  }, [storeStatus]);
+
+  // Keep internal form state in sync when brand from context updates
+  useEffect(() => {
+    if (brand) {
+      setSubName(
+        brand.subName && brand.subName.toUpperCase().includes('WORKSHOP')
+          ? 'Pondok Labu'
+          : (brand.subName || 'Pondok Labu')
+      );
+      setPhone(brand.phone || '(021) 2276-9606');
+      setOperationalHours(brand.operationalHours || '08.00 s/d 18.00 WIB (Buka Setiap Hari)');
+      setAddress(brand.address || 'JL. RS. Fatmawati Raya No.26 B - C, RT.2/RW.7, Cilandak Bar., Kec. Cilandak, Jakarta Selatan');
+      setMapsGoogleUrl(brand.mapsGoogleUrl || '');
+      setCoordinates(brand.coordinates || '-6.3045542, 106.7915712');
+    }
+  }, [brand]);
+
+  // Live clock formatted in WIB (Asia/Jakarta)
+  useEffect(() => {
+    const updateTime = () => {
+      setCurrentTime(
+        new Date().toLocaleTimeString('id-ID', {
+          timeZone: 'Asia/Jakarta',
+          hour: '2-digit',
+          minute: '2-digit',
+        })
+      );
+    };
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
+    return () => clearInterval(timer);
   }, []);
 
   const handleSubmit = (e) => {

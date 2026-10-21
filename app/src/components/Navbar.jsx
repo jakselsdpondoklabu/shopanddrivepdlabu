@@ -179,7 +179,7 @@ export function Navbar({ activePage = 'home' }) {
                 <>
                   <span className="font-extrabold">Buka</span>{' '}
                   <span className="font-normal opacity-90 hidden sm:inline">
-                    • ({storeStatus?.openTime || '08:00'} - {storeStatus?.closeTime || '20:00'})
+                    • ({storeStatus?.openTime || '08:00'} - {storeStatus?.closeTime || '18:00'})
                   </span>
                 </>
               ) : (
